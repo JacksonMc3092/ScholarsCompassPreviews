@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drama Toolkit: Scenes, Staging, and Subtext - Scholar's Compass (ENG 1020)</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../styles.css?v=17" />
+</head>
+<body data-page="1020-chapter-7" data-course="1020">
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-content">
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand"><i class="fas fa-feather"></i>ENG 1020</a>
+    </div>
+  </nav>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2><i class="fas fa-feather me-2"></i>Navigation</h2>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-content">
+      <div class="sidebar-section">
+        <h3>Main</h3>
+        <a href="index.html" class="sidebar-link"><i class="fas fa-home"></i>Home<span class="reading-time">2 min</span></a>
+        <a href="../index.html" class="sidebar-link"><i class="fas fa-arrow-left"></i>Course Hub<span class="reading-time">—</span></a>
+      </div>
+      <div class="sidebar-section" id="sidebarChapters">
+        <h3>Chapters</h3>
+        <div id="chaptersList"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="quick-nav" id="quickNav">
+    <a href="#section1" title="Overview" data-section="section1"><span>Overview</span><i class="fas fa-circle-info"></i></a>
+    <a href="#section2" title="Key Moves" data-section="section2"><span>Key Moves</span><i class="fas fa-list-check"></i></a>
+    <a href="#section3" title="Examples" data-section="section3"><span>Examples</span><i class="fas fa-eye"></i></a>
+    <a href="#section4" title="Practice" data-section="section4"><span>Practice</span><i class="fas fa-pencil"></i></a>
+  </div>
+
+  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-masks-theater"></i> 7. Drama Toolkit: Scenes, Staging, and Subtext</h1>
+      <p class="subtitle">Read plays as performance: beats, objectives, irony.</p>
+      <div style="margin-top: 20px;">
+        <button class="btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Save as PDF</button>
+        <a class="btn" href="../index.html" aria-label="Back to course hub"><i class="fas fa-home"></i> Course Hub</a>
+      </div>
+    </div>
+
+    <div class="section active" id="section1">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-circle-info"></i> Overview</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>This chapter is scaffolded in the ENG 1020 edition. We’ll fill in examples using fiction, poetry, and drama.</p>
+        <div class="highlight-box">
+          <p><strong>Goal:</strong> By the end, you should be able to use this skill in your next literature paper with confidence (and fewer “I don’t know what to say” moments).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section2">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-list-check"></i> Key Moves</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li><strong>Do:</strong> Identify a specific feature (word choice, pattern, shift, stage direction, line break).</li>
+          <li><strong>Say:</strong> What it suggests (interpretation), not just what it is (description).</li>
+          <li><strong>Prove:</strong> Use a short quote or a precise reference.</li>
+          <li><strong>Connect:</strong> Explain how it supports your claim or complicates it.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section" id="section3">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-eye"></i> Examples</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p><em>Placeholder:</em> We’ll add short examples from your course texts (one for fiction, poetry, and drama where relevant).</p>
+      </div>
+    </div>
+
+    <div class="section" id="section4">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-pencil"></i> Practice</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p><em>Placeholder:</em> We’ll add a quick 10–15 minute practice task and a checklist students can use to self-check.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../app.js?v=17"></script>
+</body>
+</html>

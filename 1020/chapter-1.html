@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Active Reading for Literature - Scholar's Compass (ENG 1020)</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../styles.css?v=17" />
+</head>
+<body data-page="1020-chapter-1" data-course="1020">
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-content">
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand"><i class="fas fa-feather"></i>ENG 1020</a>
+    </div>
+  </nav>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2><i class="fas fa-feather me-2"></i>Navigation</h2>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-content">
+      <div class="sidebar-section">
+        <h3>Main</h3>
+        <a href="index.html" class="sidebar-link"><i class="fas fa-home"></i>Home<span class="reading-time">2 min</span></a>
+        <a href="../index.html" class="sidebar-link"><i class="fas fa-arrow-left"></i>Course Hub<span class="reading-time">—</span></a>
+      </div>
+      <div class="sidebar-section" id="sidebarChapters">
+        <h3>Chapters</h3>
+        <div id="chaptersList"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="quick-nav" id="quickNav">
+    <a href="#section1" title="Overview" data-section="section1"><span>Overview</span><i class="fas fa-circle-info"></i></a>
+    <a href="#section2" title="Key Moves" data-section="section2"><span>Key Moves</span><i class="fas fa-list-check"></i></a>
+    <a href="#section3" title="Examples" data-section="section3"><span>Examples</span><i class="fas fa-eye"></i></a>
+    <a href="#section4" title="Practice" data-section="section4"><span>Practice</span><i class="fas fa-pencil"></i></a>
+  </div>
+
+  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-book-open"></i> 1. Active Reading for Literature</h1>
+      <p class="subtitle">Read for craft, patterns, and meaning—beyond plot.</p>
+      <div style="margin-top: 20px;">
+        <button class="btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Save as PDF</button>
+        <a class="btn" href="../index.html" aria-label="Back to course hub"><i class="fas fa-home"></i> Course Hub</a>
+      </div>
+    </div>
+
+    <!-- SECTION 1: OVERVIEW -->
+    <div class="section active" id="section1">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-circle-info"></i> Overview</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>In ENG 1020, you’re reading literature for craft, patterns, and meaning—not just “what happened.” Your papers won’t succeed by proving you finished the reading. They succeed when you make an interpretation explicit and support it with specific evidence from the text.</p>
+
+        <p>This chapter gives you a repeatable workflow for academic reading in a literature course. Academic reading means you read with purpose, engage intellectually, and take notes that help you build an argument. In literature, the text usually doesn’t present an argument in thesis form—so you build an argument by noticing meaningful choices and patterns.</p>
+
+        <div class="highlight-box">
+          <p><strong>By the end of this chapter, you should be able to:</strong></p>
+          <ul>
+            <li>Read with a goal beyond plot.</li>
+            <li>Annotate for patterns and interpretive “clues.”</li>
+            <li>Turn a detail into a defensible micro-claim (a tiny argument you can prove).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: KEY MOVES -->
+    <div class="section" id="section2">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-list-check"></i> Key Moves</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+
+        <h3>The active reading loop</h3>
+        <p>Use this loop again and again. It’s the basic engine of close reading.</p>
+        <ol>
+          <li><strong>Notice a feature.</strong> Look for something specific you can point to: repetition, contrast, a shift in tone, a surprising word choice, a stage direction, a line break, a silence, an image that keeps returning.</li>
+          <li><strong>Name the feature.</strong> Examples: diction, imagery, irony, structure, narration/POV, symbolism, pacing, characterization, setting, sound, form, stagecraft.</li>
+          <li><strong>Interpret what it suggests.</strong> Ask: “So what might this imply about character, theme, conflict, power, mood, or meaning?”</li>
+          <li><strong>Prove it with evidence.</strong> Use a short quotation or a precise reference to a moment in the text.</li>
+          <li><strong>Connect it to a claim.</strong> Explain how the evidence supports your interpretation—and what it adds to your overall argument.</li>
+        </ol>
+
+        <div class="tools-note">
+          <p><strong>Reality check:</strong> your professor has already read the text. Plot summary is only useful if it sets up analysis—and it should stay brief.</p>
+          <p><strong>Bridge:</strong> So if plot summary won’t carry your argument, what should you be tracking? Start with a few features that almost always yield interpretive traction.</p>
+        </div>
+
+        <h3>What to look for while you read</h3>
+        <p>Use this as a menu, not a checklist. Start with a few “always useful” features. Once you’re comfortable noticing, add more.</p>
+
+        <div class="example-box">
+          <p><strong>Start here (always useful)</strong></p>
+          <ul>
+            <li><strong>Characters:</strong> contradictions, choices, what changes, what stays stuck, what the character avoids saying.</li>
+            <li><strong>Images and objects:</strong> concrete details that repeat or feel “loaded” with meaning beyond the literal.</li>
+            <li><strong>One structural choice:</strong> where the text shifts (tone, time, perspective, power, knowledge, conflict).</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <p><strong>Once you’re comfortable noticing, also look for…</strong></p>
+          <ul>
+            <li><strong>Title (all genres):</strong> Why this title? Does its meaning shift by the end?</li>
+            <li><strong>Setting (all genres):</strong> place/time as pressure—what does the setting permit, limit, or force?</li>
+            <li><strong>Style and voice (optional at first):</strong> start small and track just one per reading: <em>diction</em> (word choice) <strong>or</strong> <em>repetition</em> <strong>or</strong> <em>tone shifts</em>. Later, you can add sentence rhythm, formality, irony, understatement/exaggeration.</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <p><strong>Genre-specific features</strong></p>
+          <ul>
+            <li><strong>Poetry:</strong> line breaks, sound (rhyme/repetition/rhythm), form.</li>
+            <li><strong>Drama:</strong> stage directions, entrances/exits, silence, subtext.</li>
+            <li><strong>Fiction:</strong> narration/POV, time structure, description vs. action balance.</li>
+          </ul>
+        </div>
+
+        <h3>Annotation habits that pay off later</h3>
+        <p>In 1020, aim your annotations toward patterns and effects, not just “important parts.” Here’s a simple three-part routine:</p>
+        <ul>
+          <li><strong>Underline 3–5 quote-worthy moments.</strong> Choose phrases where the language feels intentional (charged diction, vivid imagery, repetition, contrast).</li>
+          <li><strong>Write 2–3 micro-summaries (6–12 words).</strong> One for what happens, one for what changes (tone, power, knowledge, stakes).</li>
+          <li><strong>Write 2 “why” questions.</strong> Why this word? Why this shift? Why frame the moment this way?</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECTION 3: EXAMPLES -->
+    <div class="section" id="section3">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-eye"></i> Examples</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>Each example models the same move: <strong>Notice → Name → Interpret → Connect</strong>. The goal is to show you what “useful” annotation looks like—notes you can actually use later when you write.</p>
+
+        <div class="example-box">
+          <h3>Example 1: Fiction (structure + perception)</h3>
+          <p><strong>Context:</strong> In Ambrose Bierce’s short story <em>“An Occurrence at Owl Creek Bridge”</em>, the narration opens at the edge of an execution. The writing is hyper-specific, and that precision shapes what readers trust about the scene.</p>
+          <p><strong>Text (opening sentence):</strong> “A man stood upon a railroad bridge in northern Alabama, looking down into the swift water twenty feet below.”</p>
+
+          <p><strong>Model the move</strong></p>
+          <ul>
+            <li><strong>Notice:</strong> The opening is intensely concrete (location, distance, “swift water,” “twenty feet”).</li>
+            <li><strong>Name:</strong> Setting + sensory detail (precision).</li>
+            <li><strong>Interpret:</strong> This precision can do more than set the scene—it can create a strong realism effect, so later shifts in perception hit harder.</li>
+            <li><strong>Connect:</strong> A claim could argue that the story uses narrative technique to control what feels real, shaping the reader’s trust and expectations.</li>
+          </ul>
+
+          <p><strong>What annotation can look like (weak vs. strong)</strong></p>
+          <ul>
+            <li><strong>Weak underline:</strong> the whole sentence (too broad to use later).</li>
+            <li><strong>Strong underline:</strong> “swift water,” “twenty feet” (precision that builds realism).</li>
+            <li><strong>Weak margin note:</strong> “Important opening.”</li>
+            <li><strong>Strong margin note:</strong> “Precision creates ‘this is real’ feeling.”</li>
+            <li><strong>Weak why-question:</strong> “What happens next?”</li>
+            <li><strong>Strong why-question:</strong> “Why start with measurement + water imagery?”</li>
+          </ul>
+
+          <div class="key-takeaway">
+            <p><strong>Micro-claim model (2 sentences):</strong> This opening uses precise physical detail to create trust in the scene. That trust matters because it sets readers up to take what follows as real and stable, even if the story later complicates that stability.</p>
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Example 2: Poetry (sound + mood)</h3>
+          <p><strong>Context:</strong> In Edgar Allan Poe’s poem <em>“The Raven”</em>, sound patterns and repetition build obsession and dread—almost like thought looping on itself.</p>
+          <p><strong>Text (opening lines):</strong> “Once upon a midnight dreary, while I pondered, weak and weary, / Over many a quaint and curious volume of forgotten lore—”</p>
+
+          <p><strong>Model the move</strong></p>
+          <ul>
+            <li><strong>Notice:</strong> The sound echo (dreary / weary) and the rolling rhythm create momentum.</li>
+            <li><strong>Name:</strong> Sound + repetition (rhyme/internal rhyme).</li>
+            <li><strong>Interpret:</strong> The sound isn’t decoration; it helps build a mental state—fatigue, obsession, inward spiraling.</li>
+            <li><strong>Connect:</strong> A claim could argue that the poem’s form contributes to meaning by mirroring the speaker’s psychological experience.</li>
+          </ul>
+
+          <p><strong>What annotation can look like (weak vs. strong)</strong></p>
+          <ul>
+            <li><strong>Weak underline:</strong> “Once upon a midnight dreary” (highlighting without a reason).</li>
+            <li><strong>Strong underline:</strong> “dreary… weak and weary” (sound echo + mood).</li>
+            <li><strong>Weak margin note:</strong> “Cool rhyme.”</li>
+            <li><strong>Strong margin note:</strong> “Sound creates looping/obsessive mood.”</li>
+            <li><strong>Weak why-question:</strong> “Why does he feel sad?”</li>
+            <li><strong>Strong why-question:</strong> “How does rhythm make the mood feel inevitable?”</li>
+          </ul>
+
+          <div class="key-takeaway">
+            <p><strong>Micro-claim model (2 sentences):</strong> The poem’s opening rhythm pulls the reader into the speaker’s tired, repetitive thought pattern. The sound makes the mood feel inevitable, as if the mind can’t stop circling the same grief.</p>
+          </div>
+        </div>
+
+        <div class="example-box">
+          <h3>Example 3: Drama (stage directions = meaning)</h3>
+          <p><strong>Context:</strong> In Henrik Ibsen’s play <em>A Doll’s House</em>, the opening stage directions build a respectable domestic world before characters even speak. In realist drama, stage directions are not decoration; they carry meaning.</p>
+          <p><strong>Text (stage direction excerpt):</strong> “[SCENE.—A room furnished comfortably and tastefully, but not extravagantly.]”</p>
+
+          <p><strong>Model the move</strong></p>
+          <ul>
+            <li><strong>Notice:</strong> The setting is “comfortable” and “tasteful,” but there’s a boundary: “not extravagantly.”</li>
+            <li><strong>Name:</strong> Stage direction + tone cue (social class / respectability signal).</li>
+            <li><strong>Interpret:</strong> The home is a performance space—orderly, controlled, designed to look “right.” The qualifier suggests limits: status and appearances matter.</li>
+            <li><strong>Connect:</strong> A claim could argue that the play uses the domestic setting to show how social expectations shape (and constrain) personal choices.</li>
+          </ul>
+
+          <p><strong>What annotation can look like (weak vs. strong)</strong></p>
+          <ul>
+            <li><strong>Weak underline:</strong> “A room furnished comfortably and tastefully…” (too general).</li>
+            <li><strong>Strong underline:</strong> “but not extravagantly” (the meaning-bearing qualifier).</li>
+            <li><strong>Weak margin note:</strong> “Nice setting.”</li>
+            <li><strong>Strong margin note:</strong> “Respectability + limits; status pressure.”</li>
+            <li><strong>Weak why-question:</strong> “What does the room look like?”</li>
+            <li><strong>Strong why-question:</strong> “What pressure does ‘not extravagantly’ add?”</li>
+          </ul>
+
+          <div class="key-takeaway">
+            <p><strong>Micro-claim model (2 sentences):</strong> The opening stage direction frames the home as respectable but bounded, which quietly introduces social pressure before the dialogue begins. That framing matters because it turns the setting into evidence about status, control, and what counts as “acceptable.”</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECTION 4: PRACTICE -->
+    <div class="section" id="section4">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-pencil"></i> Practice</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <h3>15-minute Active Reading Sprint</h3>
+        <p>This sprint works for any genre. Your goal is to leave the reading with notes you can actually write from.</p>
+
+        <div class="practice-item">
+          <p><strong>Step 1:</strong> Choose a short passage.</p>
+          <ul>
+            <li><strong>Fiction:</strong> 1–2 pages</li>
+            <li><strong>Poetry:</strong> 1 poem</li>
+            <li><strong>Drama:</strong> 1–2 pages of a scene (include stage directions)</li>
+          </ul>
+        </div>
+
+        <div class="practice-item">
+          <p><strong>Step 2:</strong> Annotate in three modes.</p>
+          <ul>
+            <li><strong>A)</strong> Underline 3–5 quote-worthy moments.</li>
+            <li><strong>B)</strong> Write 2 margin summaries: one “what happens,” one “what changes.”</li>
+            <li><strong>C)</strong> Write 2 “why” questions.</li>
+          </ul>
+        </div>
+
+        <div class="practice-item">
+          <p><strong>Step 3:</strong> Pattern hunt.</p>
+          <p>Circle one repetition, contrast, tonal shift, or framing choice.</p>
+        </div>
+
+        <div class="practice-item">
+          <p><strong>Step 4:</strong> Write a micro-claim (2 sentences).</p>
+          <ul>
+            <li>Sentence 1: <em>This passage suggests…</em></li>
+            <li>Sentence 2: <em>I think this because…</em> (name 2 specific details)</li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <p><strong>Self-check:</strong> If your notes are mostly plot recap, you’re not at analysis yet. Add at least two “because” sentences that interpret what a detail suggests and why it matters.</p>
+        </div>
+
+        <h3>Works Cited (MLA models)</h3>
+        <ul>
+          <li>Bierce, Ambrose. “An Occurrence at Owl Creek Bridge.” <em>Project Gutenberg</em>, eBook no. 375, updated 25 Apr. 2022, https://www.gutenberg.org/files/375/375-h/375-h.htm. Accessed 18 Jan. 2026.</li>
+          <li>“2.2 Introduction to Academic Reading.” <em>Composition for Commodores</em>, Pressbooks, https://pressbooks.pub/compositionforcommodores/chapter/2-2-introduction-to-academic-reading/. Accessed 18 Jan. 2026.</li>
+          <li>Ibsen, Henrik. <em>A Doll’s House</em>. <em>Project Gutenberg</em>, eBook no. 2542, https://www.gutenberg.org/files/2542/2542-h/2542-h.htm. Accessed 18 Jan. 2026.</li>
+          <li>Ige, Barbara K. “Analyzing Literature (and Film) and Annotating Texts (Analog).” <em>Composition and Literature</em>, Pressbooks, https://pressbooks.pub/engl102/chapter/chapter-1/. Accessed 18 Jan. 2026.</li>
+          <li>Poe, Edgar Allan. “The Raven.” <em>Project Gutenberg</em>, https://www.gutenberg.org/files/1065/1065-h/1065-h.htm. Accessed 18 Jan. 2026.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../app.js?v=17"></script>
+</body>
+</html>

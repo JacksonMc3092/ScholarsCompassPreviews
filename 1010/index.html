@@ -1,0 +1,404 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Scholar's Compass: Navigating Academic Writing</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css?v=19" /></head>
+<body data-page="index">
+    <!-- Progress Bar at very top -->
+    <div class="progress-container-top">
+        <div class="progress-bar-top" id="scrollProgress"></div>
+    </div>
+
+    <!-- Navigation Bar (match chapter pages for consistent mobile behavior) -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <a href="index.html" class="navbar-brand" aria-label="Scholar's Compass home">
+                <i class="fas fa-compass"></i>Scholar's Compass
+            </a>
+        </div>
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-compass me-2"></i>Chapters</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section" id="sidebarChapters">
+                <h3>Chapters</h3>
+                <div id="chaptersList"></div>
+            </div>
+        </div>
+    </nav>
+
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header Section -->
+    <div class="hero-header text-center">
+        <div class="main-title-container">
+            <i class="fas fa-compass compass-icon-large" aria-hidden="true"></i>
+            <h1 class="display-4 fw-bold">The Scholar's Compass</h1>
+        </div>
+        <p class="lead">Navigating Academic Writing</p>
+        <p class="mt-3">Your interactive guide to mastering academic dialogue and argumentation</p>
+        <div class="mt-4">
+            <a href="#chapters" class="btn btn-light btn-lg me-2"><i class="fas fa-book-open me-2"></i>Explore Chapters</a>
+            <a href="#features" class="btn btn-outline-light btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+            <a href="../index.html" class="btn btn-outline-light btn-lg ms-2" aria-label="Back to course hub"><i class="fas fa-home me-2"></i>Course Hub</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Progress Tracking -->
+        <div class="progress-card">
+            <h3><i class="fas fa-tasks me-2" style="color: var(--secondary);"></i>Your Progress</h3>
+            <div class="progress">
+                <div class="progress-bar" id="overallProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span id="progressText">0 of 14 chapters available</span>
+                <span class="reset-progress" id="resetProgress"><i class="fas fa-undo me-1"></i>Reset Progress</span>
+            </div>
+        </div>
+        
+        <!-- Introduction -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4">Interactive Learning Experience</h2>
+                <p class="lead">This guide helps students master academic writing skills through engaging, hands-on activities and interactive content designed to deepen understanding of critical writing concepts.</p>
+                <div class="d-flex justify-content-center flex-wrap mt-4">
+                    <span class="badge bg-primary me-2 mb-2 p-2"><i class="fas fa-check-circle me-1"></i> Interactive Elements</span>
+                    <span class="badge bg-success me-2 mb-2 p-2"><i class="fas fa-tasks me-1"></i> Engaging Activities</span>
+                    <span class="badge bg-info mb-2 p-2"><i class="fas fa-dollar-sign me-1"></i> No Cost!</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chapter Navigation Cards -->
+        <h2 class="text-center mb-4" id="chapters">Chapter Navigation</h2>
+        <p class="text-center mb-5">A connected writing guide with original chapter content, revised chapter order, and Scholar's Blue Book Journal prompts.</p>
+        
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+            <div class="col">
+                <a href="chapter-1.html" class="chapter-link" data-chapter="1">
+                    <div class="card guide-card">
+                        <div class="card-number">1</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-highlighter"></i></div>
+                            <h4 class="chapter-title">Annotating: Reading Like a Writer</h4>
+                            <p class="card-text">Mark what matters, explain why, and save your thinking for later.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-2.html" class="chapter-link" data-chapter="2">
+                    <div class="card guide-card">
+                        <div class="card-number">2</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-book-reader"></i></div>
+                            <h4 class="chapter-title">Active Reading: Reading With a Purpose</h4>
+                            <p class="card-text">Read, watch, and take notes so you have something useful to write about later.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-3.html" class="chapter-link" data-chapter="3">
+                    <div class="card guide-card">
+                        <div class="card-number">3</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+                            <h4 class="chapter-title">Understanding Rhetoric: The Art of Persuasion</h4>
+                            <p class="card-text">Analyze how messages shape an audience&#x27;s thinking, feeling, and response.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-4.html" class="chapter-link" data-chapter="4">
+                    <div class="card guide-card">
+                        <div class="card-number">4</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                            <h4 class="chapter-title">Values, Assumptions, and Ideology</h4>
+                            <p class="card-text">Read the worldview behind messages, images, arguments, and cultural texts.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-5.html" class="chapter-link" data-chapter="5">
+                    <div class="card guide-card">
+                        <div class="card-number">5</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-pen-fancy"></i></div>
+                            <h4 class="chapter-title">Strategies for Getting Started</h4>
+                            <p class="card-text">Move from noticing something to having a workable essay idea.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-6.html" class="chapter-link" data-chapter="6">
+                    <div class="card guide-card">
+                        <div class="card-number">6</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                            <h4 class="chapter-title">Crafting Powerful Thesis Statements</h4>
+                            <p class="card-text">Build a focused, arguable claim that gives your essay direction.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-7.html" class="chapter-link" data-chapter="7">
+                    <div class="card guide-card">
+                        <div class="card-number">7</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-align-left"></i></div>
+                            <h4 class="chapter-title">Designing Effective Paragraphs</h4>
+                            <p class="card-text">Create body paragraphs that are clear, focused, and easy to follow.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-8.html" class="chapter-link" data-chapter="8">
+                    <div class="card guide-card">
+                        <div class="card-number">8</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-clipboard-list"></i></div>
+                            <h4 class="chapter-title">Summarizing Your Way to Synthesis</h4>
+                            <p class="card-text">Represent a source fairly so you can use it responsibly.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-9.html" class="chapter-link" data-chapter="9">
+                    <div class="card guide-card">
+                        <div class="card-number">9</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                            <h4 class="chapter-title">Analysis and Synthesis</h4>
+                            <p class="card-text">Break ideas down, connect patterns, and build new understanding.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-10.html" class="chapter-link" data-chapter="10">
+                    <div class="card guide-card">
+                        <div class="card-number">10</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-comments"></i></div>
+                            <h4 class="chapter-title">Argumentation: Joining the Academic Conversation</h4>
+                            <p class="card-text">Make claims, use reasons, and respond to other views.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-11.html" class="chapter-link" data-chapter="11">
+                    <div class="card guide-card">
+                        <div class="card-number">11</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-images"></i></div>
+                            <h4 class="chapter-title">Reading Visual and Digital Texts</h4>
+                            <p class="card-text">Analyze images, videos, feeds, maps, interfaces, and design choices.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-12.html" class="chapter-link" data-chapter="12">
+                    <div class="card guide-card">
+                        <div class="card-number">12</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
+                            <h4 class="chapter-title">Observation and Evidence Logs</h4>
+                            <p class="card-text">Turn noticing into usable evidence for analysis.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-13.html" class="chapter-link" data-chapter="13">
+                    <div class="card guide-card">
+                        <div class="card-number">13</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-search"></i></div>
+                            <h4 class="chapter-title">Finding and Evaluating Sources</h4>
+                            <p class="card-text">Find credible material and decide what belongs in your paper.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-14.html" class="chapter-link" data-chapter="14">
+                    <div class="card guide-card">
+                        <div class="card-number">14</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-quote-left"></i></div>
+                            <h4 class="chapter-title">Quoting, Paraphrasing, and Signal Phrases</h4>
+                            <p class="card-text">Use source material clearly while keeping your voice in charge.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-15.html" class="chapter-link" data-chapter="15">
+                    <div class="card guide-card">
+                        <div class="card-number">15</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-link"></i></div>
+                            <h4 class="chapter-title">Using Sources in Your Argument</h4>
+                            <p class="card-text">Make sources support, complicate, or clarify your reasoning.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-16.html" class="chapter-link" data-chapter="16">
+                    <div class="card guide-card">
+                        <div class="card-number">16</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-file-lines"></i></div>
+                            <h4 class="chapter-title">MLA and Formatting Survival Guide</h4>
+                            <p class="card-text">Use MLA document format, in-text citations, and Works Cited entries correctly.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-17.html" class="chapter-link" data-chapter="17">
+                    <div class="card guide-card">
+                        <div class="card-number">17</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-people-arrows"></i></div>
+                            <h4 class="chapter-title">Peer Review and Giving Useful Feedback</h4>
+                            <p class="card-text">Help another writer see what is working and what needs development.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-18.html" class="chapter-link" data-chapter="18">
+                    <div class="card guide-card">
+                        <div class="card-number">18</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-route"></i></div>
+                            <h4 class="chapter-title">From Feedback to Revision Plan</h4>
+                            <p class="card-text">Turn comments, peer review, and instructor notes into a realistic plan.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="chapter-19.html" class="chapter-link" data-chapter="19">
+                    <div class="card guide-card">
+                        <div class="card-number">19</div>
+                        <div class="card-body text-center p-4">
+                            <div class="card-icon"><i class="fas fa-pen-to-square"></i></div>
+                            <h4 class="chapter-title">Revision: From Draft to Final</h4>
+                            <p class="card-text">Re-see your draft so your argument, evidence, and organization become stronger.</p>
+                            <span class="badge bg-secondary status-badge available-badge">Available</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Interactive Features Section -->
+        <div class="features-section" id="features">
+            <div class="container">
+                <h2 class="text-center mb-5">Interactive Features</h2>
+                
+                <div class="row">
+                    <div class="col-md-4 text-center mb-4 feature-item">
+                        <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <h4>Interactive Elements</h4>
+                        <p>Engaging components that respond to user actions</p>
+                    </div>
+                    
+                    <div class="col-md-4 text-center mb-4 feature-item">
+                        <div class="feature-icon"><i class="fas fa-tasks"></i></div>
+                        <h4>Engaging Activities</h4>
+                        <p>Hands-on exercises with immediate feedback</p>
+                    </div>
+                    
+                    <div class="col-md-4 text-center mb-4 feature-item">
+                        <div class="feature-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <h4>No Cost!</h4>
+                        <p>Completely free educational resources</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container text-center">
+            <h3>The Scholar's Compass</h3>
+            <p class="mb-4">Navigating Academic Writing</p>
+            <p class="mt-4 mb-0">Interactive educational content for developing strong academic writing skills</p>
+        </div>
+    </div>
+
+    <script src="../app.js?v=19"></script></body></html>

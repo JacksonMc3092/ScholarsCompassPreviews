@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENG 1020 — Scholar's Compass</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../styles.css?v=17" />
+</head>
+
+<body data-course="1020" data-page="1020-index">
+  <!-- Progress Bar at very top -->
+  <div class="progress-container-top">
+    <div class="progress-bar-top" id="scrollProgress"></div>
+  </div>
+
+  <!-- Navigation Bar (match chapter pages for consistent mobile behavior) -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <a href="index.html" class="navbar-brand" aria-label="ENG 1020 home">
+        <i class="fas fa-feather"></i>ENG 1020
+      </a>
+    </div>
+  </nav>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2><i class="fas fa-feather me-2"></i>Navigation</h2>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="sidebar-content">
+      <div class="sidebar-section">
+        <h3>Main</h3>
+        <a href="index.html" class="sidebar-link"><i class="fas fa-home"></i>Home<span class="reading-time">2 min</span></a>
+        <a href="../index.html" class="sidebar-link"><i class="fas fa-arrow-left"></i>Course Hub<span class="reading-time">—</span></a>
+      </div>
+      <div class="sidebar-section" id="sidebarChapters">
+        <h3>Chapters</h3>
+        <div id="chaptersList"></div>
+      </div>
+    </div>
+  </nav>
+
+  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Header Section -->
+  <div class="hero-header text-center">
+    <div class="main-title-container">
+      <i class="fas fa-feather compass-icon-large" aria-hidden="true"></i>
+      <h1 class="display-5 fw-bold">Literature &amp; Composition</h1>
+    </div>
+    <p class="lead">Fiction • Poetry • Drama • Secondary Sources</p>
+    <p class="mt-3">Your interactive guide to close reading and writing literature-based arguments.</p>
+    <div class="mt-4">
+      <a href="#chapters" class="btn btn-light btn-lg me-2"><i class="fas fa-book-open me-2"></i>Explore Chapters</a>
+      <a href="#features" class="btn btn-outline-light btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+      <a href="../index.html" class="btn btn-outline-light btn-lg ms-2" aria-label="Back to course hub"><i class="fas fa-home me-2"></i>Course Hub</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Introduction -->
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="mb-4">A toolkit for reading and writing about literature</h2>
+        <p class="lead">These chapters help you move from reading to argument: noticing patterns, building claims from passages, and using secondary sources to strengthen (not replace) your own analysis.</p>
+        <div class="d-flex justify-content-center flex-wrap mt-4">
+          <span class="badge bg-primary me-2 mb-2 p-2"><i class="fas fa-magnifying-glass me-1"></i> Close Reading Tools</span>
+          <span class="badge bg-success me-2 mb-2 p-2"><i class="fas fa-toolbox me-1"></i> Fiction/Poetry/Drama Toolkits</span>
+          <span class="badge bg-info mb-2 p-2"><i class="fas fa-dollar-sign me-1"></i> No Cost!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter Navigation Cards -->
+    <h2 class="text-center mb-4" id="chapters">Chapter Navigation</h2>
+    <p class="text-center mb-5">Each chapter is structured with collapsible sections, examples, and practice.</p>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+      <div class="col">
+        <a href="chapter-1.html" class="chapter-link" data-chapter="1">
+          <div class="card guide-card">
+            <div class="card-number">1</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-book-open"></i></div>
+              <h4 class="chapter-title">Active Reading for Literature</h4>
+              <p class="card-text">Read for craft, patterns, and meaning beyond plot.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-2.html" class="chapter-link" data-chapter="2">
+          <div class="card guide-card">
+            <div class="card-number">2</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-highlighter"></i></div>
+              <h4 class="chapter-title">Annotation for Close Reading</h4>
+              <p class="card-text">Mark patterns and generate better questions from the text.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-3.html" class="chapter-link" data-chapter="3">
+          <div class="card guide-card">
+            <div class="card-number">3</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-pen-fancy"></i></div>
+              <h4 class="chapter-title">Getting Started: Prewriting for Literary Analysis</h4>
+              <p class="card-text">Generate workable claims and plan your draft.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-4.html" class="chapter-link" data-chapter="4">
+          <div class="card guide-card">
+            <div class="card-number">4</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-magnifying-glass"></i></div>
+              <h4 class="chapter-title">Close Reading: From Passage to Claim</h4>
+              <p class="card-text">Move from detail → interpretation → argument.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-5.html" class="chapter-link" data-chapter="5">
+          <div class="card guide-card">
+            <div class="card-number">5</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-feather-pointed"></i></div>
+              <h4 class="chapter-title">Fiction Toolkit: Narrative Craft + Character</h4>
+              <p class="card-text">Analyze narration, character, setting, conflict, and structure.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-6.html" class="chapter-link" data-chapter="6">
+          <div class="card guide-card">
+            <div class="card-number">6</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-music"></i></div>
+              <h4 class="chapter-title">Poetry Toolkit: Reading What’s on the Line</h4>
+              <p class="card-text">Work with sound, imagery, figurative language, and form.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-7.html" class="chapter-link" data-chapter="7">
+          <div class="card guide-card">
+            <div class="card-number">7</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-masks-theater"></i></div>
+              <h4 class="chapter-title">Drama Toolkit: Scenes, Staging, and Subtext</h4>
+              <p class="card-text">Track scenes, staging, dialogue, and what’s unsaid.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-8.html" class="chapter-link" data-chapter="8">
+          <div class="card guide-card">
+            <div class="card-number">8</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-comments"></i></div>
+              <h4 class="chapter-title">Argumentation in Literary Studies</h4>
+              <p class="card-text">Make claims, use reasons, and respond to other readings.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-9.html" class="chapter-link" data-chapter="9">
+          <div class="card guide-card">
+            <div class="card-number">9</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-search"></i></div>
+              <h4 class="chapter-title">Finding and Evaluating Secondary Sources</h4>
+              <p class="card-text">Find criticism, check credibility, and keep what helps.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-10.html" class="chapter-link" data-chapter="10">
+          <div class="card guide-card">
+            <div class="card-number">10</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-glasses"></i></div>
+              <h4 class="chapter-title">Working with Literary Criticism: Lens, Not Crutch</h4>
+              <p class="card-text">Use theory to deepen analysis, not replace it.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-11.html" class="chapter-link" data-chapter="11">
+          <div class="card guide-card">
+            <div class="card-number">11</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-quote-left"></i></div>
+              <h4 class="chapter-title">Quoting, Paraphrasing, and Signal Phrases</h4>
+              <p class="card-text">Integrate passages and sources so your voice stays in charge.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-12.html" class="chapter-link" data-chapter="12">
+          <div class="card guide-card">
+            <div class="card-number">12</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-link"></i></div>
+              <h4 class="chapter-title">Using Sources in Your Argument</h4>
+              <p class="card-text">Synthesize criticism with your close reading and claims.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-13.html" class="chapter-link" data-chapter="13">
+          <div class="card guide-card">
+            <div class="card-number">13</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+              <h4 class="chapter-title">Crafting Powerful Thesis Statements</h4>
+              <p class="card-text">Write focused, arguable claims for literary analysis.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-14.html" class="chapter-link" data-chapter="14">
+          <div class="card guide-card">
+            <div class="card-number">14</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-align-left"></i></div>
+              <h4 class="chapter-title">Designing Effective Literary Analysis Paragraphs</h4>
+              <p class="card-text">Paragraphs that analyze—not just summarize.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="chapter-15.html" class="chapter-link" data-chapter="15">
+          <div class="card guide-card">
+            <div class="card-number">15</div>
+            <div class="card-body text-center p-4">
+              <div class="card-icon"><i class="fas fa-pen-to-square"></i></div>
+              <h4 class="chapter-title">Revision: From Draft to Final</h4>
+              <p class="card-text">Revise globally and locally so your draft becomes a final.</p>
+              <span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+              <span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+              <span class="badge bg-secondary status-badge available-badge">Available</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Interactive Features Section -->
+    <div class="features-section" id="features">
+      <div class="container">
+        <h2 class="text-center mb-5">How this site helps</h2>
+
+        <div class="row">
+          <div class="col-md-4 text-center mb-4 feature-item">
+            <div class="feature-icon"><i class="fas fa-magnifying-glass"></i></div>
+            <h4>Close Reading Moves</h4>
+            <p>Tools for noticing patterns and turning passages into claims.</p>
+          </div>
+
+          <div class="col-md-4 text-center mb-4 feature-item">
+            <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+            <h4>Toolkits by Genre</h4>
+            <p>Fiction, poetry, and drama guides you can reuse all semester.</p>
+          </div>
+
+          <div class="col-md-4 text-center mb-4 feature-item">
+            <div class="feature-icon"><i class="fas fa-link"></i></div>
+            <h4>Secondary Sources Workflow</h4>
+            <p>Find criticism, integrate it, and keep your voice in charge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container text-center">
+      <h3>The Scholar's Compass</h3>
+      <p class="mb-4">Literature &amp; Composition (ENG 1020)</p>
+      <p class="mt-4 mb-0">Interactive educational content for developing strong reading and writing skills</p>
+    </div>
+  </div>
+
+  <script src="../app.js?v=17"></script>
+</body>
+</html>
