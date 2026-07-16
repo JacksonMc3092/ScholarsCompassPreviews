@@ -2,7 +2,9 @@
 
 ## Status
 
-Approved by the instructor and implemented in the preview repository as the student-facing display order. Existing `chapter-N.html` filenames remain unchanged so current Blackboard links, bookmarks, and external references continue to work.
+Approved by the instructor and implemented in the preview repository as the student-facing display order.
+
+The preview keeps the existing `chapter-N.html` filenames for safe testing. For full deployment to the main Scholar’s Compass site, the approved baseline is to rename the chapter files to match the new sequence and update all site references in one coordinated release. Blackboard links only to the ENG 1010 homepage, so numbered-file compatibility redirects are not required unless the final link audit finds meaningful outside traffic.
 
 ## Approved sequence
 
@@ -29,9 +31,9 @@ The approved sequence moves through this progression:
 
 The early placement of summarizing and source-handling gives students practical reading-to-writing moves before they encounter the more abstract work of rhetoric, values, assumptions, and ideology.
 
-## Existing-file-to-display-number map
+## Preview-file-to-display-number map
 
-| Stable file | Chapter title | Display number |
+| Preview file | Chapter title | Display number |
 |---|---|---:|
 | `chapter-1.html` | Annotating Your Way to Greatness | 1 |
 | `chapter-2.html` | Active Reading Strategies | 2 |
@@ -48,25 +50,33 @@ The early placement of summarizing and source-handling gives students practical 
 | `chapter-8.html` | Using Sources in Your Argument | 13 |
 | `chapter-12.html` | Revision: From Draft to Final | 14 |
 
-## Implementation
+## Deployment baseline
+
+- Rename the numbered chapter files to match the approved sequence during the full main-site deployment.
+- Update the homepage cards, shared sidebar array, chapter metadata, internal links, visible chapter numbers, and Works Consulted references together.
+- Run a final inbound-link audit before deployment. Add redirects only for numbered URLs that have a demonstrated external use.
+- Preserve chapter substance and stable progress identifiers while filenames and display numbers change.
+- ENG 1020 navigation remains unchanged unless a shared technical repair requires otherwise.
+
+## Preview implementation
 
 - The shared sidebar uses the approved order and display numbers.
 - The ENG 1010 index cards are reordered at page load and receive the approved display numbers.
-- Existing chapter filenames remain stable.
+- Existing preview filenames remain stable during testing.
 - Explicit numbered chapter-link labels are normalized to the new display number while preserving their destination.
-- ENG 1020 navigation is unchanged.
 - The shared accessibility, mobile, print, and no-JavaScript stabilization remains in place.
 
 ## Content-integrity rule
 
-The reorder changes sequence, display numbers, navigation, and numbered cross-reference labels only. It does not authorize rewriting, shortening, replacing, or expanding chapter substance.
+The reorder changes sequence, display numbers, navigation, filenames at deployment, and numbered cross-reference labels only. It does not authorize rewriting, shortening, replacing, or expanding chapter substance.
 
-## Verification still required
+## Final deployment verification
 
-Before this arrangement is promoted beyond the preview repository, verify:
+Before promotion to the main repository, verify:
 
-1. index-card order and numbering;
-2. sidebar order on several chapters;
-3. current-page highlighting;
-4. numbered cross-reference labels in the revision and rhetoric/ideology chapters;
-5. mobile layout, keyboard navigation, print output, and no-JavaScript fallback.
+1. renamed files and all internal links;
+2. index-card and sidebar order;
+3. current-page highlighting and progress persistence;
+4. chapter-number references in prose and Works Consulted entries;
+5. mobile layout, keyboard navigation, print output, and no-JavaScript fallback;
+6. results of the inbound-link audit.
