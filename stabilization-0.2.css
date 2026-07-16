@@ -1,4 +1,4 @@
-/* Scholar's Compass shared-shell stabilization 0.2
+/* Scholar's Compass shared-shell stabilization 0.3 (served through the existing 0.2 compatibility filename)
    Approved global corrections for ENG 1010 and ENG 1020 preview pages. */
 
 /* Skip link: first keyboard stop, visible only while focused. */
@@ -66,21 +66,76 @@ button.section-header,
   outline-offset: 3px !important;
 }
 
-/* Keep margin-conversation labels and examples in one readable text flow. */
-.annotation-system { align-items: stretch; }
+/* Give callout labels a distinct line and breathing room before the explanation. */
+.sc-callout-label,
+.highlight-box p:first-child > strong:first-child,
+.tools-note p:first-child > strong:first-child,
+.example-box > strong:first-child,
+.example-box p:first-child > strong:first-child,
+.key-takeaway p:first-child > strong:first-child {
+  display: block !important;
+  margin: 0 0 0.65rem !important;
+  line-height: 1.25 !important;
+}
+.sc-callout-label + br,
+.example-box > strong:first-child + br,
+.example-box p:first-child > strong:first-child + br {
+  display: none !important;
+}
+.sc-callout-has-label > p:first-child,
+.sc-callout-has-label > h4:first-child {
+  margin-top: 0 !important;
+}
+.sc-callout-has-label > p:last-child,
+.sc-callout-has-label > h4:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Preserve spacing for any true tab components that appear elsewhere. */
+[role="tablist"],
+.tabs,
+.tab-list,
+.tab-buttons,
+.tab-nav,
+.tabs-nav,
+.info-tabs,
+.tool-tabs {
+  margin-bottom: 1.25rem !important;
+}
+[role="tabpanel"],
+.tab-content,
+.tab-panel,
+.tab-pane,
+.tabs-content {
+  padding-top: 0.5rem !important;
+}
+
+/* Repair the margin-conversation cards using the actual Chapter 1 markup. */
+.annotation-system {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  align-items: stretch !important;
+}
 .annotation-item {
   display: block !important;
   min-width: 0 !important;
-  padding: 1rem !important;
+  padding: 1rem 1.1rem !important;
   text-align: left !important;
   line-height: 1.55 !important;
   white-space: normal !important;
   overflow-wrap: anywhere !important;
 }
+.annotation-item::after {
+  content: "" !important;
+  display: block !important;
+  clear: both !important;
+}
 .annotation-item .annotation-color {
-  vertical-align: middle !important;
-  margin-right: 0.5rem !important;
-  flex: none !important;
+  float: left !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  margin: 0.25rem 0.65rem 0.5rem 0 !important;
 }
 .annotation-item strong {
   display: inline !important;
@@ -91,26 +146,11 @@ button.section-header,
   box-shadow: 0 0 0 3px var(--primary, #4a6fa5) !important;
 }
 
-/* Add consistent space between tab controls and the content beneath them. */
-[role="tablist"],
-.tabs,
-.tab-list,
-.tab-buttons,
-.tab-nav,
-.tabs-nav,
-.info-tabs,
-.tool-tabs,
-.sc-tab-group {
-  margin-bottom: 1.25rem !important;
+@media (max-width: 760px) {
+  .annotation-system {
+    grid-template-columns: 1fr !important;
+  }
 }
-[role="tabpanel"],
-.tab-content,
-.tab-panel,
-.tab-pane,
-.tabs-content {
-  padding-top: 0.5rem !important;
-}
-.sc-tab-label { display: inline-block; }
 
 @media (max-width: 600px) {
   .section-header,
@@ -120,7 +160,6 @@ button.section-header,
     font-size: 1.12em !important;
     gap: 0.75rem !important;
   }
-  .annotation-system { grid-template-columns: 1fr !important; }
 }
 
 @media print {
@@ -130,5 +169,8 @@ button.section-header,
   [role="button"].section-header {
     color: #000 !important;
     background: #ddd !important;
+  }
+  .annotation-system {
+    grid-template-columns: 1fr 1fr !important;
   }
 }
