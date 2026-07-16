@@ -1,127 +1,356 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reading Visual and Digital Texts - Scholar's Compass</title>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="Analyze images, videos, feeds, maps, interfaces, and design choices.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../styles.css?v=19">
-</head>
-<body data-page="chapter-11" data-course="1010">
-  <div class="progress-container-top"><div class="progress-bar-top" id="scrollProgress"></div></div>
-  <nav class="navbar"><div class="navbar-content"><button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><a href="index.html" class="navbar-brand" aria-label="Scholar's Compass home"><i class="fas fa-compass"></i>Scholar's Compass</a></div></nav>
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
-  <nav class="sidebar" id="sidebar"><div class="sidebar-header"><h2><i class="fas fa-compass me-2"></i>Chapters</h2><button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="fas fa-times"></i></button></div><div class="sidebar-content"><div class="sidebar-section" id="sidebarChapters"><h3>Chapters</h3><div id="chaptersList"></div></div></div></nav>
-  <div class="quick-nav" id="quickNav">
-    <a href="#section1" title="I. Visual and Digital Texts Make Arguments" data-section="section1"><span>Intro</span><i class="fas fa-images"></i></a>
-    <a href="#section2" title="II. The Describe Before You Interpret Rule" data-section="section2"><span>Describe</span><i class="fas fa-eye"></i></a>
-    <a href="#section3" title="III. What to Look For" data-section="section3"><span>Look For</span><i class="fas fa-magnifying-glass"></i></a>
-    <a href="#section4" title="IV. Use This in Your Essays" data-section="section4"><span>Essays</span><i class="fas fa-compass"></i></a>
-  </div>
-  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-  <div class="container">
-    <div class="header">
-      <h1><i class="fas fa-images"></i> Reading Visual and Digital Texts</h1>
-      <p class="subtitle">Analyze images, videos, feeds, maps, interfaces, and design choices.</p>
-      <div style="margin-top: 20px;"><button class="btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Save as PDF</button><a class="btn" href="../index.html" aria-label="Back to course hub"><i class="fas fa-home"></i> Course Hub</a></div>
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing Effective Paragraphs - Scholar's Compass</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="description" content="Master the art of crafting effective paragraphs using the PIE method, topic sentences, and proven organizational patterns.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css?v=17" /></head>
+<body data-page="chapter-11">
+    <!-- Progress Bar at very top -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <div class="course-bridge" role="note" aria-label="Where this chapter fits">
-      <h3><i class="fas fa-compass"></i> Where This Chapter Fits</h3>
-      <p>This chapter is part of the ENG 1010 writing path. It should help you do something concrete in your current essay, not just learn a term.</p>
-      <ul><li>Use this chapter to move from reading and noticing toward a stronger draft.</li></ul>
-    </div>
-
-
-    <div class="section active" id="section1">
-      <div class="section-header" onclick="toggleSection(this)">
-        <span><i class="fas fa-images"></i> I. Visual and Digital Texts Make Arguments</span>
-        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
-      </div>
-      <div class="section-content">
-
-        <p>College writing does not only respond to printed articles. In ENG 1010, you may analyze advertisements, videos, maps, social media feeds, websites, screenshots, platform recommendations, campus spaces, or public designs. These texts persuade through image, sound, layout, sequence, repetition, and interaction.</p>
-        <p>A visual or digital text may not state its argument in a thesis sentence. Instead, it may guide your attention, make one choice feel obvious, center one kind of person, hide another, or make a behavior feel normal.</p>
-        <div class="key-takeaway"><h4><i class="fas fa-key"></i> Key Takeaway</h4><p>When you analyze a visual or digital text, describe what is there first. Then explain what those choices do.</p></div>
-        
-      </div>
-    </div>
-    <div class="section" id="section2">
-      <div class="section-header" onclick="toggleSection(this)">
-        <span><i class="fas fa-eye"></i> II. The Describe Before You Interpret Rule</span>
-        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
-      </div>
-      <div class="section-content">
-
-        <p>Students often jump too quickly from seeing to judging. Slow down. Start with description.</p>
-        <div class="table-container"><table class="strategies-table"><tbody><tr><th>Move</th><th>How to Use It</th></tr><tr><td>Describe</td><td>Name what you literally see or hear: colors, camera angles, sound, layout, images, text, order, repetition, buttons, captions, or recommendations.</td></tr>
-<tr><td>Notice Pattern</td><td>Ask what repeats or stands out. One detail may be accidental; a pattern usually matters.</td></tr>
-<tr><td>Interpret</td><td>Explain what the choices invite the audience to feel, believe, value, ignore, or do.</td></tr></tbody></table></div>
-        <div class="example-box"><strong>Not enough:</strong> The app is addictive.<br><strong>Stronger:</strong> The app's endless vertical scroll, quick videos, and constant novelty encourage users to keep moving before they have time to decide whether they want to stop.</div>
-        
-      </div>
-    </div>
-    <div class="section" id="section3">
-      <div class="section-header" onclick="toggleSection(this)">
-        <span><i class="fas fa-magnifying-glass"></i> III. What to Look For</span>
-        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
-      </div>
-      <div class="section-content">
-
-        <ul>
-          <li><strong>Framing:</strong> What is centered? What is cropped out?</li>
-          <li><strong>Sequence:</strong> What comes first, next, and last?</li>
-          <li><strong>Sound:</strong> How do music, silence, voice, or sound effects shape emotion?</li>
-          <li><strong>Design:</strong> What do color, spacing, size, layout, buttons, and menus encourage?</li>
-          <li><strong>Repetition:</strong> What image, phrase, behavior, or recommendation keeps appearing?</li>
-          <li><strong>Audience:</strong> Who is imagined as the normal user, viewer, customer, or citizen?</li>
-        </ul>
-        
-      </div>
-    </div>
-    <div class="section" id="section4">
-      <div class="section-header" onclick="toggleSection(this)">
-        <span><i class="fas fa-compass"></i> IV. Use This in Your Essays</span>
-        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
-      </div>
-      <div class="section-content">
-
-        <p><strong>Essay 1:</strong> Use this chapter to analyze ad images, music, pacing, editing, symbols, camera distance, and on-screen text.</p>
-        <p><strong>Essay 3:</strong> Use this chapter to analyze platforms, maps, feeds, spaces, interfaces, and repeated visual patterns.</p>
-        <div class="practice-item"><span class="difficulty-label difficulty-medium">Practice</span><strong>Screenshot or scene note:</strong> Choose one visual or digital moment. Describe it in three sentences. Then write one sentence explaining what it encourages the audience to notice or value.</div>
-        
-      </div>
-    </div>
-
-    <div class="bluebook-box" role="note" aria-label="Scholar's Blue Book Journal prompt">
-      <div class="bluebook-header">
-        <div class="bluebook-icon"><i class="fas fa-book-open"></i></div>
-        <div>
-          <h3>Scholar's Blue Book Journal</h3>
-          <p class="bluebook-kicker">Write for 5-7 minutes. This is thinking practice, not a polished essay.</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-compass"></i>Scholar's Compass
+            </a>
         </div>
-      </div>
-      <div class="journal-prompt">
-        <p><strong>Chapter 11 Prompt:</strong> What visual or digital choice did you notice, and what does it encourage people to see, feel, or do?</p>
-      </div>
-      <div class="mini-template">
-        <div class="template-line"><strong>My first thought is:</strong></div>
-        <div class="template-line"><strong>One example or piece of evidence is:</strong></div>
-        <div class="template-line"><strong>This matters because:</strong></div>
-      </div>
-      <p class="journal-note"><strong>Privacy note:</strong> This page does not submit or collect your writing. Write in your physical Blue Book Journal, Blackboard journal, or wherever your instructor asks you to keep entries.</p>
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-compass me-2"></i>Navigation</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3>Main</h3>
+                <a href="index.html" class="sidebar-link">
+                    <i class="fas fa-home"></i>Home
+                    <span class="reading-time">2 min</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-section" id="sidebarChapters">
+                <h3>Chapters</h3>
+                <div id="chaptersList"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="quick-nav" id="quickNav">
+        <a href="#section1" title="Introduction" data-section="section1"><span>Introduction</span><i class="fas fa-info-circle"></i></a>
+        <a href="#section2" title="Anatomy" data-section="section2"><span>Anatomy</span><i class="fas fa-puzzle-piece"></i></a>
+        <a href="#section3" title="Topic Sentences" data-section="section3"><span>Topic Sentences</span><i class="fas fa-heading"></i></a>
+        <a href="#section4" title="Patterns" data-section="section4"><span>Patterns</span><i class="fas fa-project-diagram"></i></a>
+        <a href="#section5" title="PIE Method" data-section="section5"><span>PIE Method</span><i class="fas fa-chart-pie"></i></a>
+        <a href="#section6" title="Practice" data-section="section6"><span>Practice</span><i class="fas fa-pencil-alt"></i></a>
     </div>
 
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
 
-    <div class="tools-note next-chapter-box">
-      <p><strong>What comes next:</strong> Continue to <a href="chapter-12.html">Chapter 12: Observation and Evidence Logs</a>.</p>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-align-left"></i> Designing Effective Paragraphs</h1>
+            <p class="subtitle">The Building Blocks of Strong Writing</p>
+            
+            <div style="margin-top: 20px;">
+                <button class="btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Save as PDF</button>
+                <a class="btn" href="../index.html" aria-label="Back to course hub"><i class="fas fa-home"></i> Course Hub</a>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Better Flow!</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Clearer Ideas!</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Stronger Arguments!</span>
+            </div>
+        </div>
+
+        <div class="section active" id="section1">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-info-circle"></i> I. Introduction: Why Paragraphs Matter</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p>How to develop and organize paragraphs is a problem that plagues many beginning writers. How do you start a paragraph? How can you help your reader understand the main idea? How do you know when you've included enough details? How do you conclude?</p>
+                
+                <div class="highlight-box">
+                    <p>A paragraph is a group of sentences that present, develop, and support a single idea. There's no prescribed length or number of sentences. Paragraphs rarely stand alone, so most often the main topic of the paragraph serves the main concept or purpose of a larger whole.</p>
+                </div>
+
+                <div class="tools-note">
+                    <p><strong>By the end of this guide, you will be able to:</strong></p>
+                    <ul>
+                        <li>Identify the components of an effective paragraph</li>
+                        <li>Craft strong topic sentences</li>
+                        <li>Apply different paragraph patterns based on your purpose</li>
+                        <li>Use the PIE method to develop supporting details</li>
+                        <li>Revise paragraphs for unity and coherence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-puzzle-piece"></i> II. The Anatomy of a Paragraph</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p>Effective paragraphs typically contain three essential components that work together to develop a single main idea.</p>
+                
+                <div class="paragraph-anatomy">
+                    <div class="sentence topic-sentence">
+                        <span class="sentence-label">Topic Sentence</span>
+                        Effective paragraphs typically contain three essential components.
+                    </div>
+                    
+                    <div class="sentence supporting-sentence">
+                        <span class="sentence-label">Supporting Detail</span>
+                        First, they begin with a clear topic sentence that states the main idea.
+                    </div>
+                    
+                    <div class="sentence supporting-sentence">
+                        <span class="sentence-label">Supporting Detail</span>
+                        This is followed by supporting sentences that provide evidence, examples, or explanation.
+                    </div>
+                    
+                    <div class="sentence concluding-sentence">
+                        <span class="sentence-label">Concluding Sentence</span>
+                        Finally, a well-constructed paragraph often ends with a concluding sentence that summarizes the point.
+                    </div>
+                </div>
+
+                <div class="key-takeaway">
+                    <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+                    <p>Every paragraph should have a clear purpose and focus on developing one main idea. The sentences should work together to create a unified whole.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section3">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-heading"></i> III. Topic Sentences: The Foundation</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p>The job of the topic sentence is to control the development and flow of the information contained in the paragraph. It provides a way through a topic that is likely much broader than what you could ever cover in a single paragraph.</p>
+                
+                <table class="comparison-table">
+                    <tbody><tr>
+                        <th>Weak Topic Sentences</th>
+                        <th>Strong Topic Sentences</th>
+                    </tr>
+                    <tr>
+                        <td>This paragraph is about climate change.</td>
+                        <td>Rising global temperatures are creating unexpected challenges for agricultural production worldwide.</td>
+                    </tr>
+                    <tr>
+                        <td>I will discuss social media.</td>
+                        <td>While social media connects people globally, it may contribute to feelings of isolation locally.</td>
+                    </tr>
+                    <tr>
+                        <td>Education is important.</td>
+                        <td>Project-based learning approaches increase student engagement and knowledge retention.</td>
+                    </tr>
+                </tbody></table>
+
+                <div class="practice-item">
+                    <strong>Characteristics of Effective Topic Sentences:</strong>
+                    <ul>
+                        <li>Clearly state the main idea of the paragraph</li>
+                        <li>Are specific and focused enough to be developed in one paragraph</li>
+                        <li>Often appear at or near the beginning of the paragraph</li>
+                        <li>Provide a roadmap for what the paragraph will discuss</li>
+                        <li>Connect back to the broader thesis or purpose</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <strong>Example: From Topic to Focused Idea</strong><br><br>
+                    <strong>Broad Topic:</strong> Renewable energy<br>
+                    <strong>Focused Idea:</strong> While solar energy adoption has increased dramatically in the last decade, storage limitations remain a significant barrier to wider implementation.<br>
+                    <strong>Topic Sentence:</strong> Despite advances in solar panel efficiency, the inability to store solar energy effectively continues to limit its potential as a primary energy source.
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section4">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-project-diagram"></i> IV. Paragraph Patterns &amp; Organization</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p>There are several effective ways to organize paragraphs based on your purpose and content. The placement of your topic sentence can vary depending on the pattern you choose.</p>
+                
+                <div class="pattern-visualization">
+                    <div class="pattern">
+                        <div class="pattern-label">Topic Sentence → Details</div>
+                        <div class="pattern-description">
+                            The most common approach. Start with your main idea, then provide supporting evidence and examples.
+                        </div>
+                    </div>
+                    
+                    <div class="pattern">
+                        <div class="pattern-label">Details → Topic Sentence</div>
+                        <div class="pattern-description">
+                            Build up to your main idea by presenting evidence first, then stating your conclusion.
+                        </div>
+                    </div>
+                    
+                    <div class="pattern">
+                        <div class="pattern-label">Topic Sentence → Details → Topic Sentence</div>
+                        <div class="pattern-description">
+                            Begin with your main idea, provide support, then restate the idea in a concluding sentence.
+                        </div>
+                    </div>
+                    
+                    <div class="pattern">
+                        <div class="pattern-label">Implied Topic Sentence</div>
+                        <div class="pattern-description">
+                            The main idea is clear from the details without being explicitly stated (common in narratives).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <strong>Example: Details → Topic Sentence Pattern</strong><br><br>
+                    College students report spending an average of 8-10 hours daily on digital devices. Nearly 70% experience difficulty concentrating on extended reading assignments. Sleep patterns have been disrupted by late-night screen time. <strong>These trends suggest that digital technology may be negatively impacting academic performance through multiple pathways.</strong>
+                </div>
+
+                <div class="key-takeaway">
+                    <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+                    <p>Varying your paragraph patterns can make your writing more engaging and help emphasize different types of information. Choose the pattern that best serves your content and purpose.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section5">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-chart-pie"></i> V. The PIE Method: Developing Your Ideas</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p>The PIE method provides a straightforward framework for developing effective paragraphs with strong support for your main ideas.</p>
+                
+                <div class="tools-note">
+                    <p><strong>PIE Paragraph Structure:</strong></p>
+                    <ul>
+                        <li><strong>Point:</strong> Your topic sentence that states the main idea</li>
+                        <li><strong>Illustration:</strong> Evidence, examples, or data that support your point</li>
+                        <li><strong>Explanation:</strong> Analysis that connects the illustration to your point</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <strong>PIE Paragraph Example:</strong><br><br>
+                    <strong>Point:</strong> Urban green spaces provide significant mental health benefits for city residents.<br>
+                    <strong>Illustration:</strong> A 2022 study published in Environmental Health Perspectives found that people with access to parks reported 30% lower stress levels and 25% higher life satisfaction scores.<br>
+                    <strong>Explanation:</strong> These findings suggest that natural environments offer psychological restoration from the constant stimulation of urban life, providing spaces for relaxation and connection with nature.
+                </div>
+
+                <div class="paragraph-builder">
+                    <h3><i class="fas fa-tools"></i> PIE Paragraph Builder</h3>
+                    
+                    <div class="builder-step">
+                        <label for="point">Point (Topic Sentence):</label>
+                        <textarea id="point" placeholder="What is the main idea of your paragraph?"></textarea>
+                    </div>
+                    
+                    <div class="builder-step">
+                        <label for="illustration">Illustration (Evidence/Example):</label>
+                        <textarea id="illustration" placeholder="What evidence supports your point?"></textarea>
+                    </div>
+                    
+                    <div class="builder-step">
+                        <label for="explanation">Explanation (Analysis):</label>
+                        <textarea id="explanation" placeholder="How does your evidence support your point?"></textarea>
+                    </div>
+                    
+                    <button class="btn" onclick="generatePIEParagraph()"><i class="fas fa-magic"></i> Generate Paragraph</button>
+                    
+                    <div class="paragraph-preview">
+                        <p id="pieOutput">Your PIE paragraph will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section6">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-pencil-alt"></i> VI. Practice &amp; Application</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p>Now it's time to apply what you've learned about effective paragraph design.</p>
+                
+                <div class="practice-item">
+                    <span class="difficulty-label difficulty-medium">Exercise 1: Identify the Components</span>
+                    <strong>Read the paragraph below and identify the topic sentence, supporting details, and concluding sentence:</strong>
+                    <div class="example-box">
+                        Despite technological advances, handwriting remains an important skill for cognitive development. Research shows that the physical act of writing by hand engages the brain differently than typing, enhancing memory and learning. Studies using fMRI technology reveal that handwriting activates extensive regions of the brain involved in thinking, language, and working memory. Furthermore, children who learn to write by hand show better letter recognition and reading skills than those who only type. For these reasons, educators should continue to emphasize handwriting instruction even in our digital age.
+                    </div>
+                    <div class="interactive-element">
+                        <h3><i class="fas fa-tasks"></i> Your Analysis:</h3>
+                        <textarea style="width: 100%; height: 150px; margin-top: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ddd;" placeholder="Identify the topic sentence, supporting details, and concluding sentence..."></textarea>
+                    </div>
+                </div>
+
+                <div class="practice-item">
+                    <span class="difficulty-label difficulty-hard">Exercise 2: Revise a Weak Paragraph</span>
+                    <strong>Revise this paragraph to improve its topic sentence and organization:</strong>
+                    <div class="example-box">
+                        Social media is used by a lot of people. There are different platforms. Some people use Instagram. Others prefer Twitter. Facebook is popular with older users. TikTok is popular with younger users. People share photos and videos. Sometimes social media can be negative. There are privacy concerns. Cyberbullying happens too. But it can also connect people.
+                    </div>
+                    <div class="interactive-element">
+                        <h3><i class="fas fa-tasks"></i> Your Revision:</h3>
+                        <textarea style="width: 100%; height: 150px; margin-top: 15px; padding: 10px; border-radius: 5px; border: 1px solid #ddd;" placeholder="Type your revised paragraph here..."></textarea>
+                    </div>
+                </div>
+
+                <div class="key-takeaway">
+                    <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+                    <p>Effective paragraphing is a skill that develops with practice. Regularly analyzing strong paragraphs and revising your own work will significantly improve your writing over time.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="citation-box">
+            <p><strong>Attribution:</strong></p>
+            <p>Material adapted from <em>Writing Paragraphs</em> by Carol Burnell, Jaime Wood, Monique Babin, Susan Pesznecker, and Nicole Rosevear, licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0 International License</a>, except where otherwise noted.</p>
+            <p>Original content available at: <a href="https://openoregon.pressbooks.pub/aboutwriting/chapter/writing-paragraphs/" target="_blank">https://openoregon.pressbooks.pub/aboutwriting/chapter/writing-paragraphs/</a></p>
+        </div>
     </div>
 
-  </div>
-  <script src="../app.js?v=19"></script>
-</body>
-</html>
+        <script src="../app.js?v=17"></script>
+
+
+
+</body></html>
