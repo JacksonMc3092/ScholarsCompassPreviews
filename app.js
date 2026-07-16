@@ -13,25 +13,20 @@
   'use strict';
 
     var CHAPTERS_1010 = [
-    { href: 'chapter-1.html', icon: 'fas fa-highlighter', title: '1. Annotating: Reading Like a Writer', readingTime: '12 min' },
-    { href: 'chapter-2.html', icon: 'fas fa-book-reader', title: '2. Active Reading: Reading With a Purpose', readingTime: '12 min' },
-    { href: 'chapter-3.html', icon: 'fas fa-bullhorn', title: '3. Understanding Rhetoric: The Art of Persuasion', readingTime: '18 min' },
-    { href: 'chapter-4.html', icon: 'fas fa-layer-group', title: '4. Values, Assumptions, and Ideology', readingTime: '14 min' },
-    { href: 'chapter-5.html', icon: 'fas fa-pen-fancy', title: '5. Strategies for Getting Started', readingTime: '10 min' },
-    { href: 'chapter-6.html', icon: 'fas fa-bullseye', title: '6. Crafting Powerful Thesis Statements', readingTime: '12 min' },
-    { href: 'chapter-7.html', icon: 'fas fa-align-left', title: '7. Designing Effective Paragraphs', readingTime: '13 min' },
-    { href: 'chapter-8.html', icon: 'fas fa-clipboard-list', title: '8. Summarizing Your Way to Synthesis', readingTime: '10 min' },
-    { href: 'chapter-9.html', icon: 'fas fa-project-diagram', title: '9. Analysis and Synthesis', readingTime: '16 min' },
-    { href: 'chapter-10.html', icon: 'fas fa-comments', title: '10. Argumentation: Joining the Academic Conversation', readingTime: '18 min' },
-    { href: 'chapter-11.html', icon: 'fas fa-images', title: '11. Reading Visual and Digital Texts', readingTime: '12 min' },
-    { href: 'chapter-12.html', icon: 'fas fa-clipboard-check', title: '12. Observation and Evidence Logs', readingTime: '12 min' },
-    { href: 'chapter-13.html', icon: 'fas fa-search', title: '13. Finding and Evaluating Sources', readingTime: '14 min' },
-    { href: 'chapter-14.html', icon: 'fas fa-quote-left', title: '14. Quoting, Paraphrasing, and Signal Phrases', readingTime: '12 min' },
-    { href: 'chapter-15.html', icon: 'fas fa-link', title: '15. Using Sources in Your Argument', readingTime: '14 min' },
-    { href: 'chapter-16.html', icon: 'fas fa-file-lines', title: '16. MLA and Formatting Survival Guide', readingTime: '14 min' },
-    { href: 'chapter-17.html', icon: 'fas fa-people-arrows', title: '17. Peer Review and Giving Useful Feedback', readingTime: '12 min' },
-    { href: 'chapter-18.html', icon: 'fas fa-route', title: '18. From Feedback to Revision Plan', readingTime: '10 min' },
-    { href: 'chapter-19.html', icon: 'fas fa-pen-to-square', title: '19. Revision: From Draft to Final', readingTime: '12 min' }
+    { href: 'chapter-1.html', icon: 'fas fa-highlighter', title: '1. Annotating Your Way to Greatness', readingTime: '15 min' },
+    { href: 'chapter-2.html', icon: 'fas fa-book-reader', title: '2. Active Reading Strategies', readingTime: '12 min' },
+    { href: 'chapter-3.html', icon: 'fas fa-pen-fancy', title: '3. Strategies for Getting Started', readingTime: '9 min' },
+    { href: 'chapter-4.html', icon: 'fas fa-clipboard-list', title: '4. Summarizing Your Way to Synthesis', readingTime: '10 min' },
+    { href: 'chapter-5.html', icon: 'fas fa-comments', title: '5. Argumentation: Joining the Academic Conversation', readingTime: '18 min' },
+    { href: 'chapter-6.html', icon: 'fas fa-search', title: '6. Finding and Evaluating Sources', readingTime: '12 min' },
+    { href: 'chapter-7.html', icon: 'fas fa-quote-left', title: '7. Quoting, Paraphrasing, and Signal Phrases', readingTime: '12 min' },
+    { href: 'chapter-8.html', icon: 'fas fa-link', title: '8. Using Sources in Your Argument', readingTime: '14 min' },
+    { href: 'chapter-9.html', icon: 'fas fa-bullseye', title: '9. Crafting Powerful Thesis Statements', readingTime: '11 min' },
+    { href: 'chapter-10.html', icon: 'fas fa-project-diagram', title: '10. Analysis and Synthesis', readingTime: '16 min' },
+    { href: 'chapter-11.html', icon: 'fas fa-align-left', title: '11. Designing Effective Paragraphs', readingTime: '13 min' },
+    { href: 'chapter-12.html', icon: 'fas fa-pen-to-square', title: '12. Revision: From Draft to Final', readingTime: '12 min' },
+    { href: 'chapter-13.html', icon: 'fas fa-bullhorn', title: '13. Understanding Rhetoric: The Art of Persuasion', readingTime: '18 min' },
+    { href: 'chapter-14.html', icon: 'fas fa-layer-group', title: '14. Values, Assumptions, and Ideology', readingTime: '14 min' }
   ];
 
   var CHAPTERS_1020 = [
@@ -94,7 +89,9 @@
       section = p;
     }
     if (!section) return;
-    section.classList.toggle('active');
+    var willOpen = !section.classList.contains('active');
+    section.classList.toggle('active', willOpen);
+    headerEl.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
   };
 
   // ---- Theme
@@ -151,18 +148,27 @@
 
     if (!hamburger || !sidebar || !overlay) return;
 
+    var previousFocus = null;
+
+    function setSidebarState(isOpen) {
+      sidebar.classList.toggle('active', isOpen);
+      overlay.classList.toggle('active', isOpen);
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      sidebar.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
     function openSidebar() {
-      sidebar.classList.add('active');
-      overlay.classList.add('active');
-      hamburger.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      previousFocus = document.activeElement;
+      setSidebarState(true);
+      (closeBtn || sidebar).focus();
     }
 
     function closeSidebar() {
-      sidebar.classList.remove('active');
-      overlay.classList.remove('active');
-      hamburger.classList.remove('active');
-      document.body.style.overflow = '';
+      setSidebarState(false);
+      if (previousFocus && previousFocus.focus) previousFocus.focus();
+      else hamburger.focus();
     }
 
     hamburger.addEventListener('click', openSidebar);
@@ -305,140 +311,53 @@
     });
   }
 
-
-
-  // ---- Lightweight helpers for chapter activities
-  function setText(id, value) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = value;
+  // ---- Accessible chapter disclosures
+  function initSectionDisclosures() {
+    qsa('button.section-header[aria-controls]').forEach(function (button) {
+      button.addEventListener('click', function () { window.toggleSection(button); });
+    });
   }
 
-  window.toggleAnnotation = function (el) {
-    if (el && el.classList) el.classList.toggle('active');
-  };
-
-  function checkedCount(selector) {
-    return qsa(selector).filter(function (x) { return x.checked; }).length;
-  }
-
-  function initProgressCheckboxes() {
-    qsa('.progress-checkbox, .skill-checkbox, .argument-checkbox, .sq3r-checkbox').forEach(function (box) {
-      box.addEventListener('change', function () {
-        window.updateProgress();
+  // ---- Chapter 1 annotation examples
+  function initAnnotationExamples() {
+    qsa('.annotation-item[aria-pressed]').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var pressed = item.getAttribute('aria-pressed') === 'true';
+        item.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+        item.classList.toggle('active', !pressed);
       });
     });
   }
 
-  window.updateProgress = function () {
-    var selector = '.progress-checkbox, .skill-checkbox, .argument-checkbox, .sq3r-checkbox, input[onchange*="updateProgress"]';
-    var boxes = qsa(selector);
-    if (!boxes.length) return;
-    var pct = Math.round((checkedCount(selector) / boxes.length) * 100);
-    var bar = qs('#progressIndicator');
-    var label = qs('#progressPercent');
-    if (bar) bar.style.width = pct + '%';
-    if (label) label.textContent = pct + '%';
-  };
+  // ---- Deliberate local practice progress
+  function initPracticeProgress() {
+    qsa('[data-progress-tracker]').forEach(function (tracker) {
+      var key = 'scholarsCompass:' + tracker.getAttribute('data-progress-tracker') + ':practice';
+      var boxes = Array.prototype.slice.call(tracker.querySelectorAll('.progress-checkbox'));
+      var indicator = tracker.querySelector('#progressIndicator');
+      var percentText = tracker.querySelector('#progressPercent');
+      if (!boxes.length || !indicator || !percentText) return;
 
-  window.generateSandwich = function () {
-    var top = (qs('#topBun') || {}).value || '';
-    var meat = (qs('#meat') || {}).value || '';
-    var bottom = (qs('#bottomBun') || {}).value || '';
-    var out = qs('#sandwichOutput');
-    if (out) out.textContent = [top, meat, bottom].filter(Boolean).join('\n\n');
-  };
+      try {
+        var stored = JSON.parse(localStorage.getItem(key) || '[]');
+        boxes.forEach(function (box, index) { box.checked = stored.indexOf(index) !== -1; });
+      } catch (err) { /* Storage is optional; controls still work in-session. */ }
 
-  window.copySandwich = function () {
-    var out = qs('#sandwichOutput');
-    if (!out) return;
-    navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(out.textContent) : null;
-  };
-
-  window.generateQuoteSandwich = function () {
-    var a = (qs('#frontLoad') || {}).value || '';
-    var b = (qs('#quoteText') || {}).value || '';
-    var c = (qs('#quoteAnalysis') || {}).value || '';
-    var out = qs('#quoteOutput') || qs('#generatedParagraph');
-    if (out) out.textContent = [a, b, c].filter(Boolean).join('\n\n');
-  };
-
-  window.generatePIEParagraph = function () {
-    var point = (qs('#point') || qs('#mainPoint') || {}).value || '';
-    var info = (qs('#information') || qs('#evidence') || {}).value || '';
-    var expl = (qs('#explanation') || qs('#analysis') || {}).value || '';
-    var out = qs('#pieOutput') || qs('#paragraphOutput');
-    if (out) out.textContent = [point, info, expl].filter(Boolean).join('\n\n');
-  };
-
-  window.analyzeThesis = function () {
-    var t = ((qs('#templatePractice') || {}).value || '').trim();
-    var out = qs('#thesisAnalysis') || qs('#analysisResult');
-    if (out) out.textContent = t.length < 20 ? 'This thesis may need more specificity and an arguable claim.' : 'Now check: is it specific, arguable, evidence-based, and appropriate for the assignment length?';
-  };
-
-  window.generateThesis = function () {
-    var topic = ((qs('#topic') || {}).value || '').trim();
-    var problem = ((qs('#problem') || {}).value || '').trim();
-    var thesis = qs('#thesis');
-    if (thesis && !thesis.value) thesis.value = topic && problem ? 'Because ' + problem + ', ' + topic + ' matters because...' : 'Although..., I argue that... because...';
-  };
-
-  window.checkAnswer = function () { setText('answerFeedback', 'Check whether your answer explains why the choice matters, not just what the source says.'); };
-  window.checkParaphrase = function () { setText('paraphraseFeedback', 'A strong paraphrase changes sentence structure and wording while preserving the original meaning and citing the source.'); };
-  window.showBloomDetails = function (level) { setText('bloomDetails', 'Focus on the level you selected: ' + level + '. In essays, move beyond remembering toward analyzing, evaluating, and creating a claim.'); };
-  window.changeConversation = function () { setText('conversationText', 'Example: Some readers argue X. Others complicate that view by pointing to Y. Your task is to enter that conversation with a focused claim.'); };
-  window.selectPosition = function (pos) { setText('positionFeedback', 'Selected position: ' + pos + '. Now explain why your position is more specific than simple agreement or disagreement.'); };
-  window.savePosition = function () { setText('positionStatus', 'Position saved for this page session.'); };
-  window.clearPosition = function () { qsa('textarea').forEach(function (t) { if (!t.classList.contains('freewriting-textarea')) t.value = ''; }); setText('positionStatus', 'Cleared.'); };
-  window.generateCounterargument = function () {
-    var claim = ((qs('#mainClaim') || {}).value || '').trim();
-    var counter = ((qs('#counterargument') || {}).value || '').trim();
-    var response = qs('#response');
-    if (response && !response.value) response.value = 'While ' + (counter || 'some readers may disagree') + ', ' + (claim || 'my claim') + ' still matters because...';
-  };
-
-  var timerId = null, timerRemaining = 300;
-  window.startTimer = function (seconds) {
-    if (seconds) timerRemaining = seconds;
-    clearInterval(timerId);
-    timerId = setInterval(function () {
-      timerRemaining -= 1;
-      var display = qs('#timerDisplay');
-      if (display) {
-        var m = Math.floor(timerRemaining / 60), s = timerRemaining % 60;
-        display.textContent = m + ':' + String(s).padStart(2, '0');
+      function update() {
+        var completed = [];
+        boxes.forEach(function (box, index) { if (box.checked) completed.push(index); });
+        var percent = Math.round((completed.length / boxes.length) * 100);
+        indicator.style.width = percent + '%';
+        indicator.setAttribute('aria-valuemin', '0');
+        indicator.setAttribute('aria-valuemax', '100');
+        indicator.setAttribute('aria-valuenow', String(percent));
+        indicator.setAttribute('role', 'progressbar');
+        percentText.textContent = percent + '%';
+        try { localStorage.setItem(key, JSON.stringify(completed)); } catch (err) {}
       }
-      if (timerRemaining <= 0) clearInterval(timerId);
-    }, 1000);
-  };
-  window.pauseTimer = function () { clearInterval(timerId); };
-  window.resetTimer = function () { clearInterval(timerId); timerRemaining = 300; var d = qs('#timerDisplay'); if (d) d.textContent = '5:00'; };
-  window.saveFreewrite = function () { setText('freewriteStatus', 'Freewrite saved for this page session.'); };
-  window.generateQuestion = function () {
-    var qsList = ['What pattern do I notice?', 'Why does this matter?', 'Who benefits from this?', 'What assumption is being made?', 'What evidence would prove this?'];
-    setText('currentQuestion', qsList[Math.floor(Math.random() * qsList.length)]);
-  };
-  window.saveQuestion = function () {
-    var q = (qs('#currentQuestion') || {}).textContent || '';
-    var list = qs('#savedQuestions');
-    if (list && q) { var li = document.createElement('li'); li.textContent = q; list.appendChild(li); }
-  };
-  window.addClusterNode = window.clearCluster = window.saveCluster = window.loadCluster = window.addListItem = window.saveList = window.clearList = window.addOutlineItem = window.saveOutline = window.startChallenge = function () {};
 
-  function initQuickDraftTools() {
-    qsa('.copy-draft-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var wrap = btn.closest('.writer-tool') || document;
-        var draft = wrap.querySelector('.quick-draft');
-        if (draft && navigator.clipboard) navigator.clipboard.writeText(draft.value || '');
-      });
-    });
-    qsa('.clear-draft-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var wrap = btn.closest('.writer-tool') || document;
-        var draft = wrap.querySelector('.quick-draft');
-        if (draft) draft.value = '';
-      });
+      boxes.forEach(function (box) { box.addEventListener('change', update); });
+      update();
     });
   }
 
@@ -449,8 +368,9 @@
     initBackToTop();
     initScrollHandlers();
     initSmoothAnchors();
-    initProgressCheckboxes();
-    initQuickDraftTools();
+    initSectionDisclosures();
+    initAnnotationExamples();
+    initPracticeProgress();
   });
 
 })();

@@ -1,0 +1,11 @@
+{
+  "source_sha256": "9cd55e8e36678379c4fe6dfb80dbbdaa04abf1a4d43655ab32ba1fbf8fff1e6b",
+  "preview_sha256": "e5a974201bdd1e442c6779b1b6ce1f28031c82406f2ea184bfcedd420c02fa70",
+  "instructional_text_preserved": true,
+  "scope": [
+    "1010/chapter-1.html",
+    "app.js",
+    "styles.css"
+  ],
+  "live_repository_changed": false
+}

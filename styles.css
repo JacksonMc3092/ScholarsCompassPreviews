@@ -14503,110 +14503,60 @@ body[data-page="index"] .header p{
   .navbar .hamburger-menu{ left: 12px !important; }
 }
 
-
-/* Cohesion and Blue Book additions */
-.course-bridge,
-.bluebook-box,
-.writer-tool {
-  border-radius: 8px;
-  padding: 18px;
-  margin: 22px 0;
-}
-.course-bridge {
-  background: #f8fafc;
-  border-left: 5px solid var(--primary);
-  border-top: 1px solid #e2e8f0;
-  border-right: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-}
-.course-bridge h3,
-.bluebook-header h3 {
-  margin-top: 0;
-}
-.bluebook-box {
-  border: 2px solid #1e40af;
-  background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
-  box-shadow: 0 8px 20px rgba(30, 64, 175, 0.08);
-}
-.bluebook-header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 12px;
-}
-.bluebook-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
-  background: #1e40af;
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-}
-.bluebook-kicker,
-.journal-note {
-  color: #475569;
-  font-size: 0.95rem;
-  margin: 0;
-}
-.journal-prompt {
-  border-left: 4px solid #60a5fa;
+/* ========================================================================== 
+   ENG 1010 SHARED-SHELL STABILIZATION 0.1 PREVIEW
+   Additive accessibility rules only. Existing instructional content unchanged.
+   ========================================================================== */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  border-radius: 0.35rem;
   background: #fff;
-  border-radius: 6px;
-  padding: 14px 16px;
-  margin: 14px 0;
+  color: #111;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  transform: translateY(-160%);
 }
-.mini-template {
-  display: grid;
-  gap: 10px;
-  margin: 16px 0;
+.skip-link:focus { transform: translateY(0); }
+
+/* Full content remains available when JavaScript is absent. */
+.section .section-content { display: block !important; }
+.js .section:not(.active) > .section-content { display: none !important; }
+
+button.section-header {
+  width: 100%;
+  border: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
-.template-line {
-  padding: 12px;
-  border-radius: 8px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+button.section-header:focus-visible,
+.annotation-item:focus-visible,
+#hamburgerMenu:focus-visible,
+#sidebarClose:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
 }
-.mla-sample {
-  background: #f8fafc;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 14px;
-  overflow-x: auto;
-  margin: 16px 0;
+.annotation-item {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
 }
-.mla-sample pre {
-  margin: 0;
-  white-space: pre-wrap;
-  font-family: "Courier New", monospace;
-  font-size: 0.95rem;
-  line-height: 1.5;
+.annotation-item[aria-pressed="true"] {
+  box-shadow: 0 0 0 3px var(--primary, #4a6fa5);
 }
-body.dark-mode .course-bridge,
-body.dark-mode .template-line,
-body.dark-mode .mla-sample {
-  background: #1e293b;
-  border-color: #475569;
-}
-body.dark-mode .bluebook-box,
-body.dark-mode .journal-prompt {
-  background: #0f172a;
-  color: #f1f5f9;
-  border-color: #60a5fa;
-}
-body.dark-mode .bluebook-kicker,
-body.dark-mode .journal-note {
-  color: #cbd5e1;
-}
-@media (max-width: 640px) {
-  .bluebook-header { align-items: flex-start; }
+.noscript-note {
+  margin: 5rem auto 1rem;
+  max-width: 70rem;
+  padding: 1rem;
+  border: 2px solid currentColor;
+  border-radius: .5rem;
 }
 @media print {
-  .course-bridge,
-  .bluebook-box,
-  .writer-tool {
-    break-inside: avoid;
-  }
+  .skip-link, .noscript-note { display: none !important; }
+  .section .section-content { display: block !important; }
 }
