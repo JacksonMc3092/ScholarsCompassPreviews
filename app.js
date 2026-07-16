@@ -1,42 +1,35 @@
 /* Scholar's Compass — global behavior (GitHub Pages static site)
-   Phase A stabilization:
-   - Theme toggle (persistent)
-   - Back-to-top
-   - Sidebar / hamburger
-   - Scroll progress (top bars)
-   - Chapters list (single array)
-   - Quick-nav active highlight
-   - Chapter section expand/collapse (toggleSection)
+   Shared shell stabilization, approved ENG 1010 display order,
+   and chapter-specific interactive tools.
 */
 
 (function () {
   'use strict';
 
-  // Reveal enhanced disclosure behavior only after JavaScript is available.
   document.documentElement.classList.add('js');
 
-  // Load the small, reversible correction layer from the same folder as app.js.
+  // Load the reversible shared correction layer from the same folder as app.js.
   (function loadStabilizationStyles() {
-    if (document.querySelector('link[data-sc-stabilization="0.5"]')) return;
+    if (document.querySelector('link[data-sc-stabilization="0.6"]')) return;
     var current = document.currentScript;
     var href;
     try {
       href = current && current.src
-        ? new URL('stabilization-0.2.css?v=5', current.src).href
+        ? new URL('stabilization-0.2.css?v=6', current.src).href
         : ((window.location.pathname.indexOf('/1010/') !== -1 || window.location.pathname.indexOf('/1020/') !== -1)
-          ? '../stabilization-0.2.css?v=5'
-          : 'stabilization-0.2.css?v=5');
+          ? '../stabilization-0.2.css?v=6'
+          : 'stabilization-0.2.css?v=6');
     } catch (err) {
-      href = '../stabilization-0.2.css?v=5';
+      href = '../stabilization-0.2.css?v=6';
     }
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
-    link.setAttribute('data-sc-stabilization', '0.5');
+    link.setAttribute('data-sc-stabilization', '0.6');
     document.head.appendChild(link);
   })();
 
-  // Approved ENG 1010 student-facing sequence. Existing filenames remain stable.
+  // Approved ENG 1010 student-facing sequence. Existing preview filenames remain stable.
   var CHAPTERS_1010 = [
     { href: 'chapter-1.html', icon: 'fas fa-highlighter', title: '1. Annotating Your Way to Greatness', readingTime: '15 min' },
     { href: 'chapter-2.html', icon: 'fas fa-book-reader', title: '2. Active Reading Strategies', readingTime: '12 min' },
@@ -98,27 +91,82 @@
     return (f && f.trim()) ? f : 'index.html';
   }
 
-  function qs(sel) { return document.querySelector(sel); }
-  function qsa(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+  function qs(sel, root) { return (root || document).querySelector(sel); }
+  function qsa(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+  function storageGet(key, fallback) {
+    try {
+      var raw = localStorage.getItem(key);
+      return raw === null ? fallback : JSON.parse(raw);
+    } catch (err) {
+      return fallback;
+    }
+  }
+
+  function storageSet(key, value) {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function storageRemove(key) {
+    try { localStorage.removeItem(key); } catch (err) {}
+  }
+
+  function closestTool(element) {
+    if (!element || !element.closest) return null;
+    return element.closest('.interactive-element, .thesis-builder, .paragraph-builder, .quote-builder, .counterargument-builder, .freewriting-container, .question-prompter, .sandwich-builder');
+  }
+
+  function setToolStatus(element, message, tone) {
+    var container = closestTool(element) || (element && element.parentElement) || document.body;
+    var status = qs('.sc-tool-status', container);
+    if (!status) {
+      status = document.createElement('p');
+      status.className = 'sc-tool-status';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      status.style.marginTop = '0.85rem';
+      status.style.padding = '0.75rem 0.9rem';
+      status.style.borderRadius = '0.35rem';
+      status.style.fontWeight = '600';
+      container.appendChild(status);
+    }
+    status.textContent = message;
+    status.style.background = tone === 'error' ? '#fff3cd' : (tone === 'success' ? '#d4edda' : '#e9ecef');
+    status.style.color = tone === 'error' ? '#664d03' : (tone === 'success' ? '#0f5132' : '#222');
+    status.style.borderLeft = '4px solid ' + (tone === 'error' ? '#ffc107' : (tone === 'success' ? '#28a745' : '#6c757d'));
+    return status;
+  }
+
+  function setElementText(id, text) {
+    var el = qs('#' + id);
+    if (el) el.textContent = text;
+    return el;
+  }
 
   window.toggleSection = function (headerEl) {
     if (!headerEl) return;
     var section = headerEl.closest ? headerEl.closest('.section') : null;
-    if (!section) {
-      var p = headerEl.parentElement;
-      while (p && !(p.classList && p.classList.contains('section'))) p = p.parentElement;
-      section = p;
-    }
     if (!section) return;
     var willOpen = !section.classList.contains('active');
     section.classList.toggle('active', willOpen);
     headerEl.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
   };
 
+  window.toggleAnnotation = function (item) {
+    if (!item) return;
+    var pressed = item.getAttribute('aria-pressed') === 'true' || item.classList.contains('active');
+    item.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+    item.classList.toggle('active', !pressed);
+  };
+
   function initPageLandmarks() {
     var main = qs('main') || qs('.container');
     if (!main) return;
-
     if (!main.id) main.id = 'main-content';
     if (String(main.tagName).toLowerCase() !== 'main') main.setAttribute('role', 'main');
     if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
@@ -151,12 +199,11 @@
   }
 
   function setTheme(isDark) {
-    if (isDark) document.body.classList.add('dark-mode');
-    else document.body.classList.remove('dark-mode');
-
-    localStorage.setItem('darkMode', isDark ? 'true' : 'false');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
+    document.body.classList.toggle('dark-mode', isDark);
+    try {
+      localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch (err) {}
     var toggle = qs('#darkModeToggle');
     if (toggle) {
       var icon = toggle.querySelector('i');
@@ -177,8 +224,8 @@
   function initBackToTop() {
     var btn = qs('#backToTop');
     if (!btn) return;
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
@@ -188,11 +235,9 @@
     var sidebar = qs('#sidebar');
     var overlay = qs('#sidebarOverlay');
     var closeBtn = qs('#sidebarClose');
-
     if (!hamburger || !sidebar || !overlay) return;
 
     var previousFocus = null;
-
     function setSidebarState(isOpen) {
       sidebar.classList.toggle('active', isOpen);
       overlay.classList.toggle('active', isOpen);
@@ -201,13 +246,11 @@
       sidebar.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
       document.body.style.overflow = isOpen ? 'hidden' : '';
     }
-
     function openSidebar() {
       previousFocus = document.activeElement;
       setSidebarState(true);
       (closeBtn || sidebar).focus();
     }
-
     function closeSidebar() {
       setSidebarState(false);
       if (previousFocus && previousFocus.focus) previousFocus.focus();
@@ -217,30 +260,23 @@
     hamburger.addEventListener('click', openSidebar);
     if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
     overlay.addEventListener('click', closeSidebar);
-
     qsa('.sidebar-link[href*="chapter"]').forEach(function (a) {
       a.addEventListener('click', function () {
         if (window.innerWidth <= 768) closeSidebar();
       });
     });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && sidebar.classList.contains('active')) closeSidebar();
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && sidebar.classList.contains('active')) closeSidebar();
     });
 
     var touchStartX = 0;
-    var touchEndX = 0;
-
-    document.addEventListener('touchstart', function (e) {
-      touchStartX = e.changedTouches[0].screenX;
+    document.addEventListener('touchstart', function (event) {
+      touchStartX = event.changedTouches[0].screenX;
     }, { passive: true });
-
-    document.addEventListener('touchend', function (e) {
-      touchEndX = e.changedTouches[0].screenX;
-      var swipeThreshold = 100;
+    document.addEventListener('touchend', function (event) {
+      var touchEndX = event.changedTouches[0].screenX;
       var swipeDistance = touchEndX - touchStartX;
-      if (Math.abs(swipeDistance) <= swipeThreshold) return;
-
+      if (Math.abs(swipeDistance) <= 100) return;
       if (swipeDistance > 0 && touchStartX < 50) openSidebar();
       else if (swipeDistance < 0 && sidebar.classList.contains('active')) closeSidebar();
     }, { passive: true });
@@ -249,7 +285,6 @@
   function buildChaptersNav() {
     var container = qs('#chaptersList');
     if (!container) return;
-
     container.innerHTML = '';
     var here = currentFile().toLowerCase();
 
@@ -257,43 +292,35 @@
       var a = document.createElement('a');
       a.href = ch.href;
       a.className = 'sidebar-link';
-
       if (here === String(ch.href).toLowerCase()) {
         a.className += ' current';
         a.setAttribute('aria-current', 'page');
       }
-
       var icon = document.createElement('i');
       icon.className = ch.icon || 'fas fa-book';
       a.appendChild(icon);
       a.appendChild(document.createTextNode(ch.title));
-
       if (ch.readingTime) {
         var rt = document.createElement('span');
         rt.className = 'reading-time';
         rt.textContent = ch.readingTime;
         a.appendChild(rt);
       }
-
       container.appendChild(a);
     });
   }
 
-  // Reorder the existing ENG 1010 index cards without changing their stable URLs.
   function apply1010IndexOrder() {
     if (getCourse() !== '1010' || currentFile().toLowerCase() !== 'index.html') return;
     var links = qsa('.chapter-link[href]');
     if (!links.length) return;
-
     var byHref = {};
     links.forEach(function (link) {
       var href = String(link.getAttribute('href') || '').split('/').pop().toLowerCase();
       byHref[href] = link;
     });
-
     var row = links[0].closest('.row');
     if (!row) return;
-
     CHAPTERS_1010.forEach(function (chapter, index) {
       var link = byHref[String(chapter.href).toLowerCase()];
       if (!link) return;
@@ -305,19 +332,17 @@
     });
   }
 
-  // Update explicit numbered chapter-link labels while preserving the linked filename.
   function normalize1010ChapterLinkLabels() {
     if (getCourse() !== '1010') return;
     var displayNumbers = {};
     CHAPTERS_1010.forEach(function (chapter, index) {
       displayNumbers[String(chapter.href).toLowerCase()] = index + 1;
     });
-
     qsa('a[href*="chapter-"]').forEach(function (anchor) {
       var file = String(anchor.getAttribute('href') || '').split('/').pop().toLowerCase();
       var displayNumber = displayNumbers[file];
       if (!displayNumber) return;
-      anchor.childNodes.forEach(function (child) {
+      Array.prototype.slice.call(anchor.childNodes).forEach(function (child) {
         if (child.nodeType !== 3) return;
         child.nodeValue = child.nodeValue.replace(/Chapter\s+\d+/g, 'Chapter ' + displayNumber);
       });
@@ -327,19 +352,15 @@
   function updateQuickNav() {
     var links = qsa('.quick-nav a[data-section]');
     if (!links.length) return;
-
     var markerY = 120;
     var activeId = null;
-
     qsa('.section[id]').forEach(function (sec) {
       var r = sec.getBoundingClientRect();
       if (r.top <= markerY && r.bottom >= markerY) activeId = sec.id;
     });
-
     if (!activeId) return;
     links.forEach(function (a) {
-      if (a.getAttribute('data-section') === activeId) a.classList.add('active');
-      else a.classList.remove('active');
+      a.classList.toggle('active', a.getAttribute('data-section') === activeId);
     });
   }
 
@@ -347,19 +368,12 @@
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-
     var bar1 = qs('#progressBar');
     if (bar1) bar1.style.width = scrolled + '%';
-
     var bar2 = qs('#scrollProgress');
     if (bar2) bar2.style.width = scrolled + '%';
-
     var back = qs('#backToTop');
-    if (back) {
-      if (winScroll > 300) back.classList.add('visible');
-      else back.classList.remove('visible');
-    }
-
+    if (back) back.classList.toggle('visible', winScroll > 300);
     updateQuickNav();
   }
 
@@ -373,7 +387,6 @@
         ticking = false;
       });
     }
-
     window.addEventListener('scroll', onScroll, { passive: true });
     updateScrollUI();
   }
@@ -381,16 +394,13 @@
   function initSmoothAnchors() {
     qsa('a[href^="#"]').forEach(function (a) {
       if (a.classList.contains('skip-link')) return;
-
-      a.addEventListener('click', function (e) {
+      a.addEventListener('click', function (event) {
         var href = a.getAttribute('href');
         if (!href || href.length < 2) return;
         var target = qs(href);
         if (!target) return;
-
-        e.preventDefault();
-        var yOffset = -80;
-        var y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        event.preventDefault();
+        var y = target.getBoundingClientRect().top + window.pageYOffset - 80;
         window.scrollTo({ top: y, behavior: 'smooth' });
       });
     });
@@ -401,21 +411,18 @@
       var header = section.querySelector('.section-header');
       var content = section.querySelector('.section-content');
       if (!header || !content || header.getAttribute('data-disclosure-ready') === 'true') return;
-
       var sectionId = section.id || ('section-' + (index + 1));
       var headerId = header.id || (sectionId + '-toggle');
       var contentId = content.id || (sectionId + '-content');
       section.id = sectionId;
       header.id = headerId;
       content.id = contentId;
-
       header.removeAttribute('onclick');
       header.setAttribute('aria-controls', contentId);
       header.setAttribute('aria-expanded', section.classList.contains('active') ? 'true' : 'false');
       header.setAttribute('data-disclosure-ready', 'true');
       content.setAttribute('role', 'region');
       content.setAttribute('aria-labelledby', headerId);
-
       var isNativeButton = String(header.tagName).toLowerCase() === 'button';
       if (!isNativeButton) {
         header.setAttribute('role', 'button');
@@ -429,7 +436,6 @@
       } else if (!header.getAttribute('type')) {
         header.setAttribute('type', 'button');
       }
-
       header.addEventListener('click', function () { window.toggleSection(header); });
     });
   }
@@ -439,7 +445,6 @@
     var nodes = [];
     var node;
     while ((node = walker.nextNode())) nodes.push(node);
-
     nodes.forEach(function (textNode) {
       if (!/Research Insights?/.test(textNode.nodeValue)) return;
       textNode.nodeValue = textNode.nodeValue.replace(/Research Insights?/g, 'Key Insight');
@@ -472,27 +477,21 @@
 
   function initAnnotationExamples() {
     qsa('.annotation-item[aria-pressed]').forEach(function (item) {
-      item.addEventListener('click', function () {
-        var pressed = item.getAttribute('aria-pressed') === 'true';
-        item.setAttribute('aria-pressed', pressed ? 'false' : 'true');
-        item.classList.toggle('active', !pressed);
-      });
+      if (item.getAttribute('data-annotation-ready') === 'true') return;
+      item.setAttribute('data-annotation-ready', 'true');
+      item.addEventListener('click', function () { window.toggleAnnotation(item); });
     });
   }
 
   function initPracticeProgress() {
     qsa('[data-progress-tracker]').forEach(function (tracker) {
       var key = 'scholarsCompass:' + tracker.getAttribute('data-progress-tracker') + ':practice';
-      var boxes = Array.prototype.slice.call(tracker.querySelectorAll('.progress-checkbox'));
+      var boxes = qsa('.progress-checkbox', tracker);
       var indicator = tracker.querySelector('#progressIndicator');
       var percentText = tracker.querySelector('#progressPercent');
       if (!boxes.length || !indicator || !percentText) return;
-
-      try {
-        var stored = JSON.parse(localStorage.getItem(key) || '[]');
-        boxes.forEach(function (box, index) { box.checked = stored.indexOf(index) !== -1; });
-      } catch (err) { /* Storage is optional; controls still work in-session. */ }
-
+      var stored = storageGet(key, []);
+      boxes.forEach(function (box, index) { box.checked = stored.indexOf(index) !== -1; });
       function update() {
         var completed = [];
         boxes.forEach(function (box, index) { if (box.checked) completed.push(index); });
@@ -503,12 +502,32 @@
         indicator.setAttribute('aria-valuenow', String(percent));
         indicator.setAttribute('role', 'progressbar');
         percentText.textContent = percent + '%';
-        try { localStorage.setItem(key, JSON.stringify(completed)); } catch (err) {}
+        storageSet(key, completed);
       }
-
       boxes.forEach(function (box) { box.addEventListener('change', update); });
       update();
     });
+  }
+
+  function loadInteractiveTools() {
+    if (document.querySelector('script[data-sc-interactive="1"]')) return;
+    var scripts = qsa('script[src*="app.js"]');
+    var appScript = scripts.length ? scripts[scripts.length - 1] : null;
+    var src;
+    try {
+      src = appScript && appScript.src
+        ? new URL('interactive-tools.js?v=1', appScript.src).href
+        : ((window.location.pathname.indexOf('/1010/') !== -1 || window.location.pathname.indexOf('/1020/') !== -1)
+          ? '../interactive-tools.js?v=1'
+          : 'interactive-tools.js?v=1');
+    } catch (err) {
+      src = '../interactive-tools.js?v=1';
+    }
+    var script = document.createElement('script');
+    script.src = src;
+    script.async = false;
+    script.setAttribute('data-sc-interactive', '1');
+    document.head.appendChild(script);
   }
 
   ready(function () {
@@ -525,6 +544,7 @@
     initSectionDisclosures();
     initAnnotationExamples();
     initPracticeProgress();
+    loadInteractiveTools();
   });
 
 })();
