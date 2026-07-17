@@ -46,13 +46,31 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Build isolated direct-renaming package
-        run: python tools/build_eng1010_release_candidate.py
+        run: |
+          set -o pipefail
+          python tools/build_eng1010_release_candidate.py 2>&1 | tee build.log
 
       - name: Run static regression tests
-        run: python tools/test_eng1010_release_candidate.py --static
+        run: |
+          set -o pipefail
+          python tools/test_eng1010_release_candidate.py --static 2>&1 | tee static-tests.log
 
       - name: Run browser regression tests
-        run: python tools/test_eng1010_release_candidate.py --browser
+        run: |
+          set -o pipefail
+          python tools/test_eng1010_release_candidate.py --browser 2>&1 | tee browser-tests.log
+
+      - name: Upload diagnostic package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eng1010-release-candidate-diagnostics
+          path: |
+            build.log
+            static-tests.log
+            browser-tests.log
+            release-candidate/
+          if-no-files-found: warn
 
       - name: Commit tested release candidate
         run: |
