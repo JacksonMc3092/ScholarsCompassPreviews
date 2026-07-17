@@ -1,5 +1,7 @@
 # Chapter 12 Revision 1: Source Types and Rhetorical Connections
 
+**Status: Approved for integration into the Chapter 12 substantive baseline on July 17, 2026.**
+
 ## Purpose of this revision
 
 This revision adds two pieces to the approved substantive draft of Chapter 12:
@@ -7,7 +9,7 @@ This revision adds two pieces to the approved substantive draft of Chapter 12:
 1. a clearer distinction among peer-reviewed academic sources, other scholarly sources, popular sources, and trade or professional sources;
 2. brief reminders that the rhetorical concepts of ethos, logos, and pathos can help students evaluate how a source establishes trust, presents evidence, and frames an issue emotionally.
 
-The material below is intended to be merged into `ENG1010-CHAPTER-12-SUBSTANTIVE-DRAFT.md` during the next chapter revision. It does not replace the existing draft or alter the placeholder HTML.
+The material below is approved for integration into `ENG1010-CHAPTER-12-SUBSTANTIVE-DRAFT.md` during the next chapter revision. It does not yet replace the existing draft or alter the placeholder HTML.
 
 ---
 
