@@ -8,10 +8,19 @@ on:
       - tools/build_eng1010_release_candidate.py
       - tools/test_eng1010_release_candidate.py
       - .github/workflows/build-eng1010-release-candidate.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - tools/build_eng1010_release_candidate.py
+      - tools/test_eng1010_release_candidate.py
+      - .github/workflows/build-eng1010-release-candidate.yml
+      - release-candidate/**
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   build-and-test:
