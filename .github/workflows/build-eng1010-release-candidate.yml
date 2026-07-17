@@ -60,14 +60,23 @@ jobs:
 
           test_file = Path('tools/test_eng1010_release_candidate.py')
           test_text = test_file.read_text(encoding='utf-8')
-          old_test = '            ch12.select_option("#routeNeed", "scholarship")\n'
-          new_test = (
+          old_wait = '            ch12.wait_for_timeout(700)\n'
+          new_wait = (
+              '            ch12.wait_for_timeout(700)\n'
+              '            ch12.evaluate("document.querySelectorAll(\\\'.section\\\').forEach(section => section.classList.add(\\\'active\\\'))")\n'
+          )
+          if old_wait not in test_text and new_wait not in test_text:
+              raise SystemExit('Expected Chapter 12 wait line was not found')
+          test_text = test_text.replace(old_wait, new_wait)
+
+          old_route = '            ch12.select_option("#routeNeed", "scholarship")\n'
+          new_route = (
               '            ch12.evaluate("document.querySelector(\\\'#routeNeed\\\').closest(\\\'.section\\\').classList.add(\\\'active\\\')")\n'
               '            ch12.select_option("#routeNeed", "scholarship")\n'
           )
-          if old_test not in test_text and new_test not in test_text:
+          if old_route not in test_text and new_route not in test_text:
               raise SystemExit('Expected Route Chooser test line was not found')
-          test_file.write_text(test_text.replace(old_test, new_test), encoding='utf-8')
+          test_file.write_text(test_text.replace(old_route, new_route), encoding='utf-8')
           PY
 
       - name: Build isolated direct-renaming package
