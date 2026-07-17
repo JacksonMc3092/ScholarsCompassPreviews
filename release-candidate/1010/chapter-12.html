@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 12: Finding and Evaluating Sources - Scholar's Compass</title>
+  <meta name="description" content="Find credible, useful sources through databases, Google Scholar, and the open web. Includes SIFT, lateral reading, source types, MLA preparation, source triage, and a source log." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../styles.css?v=18-rc1" />
+  <link rel="stylesheet" href="chapter-12.css?v=2-rc1" />
+</head>
+<body data-page="chapter-12" data-course="1010">
+  <div class="progress-container-top">
+    <div class="progress-bar-top" id="scrollProgress"></div>
+  </div>
+
+  <nav class="navbar" aria-label="Primary navigation">
+    <div class="navbar-content">
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand" aria-label="Scholar's Compass ENG 1010 home">
+        <i class="fas fa-compass" aria-hidden="true"></i>Scholar's Compass
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <nav class="sidebar" id="sidebar" aria-label="Chapter navigation">
+    <div class="sidebar-header">
+      <h2><i class="fas fa-compass me-2" aria-hidden="true"></i>Chapters</h2>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="fas fa-times" aria-hidden="true"></i></button>
+    </div>
+    <div class="sidebar-content">
+      <div class="sidebar-section" id="sidebarChapters">
+        <h3>Chapters</h3>
+        <div id="chaptersList"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="quick-nav" id="quickNav" aria-label="Chapter sections">
+    <a href="#section1" title="Research Route" data-section="section1"><span>Route</span><i class="fas fa-route" aria-hidden="true"></i></a>
+    <a href="#section2" title="Search Lanes" data-section="section2"><span>Lanes</span><i class="fas fa-road" aria-hidden="true"></i></a>
+    <a href="#section4" title="SIFT" data-section="section4"><span>SIFT</span><i class="fas fa-filter" aria-hidden="true"></i></a>
+    <a href="#section6" title="Evaluate" data-section="section6"><span>Evaluate</span><i class="fas fa-scale-balanced" aria-hidden="true"></i></a>
+    <a href="#section7" title="Source Types" data-section="section7"><span>Types</span><i class="fas fa-layer-group" aria-hidden="true"></i></a>
+    <a href="#section8" title="Source Log" data-section="section8"><span>Log</span><i class="fas fa-clipboard-list" aria-hidden="true"></i></a>
+    <a href="#section9" title="MLA" data-section="section9"><span>MLA</span><i class="fas fa-quote-right" aria-hidden="true"></i></a>
+    <a href="#section12" title="Checkpoint" data-section="section12"><span>Check</span><i class="fas fa-list-check" aria-hidden="true"></i></a>
+  </div>
+
+  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+  <main class="container" id="main-content" tabindex="-1">
+    <header class="header">
+      <h1><i class="fas fa-search" aria-hidden="true"></i> Chapter 12: Finding and Evaluating Sources</h1>
+      <p class="subtitle">From Search Results to Useful Evidence</p>
+      <div style="margin-top: 20px;">
+        <button class="btn" onclick="window.print()"><i class="fas fa-file-pdf" aria-hidden="true"></i> Save as PDF</button>
+        <a class="btn" href="../index.html" aria-label="Back to course hub"><i class="fas fa-home" aria-hidden="true"></i> Course Hub</a>
+      </div>
+    </header>
+
+    <div class="stats-bar" aria-label="Chapter themes">
+      <div class="stat"><span class="stat-label">Search Strategically</span></div>
+      <div class="stat"><span class="stat-label">Evaluate Rhetorically</span></div>
+      <div class="stat"><span class="stat-label">Give Sources Jobs</span></div>
+    </div>
+
+    <noscript>
+      <div class="ch12-noscript">All chapter content remains available without JavaScript. The keyword builder, route chooser, source triage feedback, and browser-saved source log require JavaScript, but the instructions and examples remain visible.</div>
+    </noscript>
+
+    <section class="section active" id="section1">
+      <button class="section-header" id="section1-toggle" type="button" aria-expanded="true" aria-controls="section1-content">
+        <span><i class="fas fa-route" aria-hidden="true"></i> I. Research Is a Route, Not a Single Search Box</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section1-content" role="region" aria-labelledby="section1-toggle">
+        <p class="ch12-lead">Research can begin with a deceptively simple moment: you open a search box, type your entire essay question, and receive thousands or millions of results. Somewhere in that avalanche may be exactly what you need. There may also be advertisements, repeated summaries of the same claim, outdated material, sources written for a different audience, and pages that look polished while saying very little.</p>
+        <p>The challenge is not merely finding information. The challenge is making good decisions about where to search, what to trust, what to keep, and what each source will actually do in your paper.</p>
+        <p>A research paper does not become strong because it contains a large pile of sources. It becomes strong when the writer chooses sources deliberately, understands them accurately, and gives each one a clear job.</p>
+
+        <div class="highlight-box">
+          <p><strong>Key Insight:</strong> A source belongs in the paper because it has a job, not because it was difficult to find.</p>
+        </div>
+
+        <div class="tools-note">
+          <p><strong>By the end of this chapter, you should be able to:</strong></p>
+          <ul>
+            <li>turn a broad topic into a focused research question and useful search terms;</li>
+            <li>choose among library databases, Google Scholar, and the open web;</li>
+            <li>revise a search when the first results are weak, overwhelming, or repetitive;</li>
+            <li>use SIFT and lateral reading to investigate online information;</li>
+            <li>distinguish a source’s credibility from its usefulness;</li>
+            <li>distinguish peer-reviewed academic, other scholarly, popular, trade or professional, government, advocacy, primary, and reference sources;</li>
+            <li>match each source type to an appropriate research job;</li>
+            <li>keep a source log that records citation information and a plan for using the source;</li>
+            <li>save the information needed for accurate MLA citations while you research.</li>
+          </ul>
+        </div>
+
+        <h3>Topic, Question, and Keywords</h3>
+        <p>A broad topic names the territory. A research question gives you a direction through that territory. Keywords create the routes you can try.</p>
+        <p>Suppose your topic is <strong>social media and college students</strong>. That topic is real, but it is too large to guide a focused search. Social media could involve attention, sleep, friendship, political information, advertising, identity, privacy, body image, career networking, or dozens of other issues.</p>
+        <p>A stronger research question might be:</p>
+        <div class="example-box">
+          <p><strong>Focused research question:</strong> How does late-night use of short-form video platforms affect the sleep routines and academic habits of first-year college students?</p>
+        </div>
+        <p>That question identifies a behavior, a platform type, possible effects, and a population. Instead of pasting the entire question into every search box, break it into concepts and build a keyword map.</p>
+
+        <div class="table-container" tabindex="0" aria-label="Topic-to-keyword example table">
+          <table class="ch12-compare">
+            <thead><tr><th>Main concept</th><th>Related terms and alternatives</th></tr></thead>
+            <tbody>
+              <tr><td>short-form video</td><td>TikTok, Instagram Reels, YouTube Shorts, algorithmic video feed</td></tr>
+              <tr><td>late-night use</td><td>bedtime use, nighttime screen use, evening media use, screen time before sleep</td></tr>
+              <tr><td>sleep</td><td>sleep quality, sleep duration, bedtime delay, insomnia, circadian rhythm</td></tr>
+              <tr><td>academic habits</td><td>study habits, attention, class attendance, academic performance, procrastination</td></tr>
+              <tr><td>first-year college students</td><td>freshmen, first-year undergraduates, college students, emerging adults</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>A first search might combine only two or three concepts:</p>
+        <ul>
+          <li><code>TikTok AND sleep quality AND college students</code></li>
+          <li><code>short-form video AND bedtime delay</code></li>
+          <li><code>nighttime screen use AND academic performance</code></li>
+          <li><code>social media AND sleep AND first-year students</code></li>
+        </ul>
+        <p>Different words open different doors. A promising article may introduce a term such as <strong>bedtime procrastination</strong>, which then becomes a useful search term. Research is partly the process of learning the language other people use to discuss your question.</p>
+
+        <div class="ch12-tool interactive-element" aria-labelledby="keywordBuilderHeading">
+          <h3 id="keywordBuilderHeading"><i class="fas fa-key" aria-hidden="true"></i> Keyword Builder</h3>
+          <p>Enter two or three main concepts and some alternatives. The tool will create starting search strings, not an argument or a final answer.</p>
+          <div class="ch12-form-grid">
+            <div class="ch12-concept-row">
+              <label for="concept1">Main concept 1</label>
+              <input id="concept1" class="ch12-main-concept" type="text" placeholder="short-form video" />
+              <label for="related1" style="margin-top: .6rem;">Related terms, separated by commas</label>
+              <input id="related1" class="ch12-related-terms" type="text" placeholder="TikTok, Instagram Reels, YouTube Shorts" />
+            </div>
+            <div class="ch12-concept-row">
+              <label for="concept2">Main concept 2</label>
+              <input id="concept2" class="ch12-main-concept" type="text" placeholder="sleep quality" />
+              <label for="related2" style="margin-top: .6rem;">Related terms, separated by commas</label>
+              <input id="related2" class="ch12-related-terms" type="text" placeholder="bedtime delay, insomnia, sleep duration" />
+            </div>
+            <div class="ch12-concept-row full-width">
+              <label for="concept3">Main concept 3, optional</label>
+              <input id="concept3" class="ch12-main-concept" type="text" placeholder="college students" />
+              <label for="related3" style="margin-top: .6rem;">Related terms, separated by commas</label>
+              <input id="related3" class="ch12-related-terms" type="text" placeholder="first-year students, undergraduates, emerging adults" />
+            </div>
+          </div>
+          <div class="ch12-actions"><button class="btn" type="button" id="buildKeywords">Build Search Strings</button></div>
+          <div class="ch12-output" id="keywordOutput"></div>
+        </div>
+
+        <div class="key-takeaway">
+          <h4><i class="fas fa-key" aria-hidden="true"></i> Key Takeaway</h4>
+          <p>Your first search is not a final exam. It is a scouting trip.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section2">
+      <button class="section-header" id="section2-toggle" type="button" aria-expanded="false" aria-controls="section2-content">
+        <span><i class="fas fa-road" aria-hidden="true"></i> II. The Three-Lane Search Method</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section2-content" role="region" aria-labelledby="section2-toggle">
+        <p>Strong research often moves among three search lanes: <strong>library databases</strong>, <strong>Google Scholar</strong>, and <strong>the open web</strong>. These lanes overlap, but they are not interchangeable. Each is built for different kinds of discovery.</p>
+
+        <div class="ch12-grid">
+          <article class="ch12-card">
+            <h4><i class="fas fa-building-columns" aria-hidden="true"></i> Lane 1: Library Databases</h4>
+            <p>Library databases collect and organize material that the college provides through subscriptions. Depending on the database, that material may include scholarly journal articles, newspapers, magazines, reference entries, reports, ebooks, statistics, primary documents, and professional publications.</p>
+            <p>The CT State Library provides multidisciplinary and subject-specific databases, research guides, citation support, and help from librarians. Database availability can change, so enter through the current CT State Library portal rather than relying on an old vendor bookmark.</p>
+            <p>Databases are especially useful for peer-reviewed scholarship, newspaper or magazine coverage behind paywalls, reliable background information, subject headings, filters, and stable citation records.</p>
+          </article>
+          <article class="ch12-card">
+            <h4><i class="fas fa-graduation-cap" aria-hidden="true"></i> Lane 2: Google Scholar</h4>
+            <p>Google Scholar searches academic material across publishers, repositories, court opinions, books, theses, conference papers, and other scholarly locations. It is useful for entering an academic conversation and following trails around a promising source.</p>
+            <p>It can help you search an exact title or author, limit by year, follow <strong>Cited by</strong>, use <strong>Related articles</strong>, check <strong>All versions</strong>, and locate accessible PDF or HTML copies.</p>
+            <p>Scholar normally sorts by relevance rather than date. A high citation count shows that other writers referred to a work, but it does not prove that the source is correct, current, suitable, or cited positively. Citation counts are clues, not crowns.</p>
+          </article>
+          <article class="ch12-card">
+            <h4><i class="fas fa-globe" aria-hidden="true"></i> Lane 3: The Open Web</h4>
+            <p>The open web may provide government data, current journalism, organizational reports, policies, laws, speeches, advertisements, social posts, videos, datasets, maps, images, and material too recent to have reached a scholarly journal.</p>
+            <p>The web is not automatically less credible than a database. A federal agency’s original dataset may be more authoritative for a statistic than an article summarizing it. A company advertisement may be the correct primary source when you are analyzing the company’s rhetoric.</p>
+            <p>The open web also demands more investigation because publication standards vary. A professional design, official-sounding name, or <code>.org</code> address does not prove reliability.</p>
+          </article>
+          <article class="ch12-card">
+            <h4><i class="fas fa-arrows-left-right" aria-hidden="true"></i> The Lanes Work Together</h4>
+            <p>A library article may provide vocabulary for a better web search. A government report may name an expert whose scholarship you locate through Google Scholar. A news article may summarize a study, leading you to trace the claim back to the original research.</p>
+            <p>Choose a search lane based on what you need, not on a rule that one lane is always superior.</p>
+          </article>
+        </div>
+
+        <div class="example-box">
+          <p><strong>Example:</strong> A student researching hostile architecture might begin in a multidisciplinary database with <code>hostile architecture AND public space</code>. A useful article may introduce related terms such as <strong>defensive design</strong>, <strong>exclusionary design</strong>, or <strong>anti-homeless design</strong>. Those terms can improve searches in all three lanes.</p>
+        </div>
+
+        <div class="table-container" tabindex="0" aria-label="Research route comparison">
+          <table class="ch12-compare">
+            <thead><tr><th>What you need</th><th>A strong place to begin</th></tr></thead>
+            <tbody>
+              <tr><td>scholarly research on a focused question</td><td>library database or Google Scholar</td></tr>
+              <tr><td>current reporting on a recent event</td><td>newspaper database or credible open-web journalism</td></tr>
+              <tr><td>a law, policy, public record, or government statistic</td><td>official government source</td></tr>
+              <tr><td>background and vocabulary for an unfamiliar topic</td><td>reference database, research guide, or strong overview</td></tr>
+              <tr><td>an advertisement, speech, social post, or company statement to analyze</td><td>original primary source on the open web</td></tr>
+              <tr><td>professional practice within a field</td><td>professional or trade publication</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ch12-tool interactive-element" aria-labelledby="routeChooserHeading">
+          <h3 id="routeChooserHeading"><i class="fas fa-signs-post" aria-hidden="true"></i> Three-Lane Route Chooser</h3>
+          <label for="routeNeed">What do you need right now?</label>
+          <select id="routeNeed">
+            <option value="">Choose a research need</option>
+            <option value="scholarship">Scholarly research on a focused question</option>
+            <option value="current">Current reporting on a recent event</option>
+            <option value="official">A law, policy, public record, or statistic</option>
+            <option value="primary">A primary text or artifact to analyze</option>
+            <option value="professional">Current practice within a profession</option>
+            <option value="background">Background and vocabulary</option>
+          </select>
+          <div class="ch12-actions"><button class="btn" id="chooseRoute" type="button">Choose a Starting Lane</button></div>
+          <div class="ch12-output ch12-route-result" id="routeOutput"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section3">
+      <button class="section-header" id="section3-toggle" type="button" aria-expanded="false" aria-controls="section3-content">
+        <span><i class="fas fa-magnifying-glass" aria-hidden="true"></i> III. Search Like a Writer, Not a Slot Machine</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section3-content" role="region" aria-labelledby="section3-toggle">
+        <p>A weak search process repeats the same vague query and hopes the next page of results will somehow improve. A stronger process treats each search as information about what to try next.</p>
+        <div class="tools-note">
+          <p><strong>A repeatable search cycle:</strong></p>
+          <ol>
+            <li><strong>Search with two or three meaningful terms.</strong> Begin broad enough to discover vocabulary but focused enough to avoid a result ocean.</li>
+            <li><strong>Scan before clicking.</strong> Read titles, dates, publication names, authors, abstracts, and result descriptions.</li>
+            <li><strong>Collect useful vocabulary.</strong> Notice recurring terms, names, theories, locations, laws, organizations, and subject headings.</li>
+            <li><strong>Revise the search.</strong> Add a narrower term, replace a weak term, try a synonym, remove a word, or change lanes.</li>
+            <li><strong>Record what worked.</strong> Save strong search strings in your source log.</li>
+          </ol>
+        </div>
+        <h3>Useful Search Moves</h3>
+        <ul>
+          <li><strong>Quotation marks</strong> search for an exact phrase: <code>"bedtime procrastination"</code>.</li>
+          <li><strong>AND</strong> requires both concepts in many databases: <code>college students AND sleep quality</code>.</li>
+          <li><strong>OR</strong> searches for alternatives: <code>TikTok OR "Instagram Reels" OR "YouTube Shorts"</code>.</li>
+          <li><strong>Date filters</strong> help when currency matters.</li>
+          <li><strong>Subject terms</strong> act like official database tags and often reveal the vocabulary of a field.</li>
+          <li><strong>References</strong> lead backward, <strong>Cited by</strong> leads forward, and <strong>Related articles</strong> moves sideways.</li>
+        </ul>
+        <h3>When Results Are Too Broad</h3>
+        <p>Add a population, place, time period, platform, discipline, or specific effect. Replace <code>social media effects</code> with something such as <code>short-form video AND sleep quality AND college students</code>.</p>
+        <h3>When Results Are Too Narrow</h3>
+        <p>Remove one concept, use a broader term, try a synonym, or search the references of the one useful source you found. Replace <code>first-semester community college students TikTok bedtime procrastination Connecticut</code> with <code>college students social media bedtime procrastination</code>.</p>
+        <h3>When Sources Repeat One Another</h3>
+        <p>Search for limitations, criticism, a different population, an alternative explanation, a historical comparison, a primary source, a systematic review, a counterargument, or the original dataset or study.</p>
+        <div class="key-takeaway"><h4><i class="fas fa-key" aria-hidden="true"></i> Key Takeaway</h4><p>Research should deepen the conversation, not build a hall of mirrors.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="section4">
+      <button class="section-header" id="section4-toggle" type="button" aria-expanded="false" aria-controls="section4-content">
+        <span><i class="fas fa-filter" aria-hidden="true"></i> IV. SIFT: Pause Before You Trust, Use, or Share</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section4-content" role="region" aria-labelledby="section4-toggle">
+        <p>SIFT is a practical method associated with digital-literacy educator Mike Caulfield. The letters name four moves: <strong>Stop</strong>, <strong>Investigate the source</strong>, <strong>Find better coverage</strong>, and <strong>Trace claims, quotations, and media to the original context</strong>.</p>
+        <div class="ch12-sift">
+          <details open>
+            <summary>S: Stop</summary>
+            <p>Before reading every word or sharing the page, pause. Ask whether you recognize the source, what claim is being made, what your research purpose is, and whether the claim makes you eager to believe or reject it. Stopping does not mean becoming suspicious of everything. It means refusing to let the page set the pace of your judgment.</p>
+          </details>
+          <details>
+            <summary>I: Investigate the Source</summary>
+            <p>Find out who is behind the information. Examine the author or organization, relevant expertise, publication context, ownership, editorial process, purpose, and institutional role. Do not rely only on the source’s own About page. An organization is unlikely to describe itself as a beautifully designed fog machine.</p>
+          </details>
+          <details>
+            <summary>F: Find Better Coverage</summary>
+            <p>Search for other credible reporting, research, or analysis of the same claim. Look for stronger, clearer, or more complete coverage; sources with closer access to the evidence; and limitations missing from the first version you encountered.</p>
+          </details>
+          <details>
+            <summary>T: Trace to the Original Context</summary>
+            <p>Trace a statistic to the dataset or report, a quotation to the full interview or speech, a scientific claim to the study, an image to its earlier use and caption, and a policy claim to the actual law or rule. The original source is not automatically perfect, but it shows what was actually measured, said, shown, or decided.</p>
+          </details>
+        </div>
+
+        <h3>SIFT Walkthrough: “Handwritten Notes Are Always Better”</h3>
+        <div class="example-box">
+          <p><strong>Claim:</strong> “A scientific study proves that students who take handwritten notes always learn more than students who use laptops.”</p>
+          <p><strong>Stop:</strong> The word <em>always</em> is unusually absolute. The post does not name the study, students, subject, or kind of learning.</p>
+          <p><strong>Investigate:</strong> The account sells notebooks and study planners. That does not automatically make the claim false, but it reveals a commercial purpose and no obvious research expertise.</p>
+          <p><strong>Find better coverage:</strong> Search for independent reporting, scholarly reviews, and later studies. Look for differences in task, population, distraction, accessibility, typing style, and review habits.</p>
+          <p><strong>Trace:</strong> Follow the post to the blog, the blog to the news summary, and the news summary to the original study. Read the abstract, methods, and limitations. Evidence from a particular task under particular conditions is not an eternal law for every learner and every class.</p>
+        </div>
+        <p>The SIFT process does not require you to “debunk” the claim. It helps you replace an inflated claim with a more accurate understanding.</p>
+        <div class="highlight-box"><p><strong>Key Insight:</strong> Tracing a claim often changes the question from “Is this true?” to “Exactly what does the evidence support?”</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="section5">
+      <button class="section-header" id="section5-toggle" type="button" aria-expanded="false" aria-controls="section5-content">
+        <span><i class="fas fa-up-right-from-square" aria-hidden="true"></i> V. Lateral Reading: Leave the Page to Understand the Page</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section5-content" role="region" aria-labelledby="section5-toggle">
+        <p>Close reading stays inside a text. You examine the writer’s words, evidence, organization, tone, and rhetorical choices. Lateral reading temporarily leaves the page. You open other tabs to investigate the author, publication, organization, evidence, and reputation from the outside.</p>
+        <p>Professional fact-checkers often resist spending too much time on an unfamiliar page before learning who is behind it. A beautifully organized article can consume twenty minutes before you discover that the “research institute” publishing it is a marketing project run by one person.</p>
+        <div class="tools-note">
+          <p><strong>A short lateral-reading routine:</strong></p>
+          <ol>
+            <li>Open a new tab.</li>
+            <li>Search the author’s name, organization, and publication.</li>
+            <li>Read independent descriptions, not only the source’s biography or About page.</li>
+            <li>Look for relevant expertise, ownership, funding, editorial standards, corrections, and past work.</li>
+            <li>Search the central claim separately.</li>
+            <li>Return to the original page with better context.</li>
+          </ol>
+        </div>
+        <h3>What About Bias?</h3>
+        <p>“Bias” is often treated as a trapdoor word: once someone spots a perspective, the source falls through the floor. That is too simple. Every source is created by someone, for some purpose, from some position.</p>
+        <p>Ask whether the purpose is transparent, the evidence fits the claim, sources and methods are visible, important context is omitted, fact and opinion are distinguished, and the source is appropriate for the job you need it to perform.</p>
+        <p>An advocacy organization’s page may be the best primary source for explaining that organization’s goals and language. It may be weaker for proving that all of its factual claims are correct. The source type and the research job must fit.</p>
+        <h3>Read the Result Page, Too</h3>
+        <p>Lateral reading begins before you click. Compare domains, titles, dates, and descriptions. This practice is sometimes called <strong>click restraint</strong>: pause long enough to choose a promising route instead of automatically entering the first result.</p>
+      </div>
+    </section>
+
+    <section class="section" id="section6">
+      <button class="section-header" id="section6-toggle" type="button" aria-expanded="false" aria-controls="section6-content">
+        <span><i class="fas fa-scale-balanced" aria-hidden="true"></i> VI. Credible Does Not Automatically Mean Useful</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section6-content" role="region" aria-labelledby="section6-toggle">
+        <p>Writers often collapse two different questions into one: <strong>Is this source credible?</strong> and <strong>Is this source useful for my paper?</strong> They are related, but they are not identical.</p>
+        <div class="ch12-grid">
+          <article class="ch12-card">
+            <h4>Credibility</h4>
+            <p>Credibility asks whether the source is trustworthy enough for the claim you intend to make.</p>
+            <ul>
+              <li>author or organizational expertise;</li>
+              <li>publication context;</li>
+              <li>quality and transparency of evidence;</li>
+              <li>date and currency;</li>
+              <li>accuracy and traceability;</li>
+              <li>purpose and possible conflicts of interest;</li>
+              <li>whether other reliable sources support, complicate, or challenge the claim.</li>
+            </ul>
+          </article>
+          <article class="ch12-card">
+            <h4>Usefulness</h4>
+            <p>Usefulness asks whether the source provides something your argument needs.</p>
+            <ul>
+              <li>a definition or historical background;</li>
+              <li>a statistic or concrete example;</li>
+              <li>a primary text for analysis;</li>
+              <li>a method or framework;</li>
+              <li>expert explanation;</li>
+              <li>a counterargument or limitation;</li>
+              <li>a different population or context;</li>
+              <li>evidence that complicates your first assumption.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="table-container" tabindex="0" aria-label="Credibility and usefulness grid">
+          <table class="ch12-compare">
+            <thead><tr><th></th><th>Useful for this paper</th><th>Not useful for this paper</th></tr></thead>
+            <tbody>
+              <tr><th>Credible</th><td>Keep and identify its job.</td><td>Set it aside, even though it is a good source.</td></tr>
+              <tr><th>Not yet credible enough</th><td>Investigate further or trace to stronger evidence.</td><td>Do not spend more time unless your purpose changes.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>A credible scholarly article about sleep patterns among retired adults may be excellent research but not useful for a paper focused on first-year college students. A current student newspaper story may not carry the authority of a peer-reviewed study, but it may provide a valuable campus example or lead to a policy document and interviews.</p>
+
+        <div class="ch12-job-test">
+          <strong>The one-sentence job test:</strong> I will use this source to ________________________________.
+        </div>
+        <p>Strong answers name a task: define bedtime procrastination, provide data on college-student sleep, explain how algorithmic feeds encourage continued viewing, offer a counterargument, analyze a platform’s own language, or provide a local example. Weak answers include “get a quote,” “prove my point,” “because it is scholarly,” or “because it was the first result.”</p>
+        <p>A source without a job becomes decorative luggage. It makes the paper heavier without helping it travel.</p>
+
+        <h3>A Rhetorical Reminder: Ethos, Logos, and Pathos</h3>
+        <p>The rhetorical appeals you encountered earlier can help you examine a source, though they should not become a three-box scoring system.</p>
+        <div class="ch12-grid">
+          <article class="ch12-card">
+            <h4>Ethos</h4>
+            <p>Ethos asks how the source establishes credibility. Consider expertise, experience, institutional role, fairness, transparency, and publication context. Relevant credentials, careful citation, acknowledgment of limitations, and a record of accurate reporting can strengthen ethos. A polished design, impressive title, or confident tone may create the appearance of ethos without providing much reason for trust.</p>
+          </article>
+          <article class="ch12-card">
+            <h4>Logos</h4>
+            <p>Logos asks how the source supports its claims. Look for evidence, examples, data, methods, definitions, reasoning, and connections between claims. A source can contain statistics and still use them poorly. Numbers are evidence only when readers can understand where they came from and what they mean.</p>
+          </article>
+          <article class="ch12-card">
+            <h4>Pathos</h4>
+            <p>Pathos asks how emotion shapes the audience’s response. Emotion is not automatically dishonest. A firsthand story may help readers understand the human stakes of an issue. The question is whether emotional language or imagery deepens the evidence or tries to replace it.</p>
+          </article>
+          <article class="ch12-card">
+            <h4>The Appeals Work Together</h4>
+            <p>A public-health report may build ethos through expert authorship, logos through transparent data, and pathos through stories showing why the findings matter. Your task is not to count appeals. Explain how the source earns trust, supports its claims, and directs attention.</p>
+          </article>
+        </div>
+        <div class="highlight-box"><p><strong>Key Insight:</strong> Rhetorical effectiveness and factual reliability overlap, but they are not identical. A source can sound highly persuasive and still require investigation.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="section7">
+      <button class="section-header" id="section7-toggle" type="button" aria-expanded="false" aria-controls="section7-content">
+        <span><i class="fas fa-layer-group" aria-hidden="true"></i> VII. Academic, Popular, and Professional Sources</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section7-content" role="region" aria-labelledby="section7-toggle">
+        <p>Source categories are not a ranking from “bad” to “good.” They tell you something about a source’s audience, purpose, writing style, review process, and likely uses. The same topic may appear in a peer-reviewed journal, a newspaper, a professional magazine, a government report, and an advocacy website. Those sources participate in different conversations and do different jobs.</p>
+
+        <h3>Academic and Scholarly Sources</h3>
+        <p><strong>Academic</strong> or <strong>scholarly sources</strong> are produced within colleges, universities, research institutions, or scholarly fields. They include peer-reviewed journal articles, academic books, book chapters, literature reviews, conference papers, dissertations, and some research reports.</p>
+        <p>They are usually written by scholars or researchers for readers who already have some knowledge of the field. Common features include specialized vocabulary, an abstract or formal introduction, engagement with previous research, a methods section when original research is involved, extensive citations, careful qualification, and publication through an academic journal, university press, scholarly society, or research institution.</p>
+
+        <h3>Peer-Reviewed Sources</h3>
+        <p>A <strong>peer-reviewed source</strong> is a particular kind of academic source. Before publication, specialists in the same or a closely related field evaluate the work. They may examine the research question, methods, evidence, reasoning, use of previous scholarship, and significance of the findings. The author may be asked to revise before acceptance.</p>
+        <p>Peer review is a form of scholarly quality control. It does not guarantee that a source is flawless, unbiased, current, or useful for your paper. Peer-reviewed studies can use limited samples, make mistakes, disagree, or later be challenged. Peer review tells you something important about how the source entered the academic conversation, not that the conversation has ended.</p>
+        <p>Scholarly and peer-reviewed are not perfect synonyms. An academic book from a university press may be scholarly without passing through the same journal process. A preprint may present serious research before formal review. A conference paper or dissertation may also be scholarly but require additional checking.</p>
+        <div class="highlight-box"><p><strong>Key Insight:</strong> “Peer-reviewed” describes a review process. It does not mean “automatically correct,” and it does not tell you whether the source fits your particular question.</p></div>
+
+        <h3>Popular Sources</h3>
+        <p><strong>Popular sources</strong> are written for a broad public audience. They include newspapers, general-interest magazines, news websites, podcasts, documentaries, and widely read online publications.</p>
+        <p>Popular sources often use accessible language, explain unfamiliar concepts, focus on current events or public consequences, use shorter articles and fewer formal citations, rely on journalists and editors, and use images, headlines, storytelling, and other features designed for public readers.</p>
+        <p>Popular does not mean unreliable. Strong journalism can provide timely reporting, local information, interviews, investigation, public response, and clear explanations of complex research. Distinguish reporting from editorials, opinion columns, sponsored content, press releases, and entertainment. Trace important research claims back to the original study whenever possible.</p>
+
+        <h3>Trade or Professional Sources</h3>
+        <p><strong>Trade</strong> or <strong>professional sources</strong> are written for people who work in a particular occupation, industry, or professional field. Examples include publications for nurses, teachers, attorneys, engineers, architects, marketers, librarians, criminal-justice professionals, or hospitality managers.</p>
+        <p>These sources often assume knowledge of the profession, use field-specific vocabulary, discuss current practices and regulations, emphasize application, include case studies or industry data, and carry advertising connected to the profession. They can be excellent for understanding how people in a field describe their work and apply new policies or technologies. They may be less useful for proving a broad causal claim unless their evidence and methods are clear.</p>
+
+        <div class="table-container" tabindex="0" aria-label="Comparison of source types">
+          <table class="ch12-compare">
+            <thead>
+              <tr><th>Feature</th><th>Peer-reviewed academic</th><th>Other scholarly or academic</th><th>Popular</th><th>Trade or professional</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>Primary audience</th><td>researchers and specialists</td><td>scholars, students, and specialists</td><td>general public</td><td>practitioners in a field</td></tr>
+              <tr><th>Typical author</th><td>researcher or scholar</td><td>scholar, academic expert, or research institution</td><td>journalist, editor, expert contributor, or public writer</td><td>practitioner, industry expert, editor, or professional organization</td></tr>
+              <tr><th>Review process</th><td>evaluated by disciplinary peers before publication</td><td>varies by format and publisher</td><td>editorial review, fact-checking, or platform-specific review</td><td>professional or editorial review; sometimes sponsored or industry supported</td></tr>
+              <tr><th>Evidence style</th><td>methods, data, citations, literature review</td><td>citations, scholarly analysis, archival or theoretical evidence</td><td>interviews, links, public documents, observation, summarized research</td><td>case studies, workplace data, regulations, professional experience, industry reports</td></tr>
+              <tr><th>Language</th><td>specialized and formal</td><td>often specialized and formal</td><td>accessible to broad readers</td><td>field-specific and practical</td></tr>
+              <tr><th>Strongest uses</th><td>original research, methods, disciplinary findings</td><td>theory, history, detailed analysis, scholarly context</td><td>current events, interviews, local examples, accessible explanation</td><td>current practice, professional trends, applied examples, industry language</td></tr>
+              <tr><th>Questions to ask</th><td>Is the study current, well designed, and relevant to my population and claim?</td><td>What scholarly process or publisher supports it, and how does it fit the field?</td><td>Is this reporting, opinion, sponsored content, or summary? Can I trace major claims?</td><td>Who supports the publication? Is the evidence independent, transparent, and appropriate?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>How the Rhetorical Appeals Appear Across Source Types</h3>
+        <ul>
+          <li>A peer-reviewed article may build <strong>ethos</strong> through disciplinary expertise and review. Its <strong>logos</strong> may appear through methods, evidence, and qualified conclusions. Pathos is usually restrained, though the choice of problem can signal urgency or values.</li>
+          <li>A popular news feature may build <strong>ethos</strong> through a respected publication, named reporters, interviews, corrections, and links. It may use narrative and images for <strong>pathos</strong>, while its <strong>logos</strong> comes from documentation and explanation.</li>
+          <li>A professional publication may build <strong>ethos</strong> through practical experience. Its <strong>logos</strong> may rely on case studies, regulations, performance data, or workplace examples. It may appeal to professional values such as efficiency, safety, service, or innovation.</li>
+        </ul>
+        <p>Do not assume that formal language equals strong ethos or that emotional language equals weak evidence. Examine what the source actually does.</p>
+
+        <h3>Other Source Categories</h3>
+        <div class="ch12-grid">
+          <article class="ch12-card"><h4>Government and Institutional</h4><p>Use laws, official policies, census or public-health data, institutional reports, and original public documents. Official sources show what an institution records or says; independent sources may still be needed to evaluate performance or interpretation.</p></article>
+          <article class="ch12-card"><h4>Advocacy</h4><p>Use advocacy sources to understand a group’s position, values, campaign language, proposed solutions, and claims requiring independent checking. Name the purpose and evaluate the evidence.</p></article>
+          <article class="ch12-card"><h4>Primary</h4><p>Primary sources are direct evidence from the person, event, organization, culture, or period being studied: speeches, interviews, advertisements, posts, policies, data, photographs, songs, and artifacts. Direct access does not guarantee an objective or complete account.</p></article>
+          <article class="ch12-card"><h4>Reference and Background</h4><p>Reference works, overviews, research guides, and encyclopedias help you learn vocabulary, names, dates, theories, and debates. They may guide research even when they do not appear in the final paper.</p></article>
+        </div>
+        <div class="key-takeaway"><h4><i class="fas fa-key" aria-hidden="true"></i> Key Takeaway</h4><p>Source type shapes the kind of ethos, evidence, language, and audience a source is likely to use. Identify the type, then decide whether it fits the job your argument needs completed.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="section8">
+      <button class="section-header" id="section8-toggle" type="button" aria-expanded="false" aria-controls="section8-content">
+        <span><i class="fas fa-clipboard-list" aria-hidden="true"></i> VIII. Keep a Source Log: Save the Trail While It Is Still Warm</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section8-content" role="region" aria-labelledby="section8-toggle">
+        <p>A source log prevents the familiar research disaster in which you remember seeing the perfect statistic but cannot remember where it lived, who published it, or whether the quotation in your notes was copied exactly.</p>
+        <p>A useful source log records both <strong>what the source is</strong> and <strong>what you plan to do with it</strong>.</p>
+        <div class="tools-note">
+          <p><strong>Source-log fields:</strong></p>
+          <ul>
+            <li>author or organization;</li><li>title;</li><li>publication or container;</li><li>date;</li>
+            <li>stable URL, DOI, database permalink, or locator;</li>
+            <li>specific source type, such as peer-reviewed journal article, scholarly book chapter, popular news report, editorial, trade article, government dataset, advocacy brief, or primary source;</li>
+            <li>search lane and search terms;</li><li>one- or two-sentence summary;</li>
+            <li>important evidence and its page, paragraph, section, or timestamp;</li>
+            <li>credibility notes;</li><li><strong>How I’ll use this source</strong>;</li>
+            <li>questions, limitations, or claims to check;</li><li>draft MLA Works Cited entry.</li>
+          </ul>
+        </div>
+
+        <h3>Completed Example</h3>
+        <div class="example-box">
+          <p><strong>Author or organization:</strong> Michael A. Caulfield<br />
+          <strong>Title:</strong> “Four Moves”<br />
+          <strong>Publication or container:</strong> <em>Web Literacy for Student Fact-Checkers</em><br />
+          <strong>Date:</strong> 2017<br />
+          <strong>Locator:</strong> <a href="https://pressbooks.pub/webliteracy/chapter/four-strategies/" target="_blank" rel="noopener">Pressbooks chapter</a><br />
+          <strong>Source type:</strong> Open educational resource; digital-literacy instruction<br />
+          <strong>Search lane:</strong> Open web<br />
+          <strong>Search terms:</strong> <code>Mike Caulfield four moves lateral reading</code></p>
+          <p><strong>Summary:</strong> Caulfield presents practical online fact-checking moves: look for previous work, trace information upstream, read laterally, and circle back when a route fails. The page notes that the approach was later streamlined into SIFT.</p>
+          <p><strong>Credibility notes:</strong> Caulfield is the author of an openly licensed textbook on web literacy. The chapter directly explains the framework associated with his work, while Civic Online Reasoning materials independently emphasize similar lateral-reading practices.</p>
+          <p><strong>How I’ll use this source:</strong> Define lateral reading and explain why source evaluation sometimes requires leaving the original page.</p>
+          <p><strong>Question or limit:</strong> The 2017 chapter uses the earlier “four moves” wording, so the later SIFT terminology should also be represented accurately.</p>
+          <p><strong>Draft MLA entry:</strong> Caulfield, Michael A. “Four Moves.” <em>Web Literacy for Student Fact-Checkers</em>, 2017, Pressbooks, https://pressbooks.pub/webliteracy/chapter/four-strategies/. Accessed 16 July 2026.</p>
+        </div>
+        <p>The field <strong>How I’ll use this source</strong> is the engine of the log. Without it, the source log is a storage closet. With it, the log becomes an early outline.</p>
+        <h3>Keep Your Notes Honest</h3>
+        <p>Use labels that separate direct quotation, paraphrase, summary, your reaction or analysis, and a question to investigate. Quotation marks in research notes are not decorative. They tell your future self which words belong to someone else.</p>
+      </div>
+    </section>
+
+    <section class="section" id="section9">
+      <button class="section-header" id="section9-toggle" type="button" aria-expanded="false" aria-controls="section9-content">
+        <span><i class="fas fa-quote-right" aria-hidden="true"></i> IX. MLA Begins During Research, Not the Night Before Submission</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section9-content" role="region" aria-labelledby="section9-toggle">
+        <p>Citation problems usually begin long before the Works Cited page. They begin when a writer saves a quotation without a page number, copies a temporary database-session URL, forgets the author, or cannot tell whether the browser-tab title belongs to the article or the larger website.</p>
+        <p>Save citation details while the source is open. Depending on the source, record the author or organization, source title, container title, contributors, version, volume and issue, publisher, date, page range, DOI or stable URL, and access date when appropriate.</p>
+        <p>MLA builds Works Cited entries from <strong>core elements</strong>. A container is the larger whole that holds the source. An article may be contained in a journal; a page may be contained in a website.</p>
+
+        <div class="example-box">
+          <p><strong>Source:</strong> Michael A. Caulfield’s chapter “Four Moves” from <em>Web Literacy for Student Fact-Checkers</em>.</p>
+          <p><strong>Author:</strong> Michael A. Caulfield<br />
+          <strong>Title of source:</strong> “Four Moves”<br />
+          <strong>Title of container:</strong> <em>Web Literacy for Student Fact-Checkers</em><br />
+          <strong>Publication date:</strong> 2017<br />
+          <strong>Platform or publisher:</strong> Pressbooks<br />
+          <strong>URL:</strong> https://pressbooks.pub/webliteracy/chapter/four-strategies/<br />
+          <strong>Access date:</strong> 16 July 2026</p>
+          <p><strong>Draft MLA entry:</strong><br />Caulfield, Michael A. “Four Moves.” <em>Web Literacy for Student Fact-Checkers</em>, 2017, Pressbooks, https://pressbooks.pub/webliteracy/chapter/four-strategies/. Accessed 16 July 2026.</p>
+        </div>
+        <p>If your sentence names the author, you may not need a parenthetical author reference: <em>Caulfield describes lateral reading as investigating what other sources say about an unfamiliar publication.</em></p>
+        <p>If your sentence does not name the author, use the shortest information directing readers to the Works Cited entry: <em>Lateral reading asks researchers to investigate a publication through outside sources rather than relying entirely on the publication’s self-description (Caulfield).</em></p>
+        <p>When a source has stable page numbers and you quote or paraphrase a specific passage, include the page number. For an unpaginated webpage, do not invent one.</p>
+        <h3>Citation Generators Are Drafting Tools</h3>
+        <p>Database and Google Scholar citation buttons can save time, but treat the output as a draft. Check capitalization, italics, quotation marks, authors, dates, duplicate publisher information, URLs or DOIs, source and container titles, and whether the citation matches the version you actually used.</p>
+        <div class="key-takeaway"><h4><i class="fas fa-key" aria-hidden="true"></i> Key Takeaway</h4><p>A generator can arrange information. It cannot always understand the source correctly.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="section10">
+      <button class="section-header" id="section10-toggle" type="button" aria-expanded="false" aria-controls="section10-content">
+        <span><i class="fas fa-sort" aria-hidden="true"></i> X. Source Triage: Keep, Maybe, or Not for This Paper</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section10-content" role="region" aria-labelledby="section10-toggle">
+        <p>Source evaluation is rarely a simple contest between “good” and “bad.” A better triage system asks whether a source is credible enough, useful enough, and appropriate for the paper’s purpose.</p>
+        <ul>
+          <li><strong>Keep:</strong> credible enough and clearly useful;</li>
+          <li><strong>Maybe, investigate further:</strong> potentially useful, but the source or claim needs more checking;</li>
+          <li><strong>Not for this paper:</strong> irrelevant, redundant, too weak for the intended claim, or better replaced.</li>
+        </ul>
+        <div class="highlight-box"><p><strong>Practice research question:</strong> Should college instructors require handwritten notes, allow digital notes, or let students choose based on the task and their learning needs?</p></div>
+        <p>The source cards below are fictionalized for practice. Consider credibility, usefulness, source type, ethos, evidence or logos, emotional framing, and the specific job each source could perform.</p>
+
+        <div class="ch12-grid">
+          <article class="ch12-source-card" data-recommended="keep" data-reasoning="Keep, but define its job carefully. The study offers evidence under specific conditions, not a universal rule for every student, course, device, or accessibility need.">
+            <h4>Source A: Peer-Reviewed Laboratory Study</h4>
+            <p>A 2014 peer-reviewed psychology study compares students who took longhand notes with students who typed notes during controlled lectures. It reports differences in verbatim copying and performance on some conceptual questions. The sample consists mainly of students at selective four-year institutions.</p>
+            <fieldset><legend>Your decision</legend>
+              <label><input type="radio" name="sourceA" value="keep" /> Keep</label>
+              <label><input type="radio" name="sourceA" value="maybe" /> Maybe, investigate further</label>
+              <label><input type="radio" name="sourceA" value="not" /> Not for this paper</label>
+            </fieldset>
+            <div class="ch12-decision-feedback"></div>
+          </article>
+          <article class="ch12-source-card" data-recommended="keep" data-reasoning="Keep. A recent systematic review can place individual studies into a wider conversation and identify the conditions that affect learning.">
+            <h4>Source B: Recent Systematic Review</h4>
+            <p>A 2025 peer-reviewed review examines dozens of studies. It finds that outcomes vary according to distraction, strategy, subject matter, device use, review habits, and assessment type. The authors warn against treating the medium alone as the only cause.</p>
+            <fieldset><legend>Your decision</legend>
+              <label><input type="radio" name="sourceB" value="keep" /> Keep</label>
+              <label><input type="radio" name="sourceB" value="maybe" /> Maybe, investigate further</label>
+              <label><input type="radio" name="sourceB" value="not" /> Not for this paper</label>
+            </fieldset>
+            <div class="ch12-decision-feedback"></div>
+          </article>
+          <article class="ch12-source-card" data-recommended="not" data-reasoning="Not for proving that digital notes improve learning. It may still be useful as a primary source if the paper analyzes marketing rhetoric.">
+            <h4>Source C: Note-Taking App Company Blog</h4>
+            <p>A software company publishes “Ten Scientific Reasons Digital Notes Always Win.” The page has no named author, links to the product throughout, and refers to “research” without linking to studies.</p>
+            <fieldset><legend>Your decision</legend>
+              <label><input type="radio" name="sourceC" value="keep" /> Keep</label>
+              <label><input type="radio" name="sourceC" value="maybe" /> Maybe, investigate further</label>
+              <label><input type="radio" name="sourceC" value="not" /> Not for this paper</label>
+            </fieldset>
+            <div class="ch12-decision-feedback"></div>
+          </article>
+          <article class="ch12-source-card" data-recommended="keep" data-reasoning="Keep. This source provides essential official context about accessibility and the problems created by a universal ban. Its job differs from a learning-science study.">
+            <h4>Source D: College Disability-Services Guidance</h4>
+            <p>A college accessibility office explains that some students use laptops, tablets, recording tools, speech-to-text software, or structured digital notes as approved accommodations. It explains procedures without claiming one method produces better learning for all students.</p>
+            <fieldset><legend>Your decision</legend>
+              <label><input type="radio" name="sourceD" value="keep" /> Keep</label>
+              <label><input type="radio" name="sourceD" value="maybe" /> Maybe, investigate further</label>
+              <label><input type="radio" name="sourceD" value="not" /> Not for this paper</label>
+            </fieldset>
+            <div class="ch12-decision-feedback"></div>
+          </article>
+          <article class="ch12-source-card" data-recommended="maybe" data-reasoning="Maybe. The survey can show preference at one campus, but it cannot prove which method leads to better learning. Keep it only when preference or campus practice matters.">
+            <h4>Source E: Student Newspaper Survey</h4>
+            <p>A campus newspaper surveys 250 students about their preferred note-taking method. Most say they prefer digital notes, but the survey does not measure learning, grades, or retention.</p>
+            <fieldset><legend>Your decision</legend>
+              <label><input type="radio" name="sourceE" value="keep" /> Keep</label>
+              <label><input type="radio" name="sourceE" value="maybe" /> Maybe, investigate further</label>
+              <label><input type="radio" name="sourceE" value="not" /> Not for this paper</label>
+            </fieldset>
+            <div class="ch12-decision-feedback"></div>
+          </article>
+        </div>
+        <div class="ch12-actions"><button class="btn" id="checkTriage" type="button">Compare My Decisions</button></div>
+        <div class="ch12-status" id="triageSummary"></div>
+        <p>These sources do not compete for one trophy. They answer different questions: what happens in a controlled study, what the wider research suggests, how a company markets a product, what accessibility needs a policy must consider, and what students say they prefer. A strong paper may use several source types because the argument contains several kinds of claims.</p>
+      </div>
+    </section>
+
+    <section class="section" id="section11">
+      <button class="section-header" id="section11-toggle" type="button" aria-expanded="false" aria-controls="section11-content">
+        <span><i class="fas fa-pen-to-square" aria-hidden="true"></i> XI. Build One Real Source-Log Entry</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section11-content" role="region" aria-labelledby="section11-toggle">
+        <p>Choose one source for your current assignment. Do not wait until you have ten sources. Complete one careful entry now.</p>
+        <ol>
+          <li><strong>Identify the source.</strong> Record author or organization, title, publication, date, specific source type, and stable link.</li>
+          <li><strong>Summarize before quoting.</strong> Explain the source’s central purpose or finding in one or two sentences. A source you cannot summarize is not ready to enter your draft.</li>
+          <li><strong>Investigate credibility.</strong> Note authorship, publication context, evidence, date, purpose, rhetorical appeals, and what independent sources say.</li>
+          <li><strong>Give the source a job.</strong> Complete “I will use this source to...” with a specific task.</li>
+          <li><strong>Save the exact evidence.</strong> Record quotation, paraphrase, page, paragraph, section, table, figure, or timestamp immediately.</li>
+          <li><strong>Draft the MLA entry.</strong> Compare it with a reliable model. Do not leave an unlabeled URL squatting in your notes like a raccoon in the attic.</li>
+        </ol>
+
+        <div class="ch12-tool interactive-element" aria-labelledby="sourceLogHeading">
+          <h3 id="sourceLogHeading"><i class="fas fa-floppy-disk" aria-hidden="true"></i> Source Log</h3>
+          <p>This tool saves one entry in this browser. Copy the entry into your course notes or research document so it is not trapped on one device.</p>
+          <div class="ch12-form-grid">
+            <div><label for="logAuthor">Author or organization</label><input id="logAuthor" data-source-log="author" type="text" /></div>
+            <div><label for="logTitle">Title</label><input id="logTitle" data-source-log="title" type="text" /></div>
+            <div><label for="logContainer">Publication or container</label><input id="logContainer" data-source-log="container" type="text" /></div>
+            <div><label for="logDate">Date</label><input id="logDate" data-source-log="date" type="text" /></div>
+            <div class="full-width"><label for="logLocator">Stable URL, DOI, database permalink, or locator</label><input id="logLocator" data-source-log="locator" type="text" /></div>
+            <div><label for="logType">Specific source type</label><input id="logType" data-source-log="type" type="text" placeholder="Peer-reviewed journal article" /></div>
+            <div><label for="logLane">Search lane</label><select id="logLane" data-source-log="lane"><option value=""></option><option>Library database</option><option>Google Scholar</option><option>Open web</option></select></div>
+            <div class="full-width"><label for="logTerms">Search terms that found it</label><input id="logTerms" data-source-log="terms" type="text" /></div>
+            <div class="full-width"><label for="logSummary">One- or two-sentence summary</label><textarea id="logSummary" data-source-log="summary" rows="4"></textarea></div>
+            <div class="full-width"><label for="logEvidence">Important evidence or passage</label><textarea id="logEvidence" data-source-log="evidence" rows="4"></textarea></div>
+            <div><label for="logLocation">Page, paragraph, section, or timestamp</label><input id="logLocation" data-source-log="location" type="text" /></div>
+            <div><label for="logCredibility">Credibility and rhetorical notes</label><textarea id="logCredibility" data-source-log="credibility" rows="4"></textarea></div>
+            <div class="full-width"><label for="logUse">How I’ll use this source</label><textarea id="logUse" data-source-log="use" rows="3"></textarea></div>
+            <div class="full-width"><label for="logLimits">Questions, limits, or claims to check</label><textarea id="logLimits" data-source-log="limits" rows="3"></textarea></div>
+            <div class="full-width"><label for="logMla">Draft MLA Works Cited entry</label><textarea id="logMla" data-source-log="mla" rows="4"></textarea></div>
+          </div>
+          <div class="ch12-actions">
+            <button class="btn" id="saveSourceLog" type="button">Save in This Browser</button>
+            <button class="btn" id="loadSourceLog" type="button">Load Saved Entry</button>
+            <button class="btn" id="copySourceLog" type="button">Copy Entry</button>
+            <button class="btn" id="clearSourceLog" type="button">Clear Entry</button>
+          </div>
+          <div class="ch12-status" id="sourceLogStatus"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section12">
+      <button class="section-header" id="section12-toggle" type="button" aria-expanded="false" aria-controls="section12-content">
+        <span><i class="fas fa-list-check" aria-hidden="true"></i> XII. Research Checkpoint</span>
+        <span class="section-icon"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      </button>
+      <div class="section-content" id="section12-content" role="region" aria-labelledby="section12-toggle">
+        <p>Before you begin drafting, check the following:</p>
+        <ul class="ch12-checklist">
+          <li>I have a focused research question rather than only a broad topic.</li>
+          <li>I can name the main concepts and alternative keywords in my question.</li>
+          <li>I searched in more than one lane when the question required different source types.</li>
+          <li>I revised my search terms instead of repeating one weak search.</li>
+          <li>I investigated unfamiliar sources outside their own pages.</li>
+          <li>I looked for better coverage of important claims.</li>
+          <li>I traced quotations, statistics, images, and research claims toward their original context.</li>
+          <li>I can explain the difference between credibility and usefulness.</li>
+          <li>I identified each source type and considered its ethos, logos, pathos, audience, and purpose.</li>
+          <li>I can complete “I will use this source to...” for every source I plan to cite.</li>
+          <li>My sources do not all repeat the same point.</li>
+          <li>I saved citation details, page numbers, stable links, and clear labels for quotations and paraphrases.</li>
+          <li>I know which questions remain unanswered and what I need to search for next.</li>
+        </ul>
+        <p>Research is not finished because you have reached a required number of sources. It is ready to become writing when your sources help you understand the question, make a responsible claim, and show your reader how the evidence fits together.</p>
+        <div class="key-takeaway"><h4><i class="fas fa-key" aria-hidden="true"></i> Final Key Insight</h4><p>Good research is not collecting information until the paper looks crowded. It is building a trustworthy route from a meaningful question to a supportable argument.</p></div>
+
+        <h3>Attribution and Works Consulted</h3>
+        <p>The SIFT and lateral-reading discussion is based on the work of Michael A. Caulfield and the Civic Online Reasoning curriculum developed by the Digital Inquiry Group. Caulfield’s <em>Web Literacy for Student Fact-Checkers</em> is licensed under Creative Commons Attribution 4.0.</p>
+        <p>The discussion of source categories and matching sources to information needs was informed by <em>Composition for Commodores: Reading, Writing, and Inquiry at Lorain County Community College</em>, 4th ed., licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0. This chapter uses original wording and organization while crediting that instructional framework.</p>
+        <ul class="ch12-works">
+          <li>Caulfield, Michael A. “Four Moves.” <em>Web Literacy for Student Fact-Checkers</em>, 2017, Pressbooks, <a href="https://pressbooks.pub/webliteracy/chapter/four-strategies/" target="_blank" rel="noopener">pressbooks.pub/webliteracy/chapter/four-strategies/</a>. Accessed 16 July 2026.</li>
+          <li>Connecticut State Community College Library. “CCS Research Basics.” <em>CT State Library</em>, <a href="https://library.ctstate.edu/AsnuntuckResearchBasics" target="_blank" rel="noopener">library.ctstate.edu/AsnuntuckResearchBasics</a>. Accessed 16 July 2026.</li>
+          <li>Digital Inquiry Group. “Civic Online Reasoning.” <em>Civic Online Reasoning</em>, <a href="https://cor.stanford.edu/" target="_blank" rel="noopener">cor.stanford.edu</a>. Accessed 16 July 2026.</li>
+          <li>Google. “Google Scholar Search Help.” <em>Google Scholar</em>, <a href="https://scholar.google.com/intl/us/scholar/help.html" target="_blank" rel="noopener">scholar.google.com/intl/us/scholar/help.html</a>. Accessed 16 July 2026.</li>
+          <li>Modern Language Association. “In-Text Citations: An Overview.” <em>MLA Style Center</em>, <a href="https://style.mla.org/in-text-citations-overview/" target="_blank" rel="noopener">style.mla.org/in-text-citations-overview/</a>. Accessed 16 July 2026.</li>
+          <li>Modern Language Association. “Works Cited: A Quick Guide.” <em>MLA Style Center</em>, <a href="https://style.mla.org/works-cited/works-cited-a-quick-guide/" target="_blank" rel="noopener">style.mla.org/works-cited/works-cited-a-quick-guide/</a>. Accessed 16 July 2026.</li>
+          <li>“Popular, Professional, and Scholarly Sources.” <em>Composition for Commodores</em>, 4th ed., 2026, Pressbooks, <a href="https://pressbooks.pub/compositionforcommodores/chapter/21-5-popular-professional-and-scholarly-sources/" target="_blank" rel="noopener">pressbooks.pub/compositionforcommodores/chapter/21-5-popular-professional-and-scholarly-sources/</a>. Accessed 16 July 2026.</li>
+          <li>“Types of Sources.” <em>Composition for Commodores</em>, 4th ed., 2026, Pressbooks, <a href="https://pressbooks.pub/compositionforcommodores/chapter/21-2-types-of-sources/" target="_blank" rel="noopener">pressbooks.pub/compositionforcommodores/chapter/21-2-types-of-sources/</a>. Accessed 16 July 2026.</li>
+          <li>“Using Sources to Meet Your Needs.” <em>Composition for Commodores</em>, 4th ed., 2026, Pressbooks, <a href="https://pressbooks.pub/compositionforcommodores/chapter/21-8-using-sources-to-meet-your-needs/" target="_blank" rel="noopener">pressbooks.pub/compositionforcommodores/chapter/21-8-using-sources-to-meet-your-needs/</a>. Accessed 16 July 2026.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <h3>The Scholar's Compass</h3>
+      <p class="mb-0">Interactive educational content for developing strong academic writing skills</p>
+    </div>
+  </footer>
+
+  <script src="../app.js?v=21-rc1"></script>
+  <script src="chapter-12-tools.js?v=2-rc1"></script>
+</body>
+</html>

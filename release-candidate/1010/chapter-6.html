@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Values, Assumptions, and Ideology - Scholar's Compass</title>
+  <meta name="description" content="Learn how to analyze the values, assumptions, and worldview beneath advertisements, speeches, essays, social media posts, campus spaces, and other cultural texts." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../styles.css?v=18-rc1" />
+</head>
+
+<body data-page="chapter-6" data-course="1010">
+  <div class="progress-container-top">
+    <div class="progress-bar-top" id="scrollProgress"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-content">
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand" aria-label="Scholar's Compass home">
+        <i class="fas fa-compass"></i>Scholar's Compass
+      </a>
+    </div>
+  </nav>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2><i class="fas fa-compass me-2"></i>Chapters</h2>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-content">
+      <div class="sidebar-section" id="sidebarChapters">
+        <h3>Chapters</h3>
+        <div id="chaptersList"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="quick-nav" id="quickNav">
+    <a href="#section1" title="Introduction" data-section="section1"><span>Intro</span><i class="fas fa-layer-group"></i></a>
+    <a href="#section2" title="Values" data-section="section2"><span>Values</span><i class="fas fa-gem"></i></a>
+    <a href="#section3" title="Worldview" data-section="section3"><span>Worldview</span><i class="fas fa-map"></i></a>
+    <a href="#section4" title="Assumptions" data-section="section4"><span>Assume</span><i class="fas fa-question-circle"></i></a>
+    <a href="#section5" title="Ideology" data-section="section5"><span>Ideology</span><i class="fas fa-compass"></i></a>
+    <a href="#section6" title="Centering" data-section="section6"><span>Frame</span><i class="fas fa-eye"></i></a>
+    <a href="#section7" title="Analysis Practice" data-section="section7"><span>Practice</span><i class="fas fa-pencil-alt"></i></a>
+  </div>
+
+  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-layer-group"></i> Values, Assumptions, and Ideology</h1>
+      <p class="subtitle">Reading the worldview behind the message.</p>
+
+      <div style="margin-top: 20px;">
+        <button class="btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Save as PDF</button>
+        <a class="btn" href="../index.html" aria-label="Back to course hub"><i class="fas fa-home"></i> Course Hub</a>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-label">Values</span></div>
+      <div class="stat"><span class="stat-label">Assumptions</span></div>
+      <div class="stat"><span class="stat-label">Worldview</span></div>
+    </div>
+
+    <div class="section active" id="section1">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-layer-group"></i> I. Every message carries a picture of the world</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>Texts do more than deliver information. They also suggest what matters, what counts as normal, what should be admired, what should be feared, and what kind of life is worth wanting. A message may look simple on the surface: buy this snack, vote for this candidate, follow this trend, attend this event, obey this rule. Underneath that surface, though, the message often carries a picture of the world.</p>
+
+        <p>This chapter builds on <a href="chapter-5.html">Chapter 5: Understanding Rhetoric</a>. Once you can identify audience, purpose, ethos, pathos, logos, and rhetorical choices, you are ready for the next question: <strong>what way of seeing the world does this message invite the audience to accept?</strong></p>
+
+        <div class="tools-note">
+          <p><strong>The core move:</strong> Instead of stopping at “this message is persuasive,” ask what the message teaches its audience to value, assume, notice, ignore, admire, or desire.</p>
+        </div>
+
+        <p>This kind of analysis works with many kinds of texts: advertisements, speeches, essays, opinion pieces, social media posts, films, music videos, campus spaces, routines, public signs, policies, and even algorithms. Some texts shout their values. Others whisper them through images, music, setting, word choice, or who gets placed in the center of the frame.</p>
+
+        <div class="key-takeaway">
+          <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+          <p>Strong analysis does not only ask, “What is the message saying?” It also asks, “What does this message want the audience to believe about the world?”</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section2">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-gem"></i> II. What is a value?</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>A <strong>value</strong> is something a text presents as important, admirable, desirable, normal, or worth protecting. Values can be named directly, but they are often shown indirectly through examples, images, stories, music, tone, and repeated patterns.</p>
+
+        <div class="highlight-box">
+          <p><strong>Common values texts may promote:</strong> freedom, safety, family, tradition, progress, fairness, confidence, independence, belonging, success, authenticity, beauty, intelligence, efficiency, responsibility, toughness, care, loyalty, creativity, faith, ambition, discipline, comfort, rebellion, or community.</p>
+        </div>
+
+        <p>For example, an advertisement for a truck may appear to sell transportation, but it might also promote toughness, independence, hard work, rural identity, or self-reliance. A college poster may appear to advertise an advising deadline, but it might also promote responsibility, planning, professionalism, and the idea that successful students manage time carefully. A social media trend may appear playful, but it might also promote beauty standards, productivity, status, confidence, or the need to seem effortless while doing a great deal of invisible work.</p>
+
+        <p>Values are not automatically good or bad. The point is not to accuse every text of manipulation. The point is to notice how persuasion works at the level of meaning. A text becomes more persuasive when it connects its message to something the audience already cares about.</p>
+
+        <div class="example-box">
+          <strong>Surface description:</strong> The ad shows a family eating together after a busy day.<br><br>
+          <strong>Value analysis:</strong> The ad promotes family connection by presenting the product as part of a warm, shared routine rather than simply as food.
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section3">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-map"></i> III. From message to worldview</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>Many texts work on two levels. The first level is the <strong>surface message</strong>: what the text seems to be saying, selling, arguing, or showing. The second level is the <strong>worldview</strong>: the deeper picture of what is normal, successful, meaningful, desirable, or possible.</p>
+
+        <div class="tools-note">
+          <p><strong>Two-level reading:</strong></p>
+          <ul>
+            <li><strong>Surface message:</strong> What does the text directly say, sell, request, or show?</li>
+            <li><strong>Deeper worldview:</strong> What does the text suggest about what matters, what is normal, or what kind of life is worth wanting?</li>
+          </ul>
+        </div>
+
+        <p>A commercial may sell sneakers while promoting confidence and personal transformation. An editorial may argue for a policy while promoting a particular idea of responsibility or fairness. A political speech may focus on one issue while appealing to freedom, security, tradition, change, or national identity. A film scene may entertain while teaching viewers what courage, romance, success, rebellion, or belonging is supposed to look like.</p>
+
+        <p>The useful question is not “Is there a hidden trick?” The useful question is: <strong>What larger story does this message depend on?</strong> If an ad shows a person becoming more confident after using a product, the product is being connected to identity. If a campus space is designed around quiet study, individual desks, and signs about focus, the space suggests that learning is private, disciplined, and self-managed. If a music video repeatedly connects success with luxury objects, it presents a worldview in which achievement becomes visible through consumption.</p>
+
+        <div class="key-takeaway">
+          <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+          <p>Worldview analysis asks what bigger idea a text attaches to its surface message.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section4">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-question-circle"></i> IV. Assumptions: what does the text expect the audience to already believe?</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>An <strong>assumption</strong> is a belief a text does not stop to prove. A message often works because it expects the audience to already accept certain ideas. Assumptions are not always obvious because they usually sit underneath the argument like wiring inside a wall. The lights work, so we forget the wires are there.</p>
+
+        <p>For instance, a fitness ad may assume that viewers want to transform their bodies, that discipline is admirable, and that personal success can be measured through visible physical change. A college success poster may assume students want upward mobility, stable careers, and personal responsibility. A political speech may assume listeners already care about freedom, security, fairness, tradition, or change, depending on the audience being addressed.</p>
+
+        <div class="highlight-box">
+          <p><strong>Questions for finding assumptions:</strong></p>
+          <ul class="mb-0">
+            <li>What does this text assume the audience wants?</li>
+            <li>What does it assume the audience fears?</li>
+            <li>What does it treat as normal or obvious?</li>
+            <li>What does it treat as admirable or embarrassing?</li>
+            <li>What does it not explain because it expects the audience to agree?</li>
+          </ul>
+        </div>
+
+        <p>Assumptions matter because they shape the audience a text is really speaking to. If a message assumes that success means owning expensive things, it may connect with some audiences and alienate others. If a message assumes that good students always plan ahead, it may encourage responsibility, but it may also ignore students balancing work, caregiving, transportation problems, or other pressures. Good analysis can hold both ideas at once. Yes, a value may be useful. Also yes, the way a text promotes that value may leave something out. Writing is allowed to have more than one window.</p>
+      </div>
+    </div>
+
+    <div class="section" id="section5">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-compass"></i> V. Ideology: the pattern beneath the message</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p><strong>Ideology</strong> can sound like a heavy word, but the basic idea is manageable: ideology is a <strong>worldview built from values, beliefs, assumptions, and myths about how the world works or how the world should work</strong>. In this chapter, you can think of ideology as <strong>the worldview beneath the message</strong>.</p>
+
+        <p>Ideology matters because people, groups, institutions, and cultures often make decisions based on that worldview. An ideology can justify taking action, such as changing a rule, buying a product, supporting a policy, joining a movement, or treating a behavior as admirable. It can also justify not taking action, especially when a message presents the current situation as normal, natural, unavoidable, or not worth questioning.</p>
+
+        <p>Ideology does not mean “secret conspiracy.” It also does not mean “someone is lying.” Most of the time, ideology is ordinary. It shows up in repeated ideas about work, family, school, money, gender, success, citizenship, beauty, technology, freedom, safety, and belonging. It appears when a message makes one version of the world feel natural and another version feel strange, unrealistic, irresponsible, or invisible.</p>
+
+        <div class="tools-note">
+          <p><strong>Practical definition:</strong> Ideology is a worldview based on values, beliefs, assumptions, and myths about how the world works or should work. That worldview can shape what people decide to do, support, question, ignore, or leave unchanged.</p>
+        </div>
+
+        <p>Imagine a sports ad that shows an athlete training alone at sunrise. The surface message may be “buy these shoes.” The value may be discipline. The assumption may be that greatness comes from individual effort. The ideology may be a broader belief that success is mainly the result of personal toughness and sacrifice. That worldview points toward certain decisions: admire the individual who works harder, buy products connected to that discipline, and focus less on the coaches, communities, resources, or opportunities that also shape success. That reading does not mean the ad is evil. It means the ad connects a product to a larger belief system about effort, achievement, and identity.</p>
+
+        <div class="example-box">
+          <strong>Quick ladder:</strong><br>
+          <strong>Surface message:</strong> These shoes help athletes perform.<br>
+          <strong>Value:</strong> Discipline and confidence matter.<br>
+          <strong>Assumption:</strong> The audience admires people who push themselves.<br>
+          <strong>Ideology/worldview:</strong> Success belongs to individuals who work harder than everyone else.<br>
+          <strong>Decision or action implied:</strong> Work harder, admire self-discipline, and see achievement mainly as an individual responsibility.
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section6">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-eye"></i> VI. Who is centered? Who is missing?</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>Values and assumptions also show up through perspective. A text usually centers some people, experiences, places, and problems while pushing others to the background. This does not automatically make the text bad. Every message has limits. No text can show everything. But those limits are still part of the meaning.</p>
+
+        <p>Ask who gets to speak, who gets shown as important, whose experience seems normal, and whose perspective is absent, simplified, or left outside the frame. A college brochure might center young full-time students on a traditional campus while making adult learners, commuter students, multilingual students, caregivers, or working students less visible. A family-themed advertisement might present one version of family as natural while leaving out other family structures. A social media trend might center people with the time, money, body type, confidence, or technology needed to participate.</p>
+
+        <div class="highlight-box">
+          <p><strong>This is not a “gotcha” hunt.</strong> You are not trying to prove that every text has failed a moral purity test. You are noticing what the text makes visible and what it leaves outside the frame.</p>
+        </div>
+
+        <p>This question is especially useful when analyzing political speeches, public debates, campus policies, advertisements, and media representation. A speech might center taxpayers, workers, parents, students, immigrants, veterans, business owners, or “ordinary families,” depending on the values it wants to activate. Once you see who is centered, you can better understand what audience the message is trying to build.</p>
+
+        <div class="key-takeaway">
+          <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+          <p>To analyze perspective, ask what the text asks us to look at, what it asks us to look past, and why that framing matters.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section7">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fas fa-pencil-alt"></i> VII. Turning values into academic analysis</span>
+        <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+      </div>
+      <div class="section-content">
+        <p>The biggest challenge is moving from vague observation to analytical claim. “This ad is about family” is a start, but it does not yet explain how the message works or why the value matters. Academic analysis needs a claim, specific evidence, and an explanation of meaning.</p>
+
+        <div class="tools-note">
+          <p><strong>Sentence frames for analysis:</strong></p>
+          <ul class="mb-0">
+            <li>The text promotes the value of ___ by showing ___.</li>
+            <li>This moment suggests that the audience is expected to believe ___.</li>
+            <li>Rather than simply arguing/selling/showing ___, the text connects ___ to ___.</li>
+            <li>The text’s worldview depends on the idea that ___.</li>
+            <li>This ideology helps justify ___, while making ___ seem less necessary or less visible.</li>
+            <li>What is centered in this message is ___, while ___ receives less attention.</li>
+            <li>This assumption matters because ___.</li>
+            <li>The value being promoted is not stated directly, but it appears through ___.</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <strong>Mini model analysis:</strong><br>
+          A snack advertisement that shows grandparents, parents, and children cooking together does more than present the product as tasty. It promotes the value of family tradition by placing the snack inside a warm, multi-generational scene. The soft lighting, shared laughter, and kitchen setting suggest that the product belongs to moments of care and belonging. This creates the assumption that food is meaningful when it connects people across generations. The ad’s worldview depends on the idea that ordinary products can preserve family memory and turn daily routines into emotional rituals. At the same time, the ad centers one version of family life: a harmonious household with time, space, and resources to gather. That does not make the message false, but it does show how the ad connects a product to a larger ideal of home.
+        </div>
+
+        <div class="interactive-element">
+          <h3><i class="fas fa-magnifying-glass"></i> Practice: Find the Value, Find the Assumption</h3>
+          <p>Choose a message you have seen recently: an ad, social media post, public sign, movie scene, music video, campus email, opinion piece, or speech. Then answer:</p>
+          <ol>
+            <li>What is the surface message?</li>
+            <li>What value does it promote?</li>
+            <li>What assumption does it make about its audience?</li>
+            <li>Who or what is centered?</li>
+            <li>Who or what is missing or less visible?</li>
+            <li>What larger worldview does the message invite readers or viewers to accept?</li>
+          </ol>
+        </div>
+
+        <div class="highlight-box">
+          <p><strong>Bridge back to rhetoric:</strong> Values and ideology do not replace ethos, pathos, logos, audience, purpose, or context. They deepen those tools. Pathos often reveals what the audience is supposed to care about. Ethos often reveals what kind of authority the audience is expected to trust. Logos often reveals what counts as reasonable evidence inside a particular worldview.</p>
+        </div>
+
+        <div class="key-takeaway">
+          <h4><i class="fas fa-key"></i> Closing Thought</h4>
+          <p>When writers analyze values and ideology, they are not just saying whether they agree or disagree with a text. They are showing how the text asks an audience to see the world. Strong analysis helps readers notice what usually hides in plain sight.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container text-center">
+      <h3>The Scholar's Compass</h3>
+      <p class="mb-0">Interactive educational content for developing strong academic writing skills</p>
+    </div>
+  </div>
+
+  <script src="../app.js?v=21-rc1"></script>
+</body>
+</html>
