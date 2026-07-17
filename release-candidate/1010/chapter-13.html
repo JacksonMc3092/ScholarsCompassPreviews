@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Sources in Your Argument - Scholar's Compass</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="description" content="Weave sources into your writing with clarity: quote sandwich, synthesis moves, and keeping your voice in control.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css?v=18-rc1" /></head>
+<body data-course="1010" data-page="chapter-13">
+    <!-- Progress Bar at very top -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-compass"></i>Scholar's Compass
+            </a>
+        </div>
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-compass me-2"></i>Navigation</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3>Main</h3>
+                <a href="index.html" class="sidebar-link">
+                    <i class="fas fa-home"></i>Home
+                    <span class="reading-time">2 min</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-section" id="sidebarChapters">
+                <h3>Chapters</h3>
+                <div id="chaptersList"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="quick-nav" id="quickNav">
+        <a href="#section1" title="Quote Sandwich" data-section="section1"><span>Quote Sandwich</span><i class="fas fa-hamburger"></i></a>
+        <a href="#section2" title="Weaving Sources" data-section="section2"><span>Weaving Sources</span><i class="fas fa-layer-group"></i></a>
+        <a href="#section3" title="Synthesis Moves" data-section="section3"><span>Synthesis Moves</span><i class="fas fa-project-diagram"></i></a>
+        <a href="#section4" title="Practice" data-section="section4"><span>Practice</span><i class="fas fa-pencil-alt"></i></a>
+    </div>
+
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-link"></i> Using Sources in Your Argument</h1>
+            <p class="subtitle">Master the art of incorporating sources like a pro</p>
+            
+            <div style="margin-top: 20px;">
+                <button class="btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Save as PDF</button>
+                <a class="btn" href="../index.html" aria-label="Back to course hub"><i class="fas fa-home"></i> Course Hub</a>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Better Grades!</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Improve Fast!</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Find Your Voice!</span>
+            </div>
+        </div>
+
+        
+
+        <div class="section active" id="section1">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-hamburger"></i> I. The Quote Sandwich Method</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p>The quote sandwich method ensures your quotes are properly contextualized and analyzed, rather than dropped into your text without explanation.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Structure:</strong></p>
+                    <ol>
+                        <li><strong>Top Bun</strong> – Introduce with a signal phrase and context that prepares your reader.</li>
+                        <li><strong>Meat</strong> – Present the quote with its proper in-text citation.</li>
+                        <li><strong>Bottom Bun</strong> – Explain, analyze, and connect the quote to your argument.</li>
+                    </ol>
+                </div>
+                
+                <div class="example-box">
+                    <strong>Example:</strong><br>
+                    In her influential TED Talk, vulnerability researcher Brené Brown challenges conventional thinking by stating, "Vulnerability is the birthplace of innovation, creativity and change" (Brown). This powerful assertion reframes vulnerability not as a weakness to be avoided, but as a crucial strength that enables personal and professional growth in our increasingly complex world.
+                </div>
+
+                <div class="interactive-element">
+                    <h3><i class="fas fa-clipboard-list"></i> Build Your Own Sandwich</h3>
+                    <p>Practice creating a quote sandwich with this interactive builder:</p>
+                    
+                    <div class="sandwich-builder">
+                        <div class="sandwich-part">
+                            <label for="topBun">Top Bun (Introduction):</label>
+                            <textarea id="topBun" placeholder="Introduce your quote with a signal phrase and context..."></textarea>
+                        </div>
+                        
+                        <div class="sandwich-part">
+                            <label for="meat">Meat (Quote with Citation):</label>
+                            <textarea id="meat" placeholder="Paste your quote here with proper citation..."></textarea>
+                        </div>
+                        
+                        <div class="sandwich-part">
+                            <label for="bottomBun">Bottom Bun (Analysis):</label>
+                            <textarea id="bottomBun" placeholder="Explain how this quote supports your argument..."></textarea>
+                        </div>
+                        
+                        <button class="btn" onclick="generateSandwich()">Build My Sandwich</button>
+                        
+                        <div class="sandwich-output" id="sandwichOutput" style="display: none;">
+                            <h4>Your Quote Sandwich:</h4>
+                            <p id="sandwichResult"></p>
+                            <button class="btn" onclick="copySandwich()" style="margin-top: 10px;"><i class="fas fa-copy"></i> Copy to Clipboard</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-takeaway">
+                    <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+                    <p>Never let quotes speak for themselves. Every quote needs your introduction to provide context and your analysis to explain its significance to your argument.</p>
+                </div>
+
+                <a href="https://www.youtube.com/watch?v=5qvPqvkgFXY" target="_blank" class="video-link">
+                    <i class="fas fa-play-circle"></i> MLA In-Text Citation, Quotations, and Paraphrases
+                </a>
+            </div>
+        <div class="section" id="section2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-layer-group"></i> II. Weaving Multiple Sources</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p><strong>Goal:</strong> help your reader follow a conversation, not a stack of quotes.</p>
+                <div class="highlight-box">
+                    <p><strong>A simple weave pattern:</strong></p>
+                    <ol>
+                        <li><strong>Set up the point</strong> you want to make.</li>
+                        <li><strong>Bring in Source A</strong> (briefly).</li>
+                        <li><strong>Connect it</strong> to your claim in your own words.</li>
+                        <li><strong>Add Source B</strong> to deepen, complicate, or challenge Source A.</li>
+                        <li><strong>Explain the relationship</strong> between A and B (agreement, tension, cause/effect, example, exception).</li>
+                    </ol>
+                </div>
+                <div class="key-takeaway">
+                    <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+                    <p>Don't make sources do the talking for you. Your sentences should control the conversation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section3">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-project-diagram"></i> III. Synthesis Moves</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p><strong>Synthesis</strong> is when you show how ideas connect (or clash) across sources.</p>
+                <div class="tools-note">
+                    <p><strong>Useful sentence stems:</strong></p>
+                    <ul>
+                        <li><strong>Agreement:</strong> Both A and B suggest that...</li>
+                        <li><strong>Tension:</strong> While A argues ..., B complicates this by...</li>
+                        <li><strong>Extension:</strong> A focuses on ..., but B extends the discussion to...</li>
+                        <li><strong>Example:</strong> B illustrates A's claim when...</li>
+                        <li><strong>Exception:</strong> A is mostly true, except when...</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <p><strong>Rule of thumb:</strong> If your paragraph could survive with the sources removed (because your claim + reasoning still holds), you're doing it right. Sources should support, sharpen, or challenge your thinking—not replace it.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section4">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span><i class="fas fa-pencil-alt"></i> IV. Practice: Integration Plan</span>
+                <span class="section-icon"><i class="fas fa-chevron-right"></i></span>
+            </div>
+            <div class="section-content">
+                <p>Use this quick checklist before you paste a quote into your draft:</p>
+                <ul>
+                    <li>What is my <strong>point</strong> in this paragraph?</li>
+                    <li>What does this source <strong>add</strong> (evidence, definition, example, counterargument)?</li>
+                    <li>What will I <strong>say after</strong> the source to explain why it matters?</li>
+                    <li>How does this connect back to my <strong>thesis</strong>?</li>
+                </ul>
+                <div class="key-takeaway">
+                    <h4><i class="fas fa-key"></i> Key Takeaway</h4>
+                    <p>If you can't explain a quote in your own words, it's not ready to be in your paper yet.</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+        
+
+        
+
+        
+    </div>
+
+        <script src="../app.js?v=21-rc1"></script>
+
+
+
+</body></html>

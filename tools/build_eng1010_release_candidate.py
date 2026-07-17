@@ -231,7 +231,7 @@ def build_app_js() -> str:
     rows = []
     for number, title, icon, reading_time in FINAL_CHAPTERS:
         rows.append(
-            "    { href: 'chapter-{0}.html', icon: '{1}', title: '{0}. {2}', readingTime: '{3}' }".format(
+            "    {{ href: 'chapter-{0}.html', icon: '{1}', title: '{0}. {2}', readingTime: '{3}' }}".format(
                 number, icon, title.replace("'", "\\'"), reading_time
             )
         )
