@@ -15,10 +15,25 @@ on:
       - ENG1010-CHAPTER-5-RHETORIC-REVISION-DRAFT.md
       - ENG1010-CHAPTER-10-ANALYSIS-REVISION-DRAFT.md
       - ENG1010-CHAPTER-13-SYNTHESIS-REVISION-DRAFT.md
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/build-eng1010-revision-round-2.yml
+      - tools/bootstrap/eng1010-r2/**
+      - ENG1010-INTRODUCTION-WRITING-AS-CONVERSATION-DRAFT.md
+      - ENG1010-CHAPTER-1-ACTIVE-READING-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-2-ANNOTATION-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-3-SUMMARIZING-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-4-QUOTING-PARAPHRASING-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-5-RHETORIC-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-10-ANALYSIS-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-13-SYNTHESIS-REVISION-DRAFT.md
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   build-and-test:
