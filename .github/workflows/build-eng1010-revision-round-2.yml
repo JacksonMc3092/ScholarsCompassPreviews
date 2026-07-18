@@ -1,0 +1,99 @@
+name: Build ENG 1010 Revision Round 2
+
+on:
+  push:
+    branches:
+      - eng1010-revision-round-2
+    paths:
+      - .github/workflows/build-eng1010-revision-round-2.yml
+      - tools/bootstrap/eng1010-r2/**
+      - ENG1010-INTRODUCTION-WRITING-AS-CONVERSATION-DRAFT.md
+      - ENG1010-CHAPTER-1-ACTIVE-READING-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-2-ANNOTATION-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-3-SUMMARIZING-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-4-QUOTING-PARAPHRASING-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-5-RHETORIC-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-10-ANALYSIS-REVISION-DRAFT.md
+      - ENG1010-CHAPTER-13-SYNTHESIS-REVISION-DRAFT.md
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-test:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out revision branch
+        uses: actions/checkout@v4
+        with:
+          ref: eng1010-revision-round-2
+          fetch-depth: 0
+
+      - name: Materialize revision builder and tests
+        run: |
+          python - <<'PY'
+          import base64
+          import gzip
+          from pathlib import Path
+
+          root = Path('tools/bootstrap/eng1010-r2')
+          builder = ''.join(''.join((root / f'builder.part{i}').read_text().split()) for i in range(1, 5))
+          tests = ''.join(''.join((root / f'test.part{i}').read_text().split()) for i in range(1, 3))
+          Path('tools').mkdir(exist_ok=True)
+          Path('tools/build_eng1010_revision_round_2.py').write_bytes(gzip.decompress(base64.b64decode(builder)))
+          Path('tools/test_eng1010_revision_round_2.py').write_bytes(gzip.decompress(base64.b64decode(tests)))
+          PY
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build and browser-test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install beautifulsoup4 markdown playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Build isolated revision-round-2 package
+        run: |
+          set -o pipefail
+          python tools/build_eng1010_revision_round_2.py 2>&1 | tee revision-build.log
+
+      - name: Run static regression tests
+        run: |
+          set -o pipefail
+          python tools/test_eng1010_revision_round_2.py --static 2>&1 | tee revision-static-tests.log
+
+      - name: Run browser regression tests
+        run: |
+          set -o pipefail
+          python tools/test_eng1010_revision_round_2.py --browser 2>&1 | tee revision-browser-tests.log
+
+      - name: Upload diagnostic package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eng1010-revision-round-2-diagnostics
+          path: |
+            revision-build.log
+            revision-static-tests.log
+            revision-browser-tests.log
+            release-candidate-v2/
+          if-no-files-found: warn
+
+      - name: Commit tested revision package
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tools/build_eng1010_revision_round_2.py tools/test_eng1010_revision_round_2.py release-candidate-v2
+          if git diff --cached --quiet; then
+            echo "Revision-round-2 package is already current."
+          else
+            git commit -m "Build tested ENG 1010 revision-round-2 package"
+            git push origin HEAD:eng1010-revision-round-2
+          fi
