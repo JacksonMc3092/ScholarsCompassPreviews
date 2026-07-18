@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ENG 1010 Scholar's Compass</title>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles.css?v=19-rc2" rel="stylesheet"/><link data-sc-revision-round="2" href="../revision-round-2.css?v=1" rel="stylesheet"/></head>
+<body data-course="1010" data-page="index">
+<!-- Progress Bar at very top -->
+<div class="progress-container-top">
+<div class="progress-bar-top" id="scrollProgress"></div>
+</div>
+<!-- Navigation Bar (match chapter pages for consistent mobile behavior) -->
+<nav class="navbar">
+<div class="navbar-content">
+<button aria-label="Open navigation menu" class="hamburger-menu" id="hamburgerMenu">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+<a aria-label="Scholar's Compass home" class="navbar-brand" href="index.html">
+<i class="fas fa-compass"></i>Scholar's Compass
+            </a>
+</div>
+</nav>
+<!-- Sidebar Navigation -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<h2><i class="fas fa-compass me-2"></i>Chapters</h2>
+<button aria-label="Close navigation menu" class="sidebar-close" id="sidebarClose">
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="sidebar-content">
+<div class="sidebar-section" id="sidebarChapters">
+<h3>Chapters</h3>
+<div id="chaptersList"></div>
+</div>
+</div>
+</nav>
+<button aria-label="Toggle dark mode" class="dark-mode-toggle" id="darkModeToggle">
+<i class="fas fa-moon"></i>
+</button>
+<button aria-label="Back to top" class="back-to-top" id="backToTop">
+<i class="fas fa-arrow-up"></i>
+</button>
+<!-- Header Section -->
+<div class="hero-header text-center">
+<div class="main-title-container">
+<i aria-hidden="true" class="fas fa-compass compass-icon-large"></i>
+<h1 class="display-4 fw-bold">The Scholar's Compass</h1>
+</div>
+<p class="lead">Navigating Academic Writing</p>
+<p class="mt-3">Your interactive guide to mastering academic dialogue and argumentation</p>
+<div class="mt-4">
+<a class="btn btn-light btn-lg me-2" href="#chapters"><i class="fas fa-book-open me-2"></i>Explore Chapters</a>
+<a class="btn btn-outline-light btn-lg" href="#features"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+<a aria-label="Back to course hub" class="btn btn-outline-light btn-lg ms-2" href="../index.html"><i class="fas fa-home me-2"></i>Course Hub</a>
+</div>
+</div>
+<div class="container">
+<!-- Progress Tracking -->
+<div class="progress-card">
+<h3><i class="fas fa-tasks me-2" style="color: var(--secondary);"></i>Your Progress</h3>
+<div class="progress">
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-bar" id="overallProgress" role="progressbar"></div>
+</div>
+<div class="d-flex justify-content-between">
+<span id="progressText">0 of 14 chapters completed</span>
+<span class="reset-progress" id="resetProgress"><i class="fas fa-undo me-1"></i>Reset Progress</span>
+</div>
+</div>
+<!-- Introduction -->
+<div class="row mb-5">
+<div class="col-lg-8 mx-auto text-center">
+<h2 class="mb-4">Interactive Learning Experience</h2>
+<p class="lead">This guide helps students master academic writing skills through engaging, hands-on activities and interactive content designed to deepen understanding of critical writing concepts.</p>
+<div class="d-flex justify-content-center flex-wrap mt-4">
+<span class="badge bg-primary me-2 mb-2 p-2"><i class="fas fa-check-circle me-1"></i> Interactive Elements</span>
+<span class="badge bg-success me-2 mb-2 p-2"><i class="fas fa-tasks me-1"></i> Engaging Activities</span>
+<span class="badge bg-info mb-2 p-2"><i class="fas fa-dollar-sign me-1"></i> No Cost!</span>
+</div>
+</div>
+</div>
+<!-- Chapter Navigation Cards -->
+<section aria-labelledby="sc-intro-title" class="sc-intro-card">
+<div>
+<p class="sc-eyebrow">Begin here</p>
+<h2 id="sc-intro-title">Introduction: Writing as Conversation</h2>
+<p>See how reading, inquiry, evidence, analysis, and revision fit together in a composition course.</p>
+</div>
+<a class="btn" href="introduction.html">Open the Introduction</a>
+</section><h2 class="text-center mb-4" id="chapters">Chapter Navigation</h2>
+<p class="text-center mb-5">All chapters feature interactive elements and maintain consistent navigation</p>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+<div class="col">
+<a class="chapter-link" data-chapter="1" href="chapter-1.html">
+<div class="card guide-card">
+<div class="card-number">1</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-book-reader"></i></div>
+<h4 class="chapter-title">Active Reading Strategies</h4>
+<p class="card-text">Read with purpose, questions, and a plan for understanding.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="2" href="chapter-2.html">
+<div class="card guide-card">
+<div class="card-number">2</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-highlighter"></i></div>
+<h4 class="chapter-title">Annotating Your Way to Greatness</h4>
+<p class="card-text">Turn reading into visible thinking through focused notes and marks.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="3" href="chapter-3.html">
+<div class="card guide-card">
+<div class="card-number">3</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-clipboard-list"></i></div>
+<h4 class="chapter-title">Summarizing Your Way to Synthesis</h4>
+<p class="card-text">Represent a source accurately before responding or connecting it.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="4" href="chapter-4.html">
+<div class="card guide-card">
+<div class="card-number">4</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-quote-left"></i></div>
+<h4 class="chapter-title">Quoting, Paraphrasing, and Signal Phrases</h4>
+<p class="card-text">Choose, integrate, and cite source material in MLA style.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="5" href="chapter-5.html">
+<div class="card guide-card">
+<div class="card-number">5</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+<h4 class="chapter-title">Understanding Rhetoric: The Art of Persuasion</h4>
+<p class="card-text">Examine how strategic choices work for audiences in context.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="6" href="chapter-6.html">
+<div class="card guide-card">
+<div class="card-number">6</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-layer-group"></i></div>
+<h4 class="chapter-title">Values, Assumptions, and Ideology</h4>
+<p class="card-text">Read the worldview behind arguments, images, and everyday choices.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="7" href="chapter-7.html">
+<div class="card guide-card">
+<div class="card-number">7</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-pen-fancy"></i></div>
+<h4 class="chapter-title">Strategies for Getting Started</h4>
+<p class="card-text">Generate ideas and create a workable path into a draft.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="8" href="chapter-8.html">
+<div class="card guide-card">
+<div class="card-number">8</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-bullseye"></i></div>
+<h4 class="chapter-title">Crafting Powerful Thesis Statements</h4>
+<p class="card-text">Build a focused, arguable claim that guides the essay.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="9" href="chapter-9.html">
+<div class="card guide-card">
+<div class="card-number">9</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-align-left"></i></div>
+<h4 class="chapter-title">Designing Effective Paragraphs</h4>
+<p class="card-text">Shape paragraphs around clear purposes and visible reasoning.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="10" href="chapter-10.html">
+<div class="card guide-card">
+<div class="card-number">10</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+<h4 class="chapter-title">Analysis</h4>
+<p class="card-text">Move from observation to interpretation and significance.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="11" href="chapter-11.html">
+<div class="card guide-card">
+<div class="card-number">11</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-comments"></i></div>
+<h4 class="chapter-title">Argumentation: Joining the Academic Conversation</h4>
+<p class="card-text">Develop claims, reasons, evidence, and responsible responses.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="12" href="chapter-12.html">
+<div class="card guide-card">
+<div class="card-number">12</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-search"></i></div>
+<h4 class="chapter-title">Finding and Evaluating Sources</h4>
+<p class="card-text">Search strategically and judge sources for credibility and usefulness.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="13" href="chapter-13.html">
+<div class="card guide-card">
+<div class="card-number">13</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-diagram-project"></i></div>
+<h4 class="chapter-title">Synthesis: Putting Sources into Conversation</h4>
+<p class="card-text">Connect sources to develop a larger understanding or claim.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div><div class="col">
+<a class="chapter-link" data-chapter="14" href="chapter-14.html">
+<div class="card guide-card">
+<div class="card-number">14</div>
+<div class="card-body text-center p-4">
+<div class="card-icon"><i class="fas fa-pen-to-square"></i></div>
+<h4 class="chapter-title">Revision: From Draft to Final</h4>
+<p class="card-text">Revise globally before polishing the sentence-level details.</p>
+<span class="badge bg-success status-badge completed-badge" style="display: none;"><i class="fas fa-check completed-check"></i> Completed</span>
+<span class="badge progress-badge status-badge current-badge" style="display: none;">Current Focus</span>
+<span class="badge bg-secondary status-badge available-badge">Available</span>
+</div>
+</div>
+</a>
+</div></div>
+<!-- Interactive Features Section -->
+<div class="features-section" id="features">
+<div class="container">
+<h2 class="text-center mb-5">Interactive Features</h2>
+<div class="row">
+<div class="col-md-4 text-center mb-4 feature-item">
+<div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+<h4>Interactive Elements</h4>
+<p>Engaging components that respond to user actions</p>
+</div>
+<div class="col-md-4 text-center mb-4 feature-item">
+<div class="feature-icon"><i class="fas fa-tasks"></i></div>
+<h4>Engaging Activities</h4>
+<p>Hands-on exercises with immediate feedback</p>
+</div>
+<div class="col-md-4 text-center mb-4 feature-item">
+<div class="feature-icon"><i class="fas fa-dollar-sign"></i></div>
+<h4>No Cost!</h4>
+<p>Completely free educational resources</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="container text-center">
+<h3>The Scholar's Compass</h3>
+<p class="mb-4">Navigating Academic Writing</p>
+<p class="mt-4 mb-0">Interactive educational content for developing strong academic writing skills</p>
+</div>
+</div>
+<script src="../app.js?v=22-rc2"></script><script data-sc-revision-round="2" src="../revision-round-2.js?v=1"></script></body></html>
