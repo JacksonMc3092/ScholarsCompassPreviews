@@ -71,17 +71,19 @@ jobs:
           builder_text = builder_text.replace(old_copy, new_copy)
 
           old_clean = '    return text.rstrip() + "\\n"'
-          new_clean = '''    text = re.sub(
-              r'(?m)^(\\*\\*Video link:\\*\\*\\s*)(https://(?:www\\.)?youtube\\.com/watch\\?v=[A-Za-z0-9_-]+)\\s*$',
-              r'\\1<\\2>',
-              text,
+          new_clean = (
+              '    text = re.sub(\n'
+              '        r\'(?m)^(\\*\\*Video link:\\*\\*\\s*)(https://(?:www\\.)?youtube\\.com/watch\\?v=[A-Za-z0-9_-]+)\\s*$\',\n'
+              '        r\'\\1<\\2>\',\n'
+              '        text,\n'
+              '    )\n'
+              '    text = re.sub(\n'
+              '        r\'(?m)^(https://(?:www\\.)?youtube\\.com/watch\\?v=[A-Za-z0-9_-]+)\\s*$\',\n'
+              '        r\'<\\1>\',\n'
+              '        text,\n'
+              '    )\n'
+              '    return text.rstrip() + "\\n"'
           )
-              text = re.sub(
-              r'(?m)^(https://(?:www\\.)?youtube\\.com/watch\\?v=[A-Za-z0-9_-]+)\\s*$',
-              r'<\\1>',
-              text,
-          )
-              return text.rstrip() + "\\n"'''
           if old_clean not in builder_text and 'Video link:' not in builder_text:
               raise SystemExit('Expected draft-cleaning return line was not found')
           builder_text = builder_text.replace(old_clean, new_clean)
