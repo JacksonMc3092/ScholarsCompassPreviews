@@ -10,7 +10,7 @@ This guide is designed to help with that work. It is not a list of isolated rule
 
 ### By the end of this introduction, you should be able to:
 
-- explain why academic writing begins with careful reading and listening;
+- explain why academic writing begins with critical reading across written, spoken, visual, and digital texts;
 - understand writing as a form of inquiry rather than a record of finished thoughts;
 - recognize drafting and revision as parts of a recursive process;
 - see how the chapters in Scholar’s Compass work together;
@@ -32,22 +32,24 @@ Academic conventions still matter. Readers expect focused ideas, clear organizat
 
 ---
 
-## II. Writing Begins with Listening
+## II. Writing Begins with Critical Reading
 
-Academic writing often asks you to enter a conversation that began before you arrived. That conversation may involve assigned readings, research studies, public arguments, historical documents, images, spaces, or competing explanations of a problem.
+Academic writing often asks you to enter a conversation that began before you arrived. That conversation may involve assigned readings, research studies, public arguments, historical documents, images, spaces, videos, podcasts, or competing explanations of a problem.
 
-Before you can contribute, you need to understand what is already being said.
+Before you can contribute, you need to understand what is already being communicated.
 
-That is why reading comes first in this guide. Active reading and annotation help you notice not only what a text says, but also how it says it. Summary and paraphrase help you represent another writer fairly. Quotation allows you to preserve exact language when the wording itself matters. These practices are forms of intellectual listening.
+That is why critical reading comes first in this guide. In this course, **reading** means more than looking at printed words. You may critically read an essay, listen to a speech or podcast, watch a video, examine an image, or interpret a designed space. Across these forms, the task is similar: notice what is being communicated, how it is shaped, what assumptions it depends on, and what response it invites.
 
-Listening does not mean surrendering your judgment. It means giving an idea enough attention that your response addresses the idea itself rather than a distorted version of it.
+Active reading and annotation help you notice not only what a text says, but also how it says it. Summary and paraphrase help you represent another writer or speaker fairly. Quotation allows you to preserve exact language when the wording itself matters. These practices are forms of critical attention.
+
+Critical reading does not mean surrendering your judgment. It means giving an idea enough attention that your response addresses the idea itself rather than a distorted version of it.
 
 Consider the difference:
 
 **Quick reaction:**  
 *The author is wrong about online classes.*
 
-**Response after listening:**  
+**Response after critical reading:**  
 *The author presents isolation as an unavoidable feature of online education, but that conclusion depends on courses with limited instructor presence and few opportunities for student interaction.*
 
 The second response has an entry point. It identifies the author’s position, notices an assumption, and opens room for a more precise claim.
@@ -56,7 +58,7 @@ Academic writing may ask you to agree, disagree, qualify, apply, extend, or comp
 
 > **Key Insight:** Your voice becomes more meaningful when readers can see what you are responding to and why your response adds something to the conversation.
 
-The full Argumentation chapter later in this guide will show you how to develop nuanced positions, address counterarguments, and support a claim. For now, the important principle is simpler: strong writing begins by listening closely enough to know where your own thinking can enter.
+The full Argumentation chapter later in this guide will show you how to develop nuanced positions, address counterarguments, and support a claim. For now, the important principle is simpler: strong writing begins by reading critically enough to understand where your own thinking can enter.
 
 ---
 
@@ -142,9 +144,9 @@ The final chapter of this guide focuses on revision, but revision is not somethi
 
 The chapters in this guide follow a purposeful sequence, but they are not one-way doors. You will return to earlier strategies as assignments become more complex.
 
-### Listening and Representing Ideas
+### Reading and Representing Ideas
 
-**Chapter 1: Active Reading Strategies** helps you read with purpose, identify central ideas, and monitor your understanding.
+**Chapter 1: Active Reading Strategies** helps you read with purpose, identify central ideas, and monitor your understanding across written, spoken, visual, and digital texts.
 
 **Chapter 2: Annotating Your Way to Greatness** helps you record questions, reactions, connections, and useful evidence while you read.
 
@@ -180,7 +182,7 @@ The chapters in this guide follow a purposeful sequence, but they are not one-wa
 
 **Chapter 14: Revision: From Draft to Final** helps you reconsider the whole essay before polishing individual sentences.
 
-This order reflects a basic truth about writing: before you can make a strong contribution, you need to read, notice, question, test, explain, connect, and revise.
+This order reflects a basic truth about writing: before you can make a strong contribution, you need to read critically, notice, question, test, explain, connect, and revise.
 
 You may still move backward. A weak paragraph may send you back to the thesis. A new source may send you back to annotation. A revision may reveal that the research question needs to change. That movement is part of the work, not a detour from it.
 
@@ -207,7 +209,7 @@ Take a moment to consider:
 
 1. What part of writing usually feels most manageable to you?
 2. What part tends to slow you down or create frustration?
-3. When have you changed your mind because of something you read, observed, or discussed?
+3. When have you changed your mind because of something you read, observed, watched, heard, or discussed?
 4. Which habit above would make the greatest difference in your next writing project?
 
 You do not need complete answers yet. The course will give you repeated opportunities to develop them.
@@ -218,7 +220,7 @@ You do not need complete answers yet. The course will give you repeated opportun
 
 The first move in academic writing is often not drafting. It is paying attention.
 
-**Chapter 1: Active Reading Strategies** begins the guide by helping you read with a purpose, recognize how a text is built, and prepare to respond thoughtfully rather than react quickly.
+**Chapter 1: Active Reading Strategies** begins the guide by helping you read critically across different kinds of texts, recognize how meaning is built, and prepare to respond thoughtfully rather than react quickly.
 
 ---
 
