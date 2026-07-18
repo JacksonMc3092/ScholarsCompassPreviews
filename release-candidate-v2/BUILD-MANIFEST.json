@@ -1,0 +1,103 @@
+{
+  "built_at_utc": "2026-07-18T06:44:52.944749+00:00",
+  "source_area": "release-candidate/",
+  "output_area": "release-candidate-v2/",
+  "introduction": "Introduction: Writing as Conversation",
+  "approved_sequence": [
+    "Active Reading Strategies",
+    "Annotating Your Way to Greatness",
+    "Summarizing Your Way to Synthesis",
+    "Quoting, Paraphrasing, and Signal Phrases",
+    "Understanding Rhetoric: The Art of Persuasion",
+    "Values, Assumptions, and Ideology",
+    "Strategies for Getting Started",
+    "Crafting Powerful Thesis Statements",
+    "Designing Effective Paragraphs",
+    "Analysis",
+    "Argumentation: Joining the Academic Conversation",
+    "Finding and Evaluating Sources",
+    "Synthesis: Putting Sources into Conversation",
+    "Revision: From Draft to Final"
+  ],
+  "revised_chapters": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    10,
+    13
+  ],
+  "unchanged_substantive_chapters": [
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    14
+  ],
+  "storage_policy": "Existing content-tied keys remain; new revision tools use chapter-specific keys.",
+  "source_sha256": {
+    "release-candidate/1010/chapter-1.html": "bce571c7509c5501b319e7e609d9f93f3e55fae245f5b3fbffceb11e3ebbde00",
+    "release-candidate/1010/chapter-10.html": "ca9de27fe5b5413b039b2f8fe80a8a01a70fc9c2da6c647de1bd98a966697af7",
+    "release-candidate/1010/chapter-11.html": "9ae3a97ce47b1e055ae9b42637c7802dc69f98f61dd4c4cc19ab387b9068756b",
+    "release-candidate/1010/chapter-12-tools.js": "b552f321276add62297b294d3a1181f6bc78ea36241b7e00c5858ba1e80c73c3",
+    "release-candidate/1010/chapter-12.css": "c1dff966ca6b58ed92dab995c09e4a39a98688fe9402b7cebe436982cd42279a",
+    "release-candidate/1010/chapter-12.html": "a16a50295bfd6fe9414a52d174ff49622a5fc8668d5e0f49acd5b14a64a1b614",
+    "release-candidate/1010/chapter-13.html": "f7aa35639402bdbd26ecdcafa6262f56e6565c8c653539c64a845cd754da3160",
+    "release-candidate/1010/chapter-14.html": "f0fd456a1aba0ab9b5dfcadd8b2d7460d02c17d33392bbee6fbe65cd1c0832bc",
+    "release-candidate/1010/chapter-2.html": "232f167cbab61da236e872e259a9083e5c033ab9be419e36381adf8bdb19045e",
+    "release-candidate/1010/chapter-3.html": "b5be98f34f601652d856080b5f0320ee7916f15557cb8520517f3e7fb4cea6c6",
+    "release-candidate/1010/chapter-4.html": "209d2a0dbe1545dc951817a6111e97df575b721069fadfb9afcaff799ff9d62c",
+    "release-candidate/1010/chapter-5.html": "86ae6b2fb71bc1bbb5d4591c2a799855c95682ac8e40c2636ba38f1c8f933978",
+    "release-candidate/1010/chapter-6.html": "ecc85410874fd5ec714d8e493068e754b74660f013d0a24203ebb01989c79026",
+    "release-candidate/1010/chapter-7.html": "c5b43f5906e9e4847263fd1df0b3f1cfc9acfb64c80d17144255172750449c37",
+    "release-candidate/1010/chapter-8.html": "66599a796275c217e81f518b5ca7005f25f72b6f5211ea1c4e43b6daec87bf15",
+    "release-candidate/1010/chapter-9.html": "942fd1ead4c62d423854b64de801c6f9c254cc9e8a867cc4c9f070c455c45b46",
+    "release-candidate/1010/index.html": "bcdbf2a6e3213576b805369f5099d50d4e41f2c4f7c0161dc0d8020386943dc1",
+    "release-candidate/BUILD-MANIFEST.json": "f60307ac7c8789a53b9b988296bf2d16f7219849162ad431b826e774bca927a8",
+    "release-candidate/README.md": "30906ebd949a1758bf71a838075d89df783c40ff40e388c7bcccfee4a92e9577",
+    "release-candidate/TEST-RESULTS.md": "fcc6dbeb7ff40bd58556d02b7491b869167aa50055c9fb7708e18a090e3f1025",
+    "release-candidate/app.js": "9d7905453fdcba6cb21b1134f7fbb1dc2aefe75c1168da217de6e2c07f03f621",
+    "release-candidate/assets/revision-companion.pdf": "4ed66b5792973a004deec98316fa42ce5cbd15822e23d6e1adaa80ad93f72efa",
+    "release-candidate/assets/revision-companion.txt": "9430312e4a81e72f9c0d016ee851a84e28c00afffe906404ebe18273cd43d7e6",
+    "release-candidate/favicon.svg": "a66b7895bbb00c6fedecfd084e9fdf546c91914afa7778767bfbf075aaa353c3",
+    "release-candidate/index.html": "4bb20f93bc2023070c53d00ff53b1a2ab157ed7d74aa8140f97189a7bc068d34",
+    "release-candidate/interactive-tools.js": "965c8a0faab2854c6bdba5ea57f2d622c6565c32251be4380560ba43aa3df27b",
+    "release-candidate/stabilization-0.2.css": "cd7aac9b41eccb0666a6778cc40dd37ab155629eada0324bb72967bf5b02a6ee",
+    "release-candidate/styles.css": "e9d54f58249508a4ade37ee75df9eb83b91f3e4d058927bf4383c0001c3b34d2"
+  },
+  "audit": {
+    "missing_internal_destinations": [],
+    "obvious_apa_patterns": [
+      "chapter-3.html: Lee (2022)",
+      "chapter-4.html: Lee (2024)"
+    ],
+    "unembedded_youtube_links": [],
+    "duplicate_video_ids": {},
+    "video_ids_by_page": {
+      "introduction.html": [],
+      "chapter-1.html": [
+        "CFT83pPike4"
+      ],
+      "chapter-2.html": [
+        "gXRwTI7Dv3s"
+      ],
+      "chapter-3.html": [],
+      "chapter-4.html": [
+        "5qvPqvkgFXY"
+      ],
+      "chapter-5.html": [],
+      "chapter-6.html": [],
+      "chapter-7.html": [],
+      "chapter-8.html": [],
+      "chapter-9.html": [],
+      "chapter-10.html": [],
+      "chapter-11.html": [],
+      "chapter-12.html": [],
+      "chapter-13.html": [],
+      "chapter-14.html": []
+    }
+  }
+}
