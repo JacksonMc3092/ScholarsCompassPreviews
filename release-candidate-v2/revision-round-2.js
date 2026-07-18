@@ -9,17 +9,23 @@
   function remove(key) { try { localStorage.removeItem(key); } catch (err) {} }
 
   function updateReadingUI() {
-    var top = window.scrollY || document.documentElement.scrollTop || 0;
-    var height = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    var scrollRoot = document.scrollingElement || document.documentElement;
+    var top = scrollRoot.scrollTop || window.pageYOffset || 0;
+    var height = Math.max(1, scrollRoot.scrollHeight - scrollRoot.clientHeight);
     var percent = Math.max(0, Math.min(100, top / height * 100));
     var progress = qs('.sc-reading-progress');
     var bar = qs('.sc-reading-progress-bar');
-    if (bar) bar.style.width = percent + '%';
+    if (bar) {
+      bar.style.width = '100%';
+      bar.style.transform = 'scaleX(' + (percent / 100) + ')';
+    }
     if (progress) progress.setAttribute('aria-valuenow', String(Math.round(percent)));
     document.documentElement.style.setProperty('--sc-progress-hue', String(Math.round(210 - percent * .9)));
     var header = qs('.header');
     var sticky = qs('.sc-sticky-chapter');
-    if (header && sticky) sticky.classList.toggle('is-visible', header.getBoundingClientRect().bottom < 72 && top < height - 40);
+    if (header && sticky) {
+      sticky.classList.toggle('is-visible', header.getBoundingClientRect().bottom < 58 && top < height - 40);
+    }
   }
 
   function initQuoteTool() {
@@ -71,6 +77,9 @@
     var ticking=false;
     window.addEventListener('scroll',function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){updateReadingUI();ticking=false;});},{passive:true});
     window.addEventListener('resize',updateReadingUI,{passive:true});
+    window.addEventListener('load',updateReadingUI,{once:true});
+    window.addEventListener('pageshow',updateReadingUI);
+    setTimeout(updateReadingUI, 100);
     initQuoteTool(); initRhetoricTool(); initAnalysisTool(); initSynthesisTool();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else ready();

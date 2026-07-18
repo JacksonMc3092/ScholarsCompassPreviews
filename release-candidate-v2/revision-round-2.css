@@ -43,3 +43,33 @@ html:not(.js) .section { opacity: 1 !important; }
   .sc-reading-progress, .sc-sticky-chapter, .chapter-sequence-nav, .quick-nav, .sc-tool-actions, .sc-video-embed iframe { display: none !important; }
   .sc-video-fallback { display: block !important; }
 }
+
+/* HTML review batch 1 */
+body[data-page="introduction"] .header h1 { color: #fff !important; }
+.sc-reading-progress-bar {
+  width: 100% !important;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .12s linear, background-color .2s linear;
+}
+.sc-resource-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin: .35rem 0 .8rem;
+}
+@media (max-width: 768px) {
+  .sc-sticky-chapter {
+    top: 50px;
+    width: auto;
+    max-width: calc(100vw - 5rem);
+    padding: .18rem .55rem;
+    border-radius: 0 0 .45rem .45rem;
+    font-size: .72rem;
+    line-height: 1.15;
+    font-weight: 650;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    opacity: 0;
+  }
+  .sc-sticky-chapter.is-visible { opacity: .9; }
+}
