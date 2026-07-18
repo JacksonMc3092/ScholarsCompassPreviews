@@ -88,6 +88,16 @@ jobs:
               raise SystemExit('Expected draft-cleaning return line was not found')
           builder_text = builder_text.replace(old_clean, new_clean)
           builder_path.write_text(builder_text, encoding='utf-8')
+
+          test_text = test_path.read_text(encoding='utf-8')
+          old_rhetoric = '            chapter5.fill("#scRhetChoice", "The poster places the deadline in the largest type.")'
+          new_rhetoric = (
+              '            chapter5.evaluate("document.querySelector(\\\'#scRhetChoice\\\').closest(\\\'.section\\\').classList.add(\\\'active\\\')")\n'
+              '            chapter5.fill("#scRhetChoice", "The poster places the deadline in the largest type.")'
+          )
+          if old_rhetoric not in test_text and new_rhetoric not in test_text:
+              raise SystemExit('Expected rhetoric-planner test line was not found')
+          test_path.write_text(test_text.replace(old_rhetoric, new_rhetoric), encoding='utf-8')
           PY
 
       - name: Set up Python
