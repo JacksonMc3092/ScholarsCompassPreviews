@@ -116,6 +116,215 @@ jobs:
           set -o pipefail
           python tools/build_eng1010_revision_round_2.py 2>&1 | tee revision-build.log
 
+      - name: Apply HTML review batch 1
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          from bs4 import BeautifulSoup, NavigableString, Tag
+
+          root = Path('release-candidate-v2')
+          course = root / '1010'
+
+          def load(path):
+              return BeautifulSoup(path.read_text(encoding='utf-8'), 'html.parser')
+
+          def save(path, soup):
+              path.write_text(soup.decode(formatter='minimal'), encoding='utf-8')
+
+          def replace_text(soup, old, new):
+              for node in list(soup.find_all(string=lambda value: value and old in value)):
+                  node.replace_with(str(node).replace(old, new))
+
+          # Shared visual refinements and a more robust transform-based progress bar.
+          css_path = root / 'revision-round-2.css'
+          css = css_path.read_text(encoding='utf-8')
+          css += '''
+
+/* HTML review batch 1 */
+body[data-page="introduction"] .header h1 { color: #fff !important; }
+.sc-reading-progress-bar { width: 100% !important; transform: scaleX(0); transform-origin: left center; transition: transform .12s linear, background-color .2s linear; }
+.sc-resource-button { display: inline-flex; align-items: center; gap: .45rem; margin: .35rem 0 .8rem; }
+@media (max-width: 768px) {
+  .sc-sticky-chapter { top: 50px; width: auto; max-width: calc(100vw - 5rem); padding: .18rem .55rem; border-radius: 0 0 .45rem .45rem; font-size: .72rem; line-height: 1.15; font-weight: 650; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; }
+  .sc-sticky-chapter.is-visible { opacity: .9; }
+}
+'''
+          css_path.write_text(css, encoding='utf-8')
+
+          js_path = root / 'revision-round-2.js'
+          js = js_path.read_text(encoding='utf-8')
+          new_update = '''function updateReadingUI() {
+    var scrollRoot = document.scrollingElement || document.documentElement;
+    var top = scrollRoot.scrollTop || window.pageYOffset || 0;
+    var height = Math.max(1, scrollRoot.scrollHeight - scrollRoot.clientHeight);
+    var percent = Math.max(0, Math.min(100, top / height * 100));
+    var progress = qs('.sc-reading-progress');
+    var bar = qs('.sc-reading-progress-bar');
+    if (bar) {
+      bar.style.width = '100%';
+      bar.style.transform = 'scaleX(' + (percent / 100) + ')';
+    }
+    if (progress) progress.setAttribute('aria-valuenow', String(Math.round(percent)));
+    document.documentElement.style.setProperty('--sc-progress-hue', String(Math.round(210 - percent * .9)));
+    var header = qs('.header');
+    var sticky = qs('.sc-sticky-chapter');
+    if (header && sticky) sticky.classList.toggle('is-visible', header.getBoundingClientRect().bottom < 58 && top < height - 40);
+  }'''
+          js, count = re.subn(r'function updateReadingUI\(\) \{.*?\n  \}', new_update, js, count=1, flags=re.S)
+          if count != 1:
+              raise SystemExit('Could not replace updateReadingUI')
+          js = js.replace(
+              "window.addEventListener('resize',updateReadingUI,{passive:true});",
+              "window.addEventListener('resize',updateReadingUI,{passive:true});\n    window.addEventListener('load',updateReadingUI,{once:true});\n    window.addEventListener('pageshow',updateReadingUI);\n    setTimeout(updateReadingUI, 100);"
+          )
+          js_path.write_text(js, encoding='utf-8')
+
+          # Use the revision progress component on every destination, including the index.
+          for path in [course / 'index.html', course / 'introduction.html', *[course / f'chapter-{n}.html' for n in range(1, 15)]]:
+              soup = load(path)
+              for old in soup.select('.progress-container-top, .progress-container'):
+                  if old.find(id='overallProgress'):
+                      continue
+                  old.decompose()
+              existing = soup.select_one('.sc-reading-progress')
+              if not existing:
+                  progress = soup.new_tag('div', attrs={
+                      'class': 'sc-reading-progress', 'role': 'progressbar',
+                      'aria-label': 'Reading progress', 'aria-valuemin': '0',
+                      'aria-valuemax': '100', 'aria-valuenow': '0'
+                  })
+                  bar = soup.new_tag('div', attrs={'class': 'sc-reading-progress-bar', 'id': 'scReadingProgressBar'})
+                  progress.append(bar)
+                  soup.body.insert(0, progress)
+              else:
+                  bar = existing.select_one('.sc-reading-progress-bar')
+                  if bar:
+                      bar['id'] = 'scReadingProgressBar'
+              save(path, soup)
+
+          # Chapter 2: finished resource/button treatment and clean video introduction.
+          path = course / 'chapter-2.html'
+          soup = load(path)
+          libre = soup.find('a', href=lambda href: href and 'human.libretexts.org' in href)
+          if not libre:
+              raise SystemExit('Chapter 2 LibreTexts link not found')
+          libre.string = 'View the Detailed Annotation Example on LibreTexts'
+          libre['class'] = list(dict.fromkeys([*(libre.get('class') or []), 'btn', 'sc-resource-button']))
+          libre['target'] = '_blank'
+          libre['rel'] = 'noopener'
+          for p in list(soup.find_all('p')):
+              text = p.get_text(' ', strip=True)
+              if 'The current chapter includes the video' in text or 'The video will be included only after it is verified' in text:
+                  p.decompose()
+          embed = soup.find('iframe', src=lambda src: src and 'gXRwTI7Dv3s' in src)
+          if embed:
+              wrapper = embed.find_parent(class_='sc-video-embed')
+              intro = soup.new_tag('p')
+              intro.string = 'This video presents twelve practical approaches to annotating academic texts and books.'
+              wrapper.insert_before(intro)
+          save(path, soup)
+
+          # Chapter 3: replace the awkward Chambers model with a clearly fictional practice source.
+          path = course / 'chapter-3.html'
+          soup = load(path)
+          replace_text(soup, 'Mollie Chambers and her coauthors', 'Jordan Lee')
+          replace_text(soup, 'Chambers and her coauthors', 'Lee')
+          replace_text(soup, 'Chambers et al.', 'Lee')
+          replace_text(soup, 'Lee explain', 'Lee explains')
+          replace_text(soup, 'Lee emphasize', 'Lee emphasizes')
+          source_heading = soup.find('h3', string=lambda value: value and 'Write a source sentence' in value)
+          if source_heading:
+              note = soup.new_tag('p')
+              note.string = 'The MLA examples below use a fictional practice article by Jordan Lee.'
+              source_heading.insert_after(note)
+          save(path, soup)
+
+          # Chapter 4: student-facing labels only, with all production notes removed.
+          path = course / 'chapter-4.html'
+          soup = load(path)
+          replacements = {
+              'The following is an original Scholar’s Compass practice passage:': 'Practice Passage:',
+              'Original Scholar’s Compass practice source:': 'Practice Passage:',
+              'Original Scholar’s Compass practice passage': 'Practice Passage',
+              'The video previously located in Chapter 13 now belongs in this chapter:': 'This video reviews MLA in-text citations, quotations, and paraphrases:',
+              'From the following original Scholar’s Compass practice sentence, select only the words needed to support a claim about stopping points:': 'Here is a practice sentence. Select only the words needed to support a claim about stopping points:'
+          }
+          for old, new in replacements.items():
+              replace_text(soup, old, new)
+          for p in list(soup.find_all('p')):
+              if 'The revised HTML chapter will use a responsive embed' in p.get_text(' ', strip=True):
+                  p.decompose()
+          save(path, soup)
+
+          # Chapter 7 and 9: current Open Oregon chapter destinations.
+          path = course / 'chapter-7.html'
+          soup = load(path)
+          for anchor in soup.find_all('a', href=True):
+              if 'openoregon.pressbooks.pub/aboutwriting/chapter/strategies-for-getting-started' in anchor['href']:
+                  anchor['href'] = 'https://openoregon.pressbooks.pub/wrd/chapter/strategies-for-getting-started/'
+                  anchor.string = anchor['href']
+          save(path, soup)
+
+          path = course / 'chapter-9.html'
+          soup = load(path)
+          for anchor in soup.find_all('a', href=True):
+              if 'openoregon.pressbooks.pub/aboutwriting/chapter/writing-paragraphs' in anchor['href']:
+                  anchor['href'] = 'https://openoregon.pressbooks.pub/wrd/chapter/writing-paragraphs/'
+                  anchor.string = anchor['href']
+          save(path, soup)
+
+          # Chapter 10: retain the Bloom visualizer, remove draft-process phrasing.
+          path = course / 'chapter-10.html'
+          soup = load(path)
+          source = load(Path('release-candidate/1010/chapter-10.html'))
+          visual = source.select_one('.blooms-container')
+          if not visual:
+              raise SystemExit('Protected Bloom visualizer not found')
+          interactive = visual.find_parent(class_='interactive-element')
+          target = soup.select_one('#section-what-analysis-does .section-content')
+          if not target:
+              raise SystemExit('Chapter 10 analysis section not found')
+          imported = BeautifulSoup(str(interactive), 'html.parser').select_one('.interactive-element')
+          anchor_heading = target.find('h3', string=lambda value: value and 'part-to-whole' in value.lower())
+          if anchor_heading:
+              anchor_heading.insert_before(imported)
+          else:
+              target.append(imported)
+          replace_text(soup, 'The current Scholar’s Compass chapter uses a building-block analogy.', 'Imagine taking apart a model castle as a way to understand the part-to-whole relationship in analysis.')
+          save(path, soup)
+
+          # Chapter 11: keep adapted prose in place but consolidate attribution at the end.
+          path = course / 'chapter-11.html'
+          soup = load(path)
+          for box in list(soup.select('.citation-adapted')):
+              paragraphs = box.find_all('p', recursive=False)
+              if len(paragraphs) > 1:
+                  paragraphs[0].decompose()
+                  box.unwrap()
+              else:
+                  box.decompose()
+          nav = soup.select_one('.chapter-sequence-nav')
+          attribution = soup.new_tag('div', attrs={'class': 'citation-box sc-consolidated-attribution'})
+          label = soup.new_tag('p')
+          strong = soup.new_tag('strong')
+          strong.string = 'Adaptation and Attribution'
+          label.append(strong)
+          attribution.append(label)
+          detail = soup.new_tag('p')
+          detail.append('Portions of this chapter are adapted from Wanda M. Waller’s “Argument” in ')
+          title = soup.new_tag('em')
+          title.string = 'English Composition I'
+          detail.append(title)
+          detail.append(', LOUIS: The Louisiana Library Network, 2022, licensed under CC BY 4.0. ')
+          link = soup.new_tag('a', href='https://louis.pressbooks.pub/englishcomp1/', target='_blank', rel='noopener')
+          link.string = 'View the original open textbook.'
+          detail.append(link)
+          attribution.append(detail)
+          nav.insert_before(attribution)
+          save(path, soup)
+          PY
+
       - name: Run static regression tests
         run: |
           set -o pipefail
@@ -125,6 +334,81 @@ jobs:
         run: |
           set -o pipefail
           python tools/test_eng1010_revision_round_2.py --browser 2>&1 | tee revision-browser-tests.log
+
+      - name: Run HTML review-batch regression checks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess, sys, time
+          from bs4 import BeautifulSoup
+          from playwright.sync_api import sync_playwright
+
+          root = Path('release-candidate-v2')
+          course = root / '1010'
+          def text(n): return (course / f'chapter-{n}.html').read_text(encoding='utf-8')
+
+          assert 'View the Detailed Annotation Example on LibreTexts' in text(2)
+          assert 'The current chapter includes the video' not in text(2)
+          assert 'The video will be included only after' not in text(2)
+          assert 'Mollie Chambers and her coauthors' not in text(3)
+          assert 'Chambers and her coauthors' not in text(3)
+          assert 'Original Scholar’s Compass practice passage' not in text(4)
+          assert 'The revised HTML chapter will use a responsive embed' not in text(4)
+          assert 'Here is a practice sentence.' in text(4)
+          assert 'https://openoregon.pressbooks.pub/wrd/chapter/strategies-for-getting-started/' in text(7)
+          assert 'https://openoregon.pressbooks.pub/wrd/chapter/writing-paragraphs/' in text(9)
+          assert 'Bloom\'s Taxonomy Visualizer' in text(10)
+          assert 'The current Scholar’s Compass chapter uses a building-block analogy.' not in text(10)
+          assert 'citation-adapted' not in text(11)
+          assert text(11).count('sc-consolidated-attribution') == 1
+
+          server = subprocess.Popen([sys.executable, '-m', 'http.server', '8766', '--bind', '127.0.0.1'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+          try:
+              time.sleep(1)
+              base = 'http://127.0.0.1:8766/release-candidate-v2/1010'
+              with sync_playwright() as p:
+                  browser = p.chromium.launch(headless=True)
+                  desktop = browser.new_context(viewport={'width': 1280, 'height': 900})
+                  page = desktop.new_page()
+                  page.goto(f'{base}/chapter-3.html', wait_until='networkidle')
+                  page.evaluate('window.scrollTo(0, document.documentElement.scrollHeight * .55)')
+                  page.wait_for_timeout(250)
+                  value = int(page.locator('.sc-reading-progress').get_attribute('aria-valuenow'))
+                  transform = page.locator('.sc-reading-progress-bar').evaluate("el => getComputedStyle(el).transform")
+                  assert value > 20, value
+                  assert transform != 'none', transform
+
+                  intro = desktop.new_page()
+                  intro.goto(f'{base}/introduction.html', wait_until='networkidle')
+                  chapter = desktop.new_page()
+                  chapter.goto(f'{base}/chapter-1.html', wait_until='networkidle')
+                  intro_color = intro.locator('.header h1').evaluate('el => getComputedStyle(el).color')
+                  chapter_color = chapter.locator('.header h1').evaluate('el => getComputedStyle(el).color')
+                  assert intro_color == chapter_color, (intro_color, chapter_color)
+
+                  bloom = desktop.new_page()
+                  bloom.goto(f'{base}/chapter-10.html', wait_until='networkidle')
+                  visual = bloom.locator('.blooms-container')
+                  visual.evaluate("el => el.closest('.section').classList.add('active')")
+                  before = bloom.locator('#bloomsDetails').inner_text()
+                  bloom.locator('.blooms-level').first.click()
+                  after = bloom.locator('#bloomsDetails').inner_text()
+                  assert after != before
+
+                  mobile = browser.new_context(viewport={'width': 375, 'height': 812})
+                  mobile_page = mobile.new_page()
+                  mobile_page.goto(f'{base}/chapter-4.html', wait_until='networkidle')
+                  mobile_page.evaluate('window.scrollTo(0, 900)')
+                  mobile_page.wait_for_timeout(250)
+                  sticky = mobile_page.locator('.sc-sticky-chapter')
+                  assert sticky.evaluate("el => el.classList.contains('is-visible')")
+                  font_size = float(sticky.evaluate("el => parseFloat(getComputedStyle(el).fontSize)"))
+                  assert font_size <= 12, font_size
+                  mobile.close(); desktop.close(); browser.close()
+          finally:
+              server.terminate()
+              server.wait(timeout=5)
+          PY
 
       - name: Upload diagnostic package
         if: always()
@@ -147,6 +431,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Revision-round-2 package is already current."
           else
-            git commit -m "Build tested ENG 1010 revision-round-2 package"
+            git commit -m "Apply tested ENG 1010 HTML review batch 1"
             git push origin HEAD:eng1010-revision-round-2
           fi
