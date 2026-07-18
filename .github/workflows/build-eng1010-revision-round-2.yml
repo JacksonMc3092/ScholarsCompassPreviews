@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/build-eng1010-revision-round-2.yml
       - tools/bootstrap/eng1010-r2/**
+      - tools/prepare_eng1010_review_batch_1.py
       - tools/apply_eng1010_review_batch_1.py
       - tools/test_eng1010_review_batch_1.py
       - ENG1010-INTRODUCTION-WRITING-AS-CONVERSATION-DRAFT.md
@@ -23,6 +24,7 @@ on:
     paths:
       - .github/workflows/build-eng1010-revision-round-2.yml
       - tools/bootstrap/eng1010-r2/**
+      - tools/prepare_eng1010_review_batch_1.py
       - tools/apply_eng1010_review_batch_1.py
       - tools/test_eng1010_review_batch_1.py
       - ENG1010-INTRODUCTION-WRITING-AS-CONVERSATION-DRAFT.md
@@ -120,6 +122,9 @@ jobs:
           set -o pipefail
           python tools/build_eng1010_revision_round_2.py 2>&1 | tee revision-build.log
 
+      - name: Normalize legacy Chapter 2 markup
+        run: python tools/prepare_eng1010_review_batch_1.py
+
       - name: Apply HTML review batch 1
         run: python tools/apply_eng1010_review_batch_1.py
 
@@ -153,7 +158,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tools/build_eng1010_revision_round_2.py tools/test_eng1010_revision_round_2.py tools/apply_eng1010_review_batch_1.py tools/test_eng1010_review_batch_1.py release-candidate-v2
+          git add tools/build_eng1010_revision_round_2.py tools/test_eng1010_revision_round_2.py tools/prepare_eng1010_review_batch_1.py tools/apply_eng1010_review_batch_1.py tools/test_eng1010_review_batch_1.py release-candidate-v2
           if git diff --cached --quiet; then
             echo "Revision-round-2 package is already current."
           else
