@@ -15,7 +15,7 @@ A strong summary also prepares you for more complex writing. Before you can anal
 - write an accurate and appropriately concise summary in your own words;
 - introduce a source using an MLA-style signal phrase;
 - cite summaries and paraphrases using MLA conventions;
-- use reporting verbs and transitions that accurately represent a writer’s purpose;
+- use signal verbs and transitions that accurately represent a writer’s purpose;
 - recognize how summaries become building blocks for later synthesis.
 
 ---
@@ -305,11 +305,11 @@ The phrase **This standard matters because** marks the turn from representation 
 
 ---
 
-## V. Reporting Verbs and Transitional Language
+## V. Signal Verbs and Transitional Language
 
 Transitions should describe the actual relationship among ideas. They should not function as decorative academic fog.
 
-### Reporting verbs for different purposes
+### Signal verbs for different purposes
 
 | Source action | Useful verbs |
 |---|---|
@@ -399,7 +399,7 @@ A source may argue that a practice is useful **under certain conditions**, not t
 
 A paragraph begins with a signal phrase but then continues for several sentences without clarifying whether the source is still being summarized.
 
-**Repair:** Use the author’s name, pronouns, reporting verbs, and transitions to maintain a clear source boundary.
+**Repair:** Use the author’s name, pronouns, signal verbs, and transitions to maintain a clear source boundary.
 
 ### Problem 7: Summary replaces analysis
 
