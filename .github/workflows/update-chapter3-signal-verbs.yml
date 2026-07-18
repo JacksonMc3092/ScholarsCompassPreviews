@@ -1,0 +1,54 @@
+name: Update Chapter 3 terminology
+
+on:
+  push:
+    branches:
+      - eng1010-revision-round-2
+    paths:
+      - .github/workflows/update-chapter3-signal-verbs.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-terminology:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out revision branch
+        uses: actions/checkout@v4
+        with:
+          ref: eng1010-revision-round-2
+          fetch-depth: 0
+
+      - name: Replace reporting verbs with signal verbs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('ENG1010-CHAPTER-3-SUMMARIZING-REVISION-DRAFT.md')
+          text = path.read_text(encoding='utf-8')
+          replacements = {
+              'reporting verbs': 'signal verbs',
+              'Reporting verbs': 'Signal verbs',
+              'Reporting Verbs': 'Signal Verbs',
+          }
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+          if 'reporting verbs' in text.lower():
+              raise SystemExit('A reporting verbs reference remains')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit terminology update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ENG1010-CHAPTER-3-SUMMARIZING-REVISION-DRAFT.md
+          if git diff --cached --quiet; then
+            echo "Terminology is already current."
+          else
+            git commit -m "Use signal verbs terminology in Chapter 3"
+            git push origin HEAD:eng1010-revision-round-2
+          fi
